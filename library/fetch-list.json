@@ -1,0 +1,86 @@
+[
+ {
+  "url": "https://app-uploads.krea.ai/public/2abfce05-3a1a-46cf-938b-79a0e9d3c6b2-video.mp4",
+  "path": "scenes/book.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/a557d1f0-49ff-4b1e-b96b-d9dc7b7b5319-video.mp4",
+  "path": "scenes/hall.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/739654a9-ebd8-4832-96a4-0b5506e245c5-video.mp4",
+  "path": "scenes/corr.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/7daa24d0-7319-4af4-a702-05d95d409077-video.mp4",
+  "path": "scenes/show.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/dcedf651-cdec-41d7-9337-6a12ae6a005d-video.mp4",
+  "path": "scenes/desk.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/461f336c-1dbc-4a25-ad24-a3f9f2cb045c-video.mp4",
+  "path": "scenes/work.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/abdc2116-9d7c-4654-ba30-20447f4d224e-video.mp4",
+  "path": "scenes/gent.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/db26f432-646a-4237-b2cb-faf9de923c8f-video.mp4",
+  "path": "lookbook/sl1-wide-16x9.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/16510009-a603-471d-a9fb-8a63f8fd3d3a-video.mp4",
+  "path": "lookbook/sl2-wide-16x9.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/a0173b8f-dedf-455f-92e0-f42649ef0cf3-video.mp4",
+  "path": "designs/B10/video-3d-main.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/4fe4a783-59b3-40a4-8393-939df645e4c5-video.mp4",
+  "path": "designs/C01/video-3d-main.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/66c9feee-905c-495e-b9f9-791868afbf86-video.mp4",
+  "path": "scenes/onus.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/96539698-3833-4676-9592-fe8e557340b0-video.mp4",
+  "path": "lookbook/sl1-square.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/11b3a830-95d0-4cfa-8623-1847f97dc5ee-video.mp4",
+  "path": "lookbook/sl2-square.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/4bfe6837-39f1-4ac4-a06e-a8d6942b487f-video.mp4",
+  "path": "lookbook/sl3-square.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/b7bebaf6-9f63-4368-9522-5830167595f4-video.mp4",
+  "path": "lookbook/sl4-square.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/4aafeab7-8694-4579-b7f4-cea5fac429d0-video.mp4",
+  "path": "scenes/street.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/dd2a8fc1-e7fe-4168-9bd6-4b652675e17f-video.mp4",
+  "path": "scenes/trans.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/a954df9c-7dcf-4661-bd8c-735d63283b64-video.mp4",
+  "path": "transitions/corr-to-hall.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/870eb1d0-3126-44bb-baa8-2b6382745992-video.mp4",
+  "path": "transitions/desk-to-work.mp4"
+ },
+ {
+  "url": "https://app-uploads.krea.ai/public/2b8119ee-9e0c-45b0-af1e-874f38200e10-video.mp4",
+  "path": "transitions/work-to-gent.mp4"
+ }
+]
