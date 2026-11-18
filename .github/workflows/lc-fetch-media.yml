@@ -1,0 +1,32 @@
+name: LIVING CANVAS · download Krea videos
+on:
+  push:
+    paths: ['library/fetch-list.json']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: download
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          L = json.load(open('library/fetch-list.json'))
+          for it in L:
+              p = 'library/' + it['path']
+              if os.path.exists(p) and os.path.getsize(p) > 20000: continue
+              os.makedirs(os.path.dirname(p), exist_ok=True)
+              try:
+                  req = urllib.request.Request(it['url'], headers={'User-Agent': 'Mozilla/5.0'})
+                  open(p, 'wb').write(urllib.request.urlopen(req, timeout=120).read()); print('ok', p)
+              except Exception as e: print('failed', p, e)
+          PY
+      - name: commit
+        run: |
+          git config user.name "living-canvas-bot"
+          git config user.email "living-canvas-bot@users.noreply.github.com"
+          git add library
+          git diff --cached --quiet || (git commit -m "videos downloaded from Krea" && git push)
