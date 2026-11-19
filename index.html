@@ -1892,6 +1892,7 @@ html.dm .shmenu{width:100%!important;max-width:100%!important;min-width:0!import
 html.dm #shZoom .zc{overflow-x:hidden!important}html.dm #shZoom .pk{display:flex!important;flex-direction:column!important;gap:12px}html.dm #shZoom .pk .pc{width:auto!important;min-width:0!important;max-width:100%!important;transform:none!important}
 html.dm .lxv{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:radial-gradient(ellipse at 50% 42%,rgba(90,52,52,.55),rgba(24,14,16,.86) 78%)!important}
 html.dm .trx .glint{filter:none}
+.vbox video.vv{opacity:0;transition:opacity .6s ease}.vbox video.vv.vplay{opacity:1}
 </style>
 </head>
 <body>
@@ -3761,7 +3762,7 @@ const SLP = {sl1: 'A sculpted ivory arch backdrop with an organic balloon garlan
   sl4: 'An elegant backdrop of ivory arches edged in gold leaf, a balloon garland in champagne, pearl and soft rose, white silk orchids and two slim gold plinths with candles, styled for a refined evening celebration, standing in the atelier.' + WORLD};
 const WALKP = 'A smooth, steady first-person walk through the LIVING CANVAS atelier. The camera glides forward from the room in the first frame, turns gently, and arrives exactly at the view shown in the last frame. One continuous, slow, cinematic move with natural parallax and soft motion blur; warm gold light on green marble; no cuts, no people, no text. Photorealistic.';
 const SLV = 'A slow, elegant camera push-in toward the backdrop while the pendant lights breathe softly and the balloons sway very slightly. Nothing is added, removed or recoloured; no people, no text. Photorealistic. Seamless loop: the last frame is identical to the first frame.';
-const walkSlots = () => { const O = sho(), L = []; for (let i = 0; i < O.length - 1; i++) if (SCN[O[i]] && SCN[O[i + 1]]) L.push('w:' + O[i] + '>' + O[i + 1]); return L; };
+const walkSlots = () => { const O = sho(), L = ['w:street>corr']; for (let i = 0; i < O.length - 1; i++) if (SCN[O[i]] && SCN[O[i + 1]]) L.push('w:' + O[i] + '>' + O[i + 1]); return L; };
 const slotName = s => s.startsWith('d:') ? s.slice(2).replace('_P', ' مینی').replace('_v', ' نسخه ') + ' · ' + (DOF(s.slice(2)) || {fa: ''}).fa : s.startsWith('w:') ? 'مسیر ' + s.slice(2).split('>').map(k => (MSL.find(m => m[0] === k) || [0, k])[1].split(' · ')[0]).join(' ← ') : SLN[s] || (MSL.find(m => m[0] === s) || [0, s])[1];
 const vDesign = key => { const d = DOF(key), mini = /_P$/.test(key), cwid = (String(key).match(/_v([23])/) || [])[1], c = cwid ? (d.cw || []).find(x => x.id === 'v' + cwid) : null, bal = c ? cwBal(c) : d.bal;
   return `Product film of the "${d.en}" sculpted party backdrop${c ? ' in the ' + c.en + ' colourway' : ''}${mini ? ', mini version' : ''}, exactly as it appears in the image. The camera starts high at the upper right, glides slowly in a smooth half-circle arc toward the left and holds for one second, arcs back to the centre and holds for one to two seconds, then returns to the upper-right starting position. Slow, elegant, continuous motion with gentle parallax. The installation itself is completely static: do not add, remove, move, recolour, resize or deform any balloon, flower or panel; same balloon count, same colours (${bal.map(b => b.en).join(', ')}). Same studio, same light, no people, no text. Photorealistic. Seamless loop: the last frame is identical to the first frame.`; };
@@ -4399,7 +4400,7 @@ function shopFit() { const S = document.getElementById('shop'), W = S.clientWidt
 function shopMedia() { document.querySelectorAll('#shop .scm').forEach(m => { const k = m.dataset.m, sig = medSig(k); if (m.dataset.sig !== sig) { m.dataset.sig = sig; m.innerHTML = mediaHTML(k); } }); cfgMedia(); lookDraw(); }
 function shopOpen(k) { shopBuild(); const S = document.getElementById('shop'); document.documentElement.classList.add('shopx'); S.hidden = false; SH.on = true; shopMedia(); shopRender(); shopShow(k || 'corr'); try { if (location.hash) history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
 function shopShow(k) { const S = document.getElementById('shop'); SH.cur = k; S.querySelectorAll('.shsc').forEach(s => { const on = s.dataset.s === k; s.classList.toggle('on', on); if (!on) s.classList.remove('in'); s.querySelectorAll('video').forEach(v => { try { on ? v.play().catch(() => {}) : v.pause(); } catch (e) {} }); });
-  shopFit(); const c = S.querySelector('.shsc[data-s="corr"]'); if (k === 'corr') { const w = c.querySelector('.scw'); w.style.transition = 'none'; void w.offsetWidth; requestAnimationFrame(() => { w.style.transition = 'transform 1.9s cubic-bezier(.45,0,.2,1)'; c.classList.add('in'); shopFit(); }); }
+  shopFit(); const c = S.querySelector('.shsc[data-s="corr"]'); if (k === 'corr' && window.CORRNOZ) { c.classList.add('in'); shopFit(); } else if (k === 'corr') { const w = c.querySelector('.scw'); w.style.transition = 'none'; void w.offsetWidth; requestAnimationFrame(() => { w.style.transition = 'transform 1.9s cubic-bezier(.45,0,.2,1)'; c.classList.add('in'); shopFit(); }); }
   S.querySelectorAll('#shMenu [data-sg]').forEach(b => b.classList.toggle('on', b.dataset.sg === k)); S.querySelectorAll('#shDots button').forEach(b => b.classList.toggle('on', b.dataset.sg === k));
   document.getElementById('shHint').textContent = k === sho()[sho().length - 1] ? '' : (k === 'desk' ? sx('closer') + ' · ' : '') + sx('scroll') + ' ↓'; if (k === 'hall') hallDraw(); }
 function shopGo(k, mode, dir = 1) { if (SH.busy || TRB || k === SH.cur || !document.querySelector(`#shop .shsc[data-s="${k}"]`)) return; SH.busy = true; const from = SH.cur; trans(() => { shopShow(k); setTimeout(() => { SH.busy = false; }, 500); }, 'w:' + from + '>' + k); }
@@ -5031,18 +5032,19 @@ function trxIn(L, ms) { const H = document.documentElement; H.classList.remove('
 function glint(X, ms = 950) { if (!X) return; const g = document.createElement('i'); g.className = 'glint'; X.appendChild(g);
   const a = g.animate([{opacity: 0, transform: 'translateX(-38%) skewX(-12deg)'}, {opacity: 1, offset: .42}, {opacity: 0, transform: 'translateX(38%) skewX(-12deg)'}], {duration: ms, easing: 'cubic-bezier(.35,0,.25,1)', fill: 'forwards'}); a.onfinish = () => g.remove(); }
 const TRPRE = {}, LIBMISS = new Set();
+function trxPreloadAll() { try { ['w:street>corr', ...walkSlots()].forEach(w => { if (!hasVid(w) || TRPRE[w]) return; const v = document.createElement('video'); v.muted = true; v.playsInline = true; v.preload = 'auto'; const u = vsrc(MED[w]); v.src = LIBMISS.has(u) && VFALL[u] ? VFALL[u] : u; v.load(); TRPRE[w] = v; }); } catch (e) {} }
+setTimeout(trxPreloadAll, 6000);
 /* if the library has no copy of the videos yet, play them straight from Krea instead of waiting for a 404 each time */
 async function libVidCheck() { const L = Object.entries(MED).filter(([k, m]) => m && m.vid && /^https?:/.test(m.vid) && VFALL[m.vid]); if (!L.length) return; let ok = false; try { const r = await fetch(L[0][1].vid, {method: 'HEAD', cache: 'no-store'}); ok = r.ok; } catch (e) {} if (ok) return;
   L.forEach(([k, m]) => { LIBMISS.add(m.vid); m.vid = VFALL[m.vid]; }); try { if (SH.built) { shopMedia(); shopRender(); shopFit(); applyPos(); } streetVid(); } catch (e) {} }
 /* safety net: whatever happens, no page is ever left with its words hidden */
 setInterval(() => { if (TRB) return; const H = document.documentElement; if (H.classList.contains('trxhide')) H.classList.remove('trxhide'); try { document.getAnimations().forEach(a => { if (a.id === 'tro' && a.playState === 'finished') a.cancel(); }); } catch (e) {} }, 1500);
 function trxPreload(k) { try { const O = sho(), i = O.indexOf(k); [O[i + 1] && 'w:' + k + '>' + O[i + 1]].filter(Boolean).forEach(w => { if (!hasVid(w) || TRPRE[w]) return; const v = document.createElement('video'); v.muted = true; v.preload = 'auto'; v.src = vsrc(MED[w]); TRPRE[w] = v; }); } catch (e) {} }
-function trRect(k) { const sc = document.querySelector(`#shop .shsc[data-s="${k}"]`); if (!sc) return null; const v = sc.querySelector('.vbox video.vv');
-  if (v && hasVid(k)) { const r = v.getBoundingClientRect(); if (r.width > 20) return {l: r.left, t: r.top, w: r.width, h: r.height}; }
-  const im = sc.querySelector('.scv'); if (!im) return null; const R = im.getBoundingClientRect(); if (R.width < 20) return null; const vr = (MED[k] || {}).vr || [0, 0, 1, 1];
+function trRect(k) { if (k === 'street') { const V = document.getElementById('introV'); if (V && V.getBoundingClientRect().width > 20) { const r = V.getBoundingClientRect(); return {l: r.left, t: r.top, w: r.width, h: r.height}; } return null; }
+  const sc = document.querySelector(`#shop .shsc[data-s="${k}"]`); if (!sc) return null; const im = sc.querySelector('.scv'); if (!im) return null; const R = im.getBoundingClientRect(); if (R.width < 20) return null; const vr = (MED[k] || {}).vr || [0, 0, 1, 1];
   return {l: R.left + vr[0] * R.width, t: R.top + vr[1] * R.height, w: vr[2] * R.width, h: vr[3] * R.height}; }
 const vpRect = () => ({l: 0, t: 0, w: innerWidth, h: innerHeight}), rcss = r => ({left: r.l + 'px', top: r.t + 'px', width: r.w + 'px', height: r.h + 'px'});
-function trxDone() { const X = document.getElementById('trx'), H = document.documentElement; H.classList.remove('trxhide', 'trxnow'); try { document.getAnimations().forEach(a => { if (a.id === 'tro') a.cancel(); }); } catch (e) {} if (X) { X.getAnimations().forEach(g => g.cancel()); X.className = 'trx'; X.innerHTML = ''; X.style.opacity = ''; } document.querySelectorAll('.wv3h').forEach(h => h.remove()); TRB = false; }
+function trxDone() { const X = document.getElementById('trx'), H = document.documentElement; if (X) X.style.zIndex = ''; H.classList.remove('trxhide', 'trxnow'); try { document.getAnimations().forEach(a => { if (a.id === 'tro') a.cancel(); }); } catch (e) {} if (X) { X.getAnimations().forEach(g => g.cancel()); X.className = 'trx'; X.innerHTML = ''; X.style.opacity = ''; } document.querySelectorAll('.wv3h').forEach(h => h.remove()); TRB = false; }
 trans = function (cb, walk) { const X = document.getElementById('trx'); if (!X || TRB || !X.animate) { cb && cb(); return; }
   const run = () => { try { cb && cb(); } catch (e) { console.error(e); } }, outEls = trxEls(viewEl()); TRB = true;
   if (walk && hasVid(walk) && !document.documentElement.classList.contains('layx') && document.querySelector(`#shop .shsc[data-s="${walk.slice(2).split('>')[0]}"].on`)) return walk3(walk, run, outEls);
@@ -5058,24 +5060,25 @@ function luxe(run, outEls) { const C = trxCfg(), Q = Math.max(700, C.qdur * 1000
       setTimeout(() => trxIn(trxEls(viewEl()), Math.max(400, C.inn * 1000)), Q * .14); f.onfinish = trxDone; }); }, Q * .46); }
 function walk3(key, run, outEls) { const C = trxCfg(), X = document.getElementById('trx'), H = document.documentElement, m = MED[key], e = m.ed || {}, [a, b] = key.slice(2).split('>');
   const sp = Math.max(.25, Math.min(4, +(e.sp && e.sp !== 1 ? e.sp : C.vsp) || 1)), RA = trRect(a) || vpRect();
-  X.innerHTML = '<video class="wv3" playsinline muted preload="auto"></video>'; X.className = 'trx on w3'; X.style.opacity = 1;
-  const v = X.querySelector('video'); Object.assign(v.style, rcss(RA), {opacity: 0});
+  X.className = 'trx on w3'; X.style.opacity = 1; X.innerHTML = ''; const pre = TRPRE[key]; let v;
+  if (pre && pre.readyState >= 3) { v = pre; delete TRPRE[key]; v.className = 'wv3'; v.removeAttribute('style'); X.appendChild(v); } else { X.innerHTML = '<video class="wv3" playsinline muted preload="auto"></video>'; v = X.querySelector('video'); }
+  Object.assign(v.style, rcss(RA), {opacity: 0}); setTimeout(() => trxPreloadAll(), 4000);
   let started = false, switched = false, lit = false, done = false, dog = 0, fell = false, t0 = +e.t0 || 0, t1 = 0, host = null, bv = null;
-  trxOut(outEls, C.out * 1000);
   const watch = ms => { clearTimeout(dog); dog = setTimeout(bail, ms); };
-  const bail = () => { if (done) return; if (switched) return finish(); done = true; clearTimeout(dog); X.innerHTML = ''; X.className = 'trx'; TRB = true; luxe(run, outEls); };
+  const bail = () => { if (done) return; if (switched) return finish(); done = true; clearTimeout(dog); try { v.pause(); if (!started) { v.removeAttribute('style'); v.className = ''; TRPRE[key] = v; } } catch (er) {} X.innerHTML = ''; X.className = 'trx'; TRB = true; if (key === 'w:street>corr') { TRB = false; enterTrans(run, true); return; } luxe(run, outEls); };
   const handoff = () => { if (switched) return; switched = true; H.classList.add('trxhide', 'trxnow'); run(); trxClear(outEls);
     requestAnimationFrame(() => requestAnimationFrame(() => { if (done) return; const RB = trRect(b) || vpRect(), sc = document.querySelector(`#shop .shsc[data-s="${b}"]`);
       if (sc) { host = document.createElement('div'); host.className = 'wv3h'; const scr = sc.querySelector('.scr'); sc.insertBefore(host, scr ? scr.nextSibling : sc.firstChild); host.appendChild(v); v.play().catch(() => {});
         bv = sc.querySelector('.vbox video.vv'); if (bv) { try { bv.pause(); bv.currentTime = +bv.dataset.t0 || 0; } catch (er) {} } }
+      if (key === 'w:street>corr') X.style.zIndex = '';
       H.classList.remove('trxnow'); const left = Math.max(300, (t1 - v.currentTime) / sp * 1000);
-      Object.assign(v.style, rcss(RB), {transformOrigin: '0 0', willChange: 'transform'}); const sx = RA.w / RB.w, sy = RA.h / RB.h;
-      v.animate([{transform: `translate(${RA.l - RB.l}px,${RA.t - RB.t}px) scale(${sx},${sy})`}, {transform: 'none'}], {duration: left, easing: 'cubic-bezier(.42,0,.22,1)', fill: 'forwards'}); })); };
+      Object.assign(v.style, rcss(RB), {transformOrigin: '50% 50%', willChange: 'transform'}); const k = Math.sqrt((RA.w * RA.h) / (RB.w * RB.h)), dx = (RA.l + RA.w / 2) - (RB.l + RB.w / 2), dy = (RA.t + RA.h / 2) - (RB.t + RB.h / 2);
+      v.animate([{transform: `translate(${dx}px,${dy}px) scale(${k})`}, {transform: 'none'}], {duration: left, easing: 'cubic-bezier(.42,0,.22,1)', fill: 'forwards'}); })); };
   const finish = () => { if (done) return; done = true; clearTimeout(dog); if (!switched) { handoff(); }
     if (!lit) { lit = true; trxIn(trxEls(viewEl()), C.inn * 1000); } if (bv) bv.play().catch(() => {}); glint(X, 800);
     const f = v.animate([{opacity: 1}, {opacity: 0}], {duration: 460, easing: 'ease-out', fill: 'forwards'}); f.onfinish = () => { try { v.pause(); } catch (er) {} trxDone(); }; };
   const start = () => { if (started || done) return; started = true; t1 = +e.t1 > t0 ? +e.t1 : (v.duration || 4); const D = Math.max(.4, t1 - t0) / sp * 1000;
-    try { v.playbackRate = sp; } catch (er) {} v.play().catch(() => {});
+    try { v.playbackRate = sp; } catch (er) {} v.play().catch(() => {}); trxOut(outEls, Math.min(C.out * 1000, 420));
     v.animate([{opacity: 0}, {opacity: 1}], {duration: 240, easing: 'ease-out', fill: 'forwards'}); glint(X, 900);
     setTimeout(handoff, 260);
     v.ontimeupdate = () => { watch(4000); const p = (v.currentTime - t0) / (t1 - t0), inn = Math.min(.55, Math.max(.3, (C.inn * 1000) / D + .08));
@@ -5086,7 +5089,7 @@ function walk3(key, run, outEls) { const C = trxCfg(), X = document.getElementBy
   v.addEventListener('canplay', start, {once: true});
   const src0 = vsrc(m);
   v.addEventListener('error', () => { if (fell) return bail(); fell = true; const cur = v.getAttribute('src') || ''; if (cur && cur !== src0) { LIBMISS.add(src0); watch(9000); return; } const f = VFALL[cur] || m.vfall || m.vurl; if (f && f !== cur) { LIBMISS.add(src0); watch(9000); v.src = f; v.load(); return; } bail(); });
-  watch(LIBMISS.has(src0) ? 9000 : 6000); v.src = LIBMISS.has(src0) && VFALL[src0] ? VFALL[src0] : src0; v.load(); }
+  if (v.readyState >= 3) { setTimeout(start, 0); return; } watch(1300); v.src = LIBMISS.has(src0) && VFALL[src0] ? VFALL[src0] : src0; v.load(); }
 { const _ss = shopShow; shopShow = function (k) { const r = _ss.apply(this, arguments); trxPreload(k); return r; }; }
 /* admin: one card that sets every transition */
 function trxCard() { const C = trxCfg(), W = (typeof walkSlots === 'function' ? walkSlots() : []), rg = (k, l, a, b, s, u) => `<label class="trr"><span>${l}</span><input type="range" min="${a}" max="${b}" step="${s}" value="${C[k]}" data-trx="${k}"><b>${C[k]}${u}</b></label>`;
@@ -5099,10 +5102,14 @@ document.addEventListener('click', e => { const b = e.target.closest('[data-trt]
 /* corridor: the occasion pill sits above the button, never on top of it */
 { const _sr = shopRender; shopRender = function () { const r = _sr.apply(this, arguments); try { const g = document.querySelector('.corrgo'); if (g) { g.querySelectorAll('.cgev').forEach(x => x.remove()); if (EVT) { const pc = evPct(), s = document.createElement('span'); s.className = 'cgev'; s.innerHTML = `<i></i>${esc(evName(EVT))}${pc > 0 ? ` <b>−${pctS(pc)}</b>` : ''}<i></i>`; g.insertBefore(s, g.firstChild); } } } catch (e) {} return r; }; }
 
-function enterTrans(cb) { const I = document.getElementById('intro'), H = document.documentElement; if (!I || !I.animate || TRB) { cb(); return; } TRB = true;
+function enterTrans(cb, plain) { const I = document.getElementById('intro'), H = document.documentElement; if (!I || !I.animate || TRB) { cb(); return; }
+  if (!plain && hasVid('w:street>corr')) { const X = document.getElementById('trx'); window.CORRNOZ = true; TRB = true; X.style.zIndex = '100000'; const run = () => { try { cb(); } finally { setTimeout(() => { window.CORRNOZ = false; }, 400); } }; return walk3('w:street>corr', run, trxEls(document.querySelector('#intro .istage') || I)); }
+  TRB = true;
   H.classList.add('trxhide'); shopOpen('corr'); I.style.willChange = 'opacity';
   const a = I.animate([{opacity: 1}, {opacity: 0}], {duration: 1150, easing: 'cubic-bezier(.4,0,.25,1)', fill: 'forwards'});
   a.onfinish = () => { const so = shopOpen; shopOpen = () => {}; try { cb(); } catch (e) { console.error(e); } finally { shopOpen = so; } trxIn(trxEls(viewEl()), Math.max(700, trxCfg().inn * 1000)); TRB = false; setTimeout(() => H.classList.remove('trxhide'), 50); }; }
+/* scene videos never pop in: they fade in on their first real frame */
+document.addEventListener('playing', e => { const v = e.target; if (v && v.classList && v.classList.contains('vv')) v.classList.add('vplay'); }, true);
 
 /* ===== ONLINE COPY · a few-MB file that reads every photo, video and the music from the GitHub library ===== */
 function onlineHTML() { let s = buildHTML({}, {});
