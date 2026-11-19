@@ -1,6 +1,6 @@
 {
  "app": "LIVING CANVAS",
- "at": "2026-11-19T02:23:18.137Z",
+ "at": "2026-11-19T02:27:16.001Z",
  "root": "library",
  "files": [
   {
@@ -2158,9 +2158,9 @@
   },
   "W:sl1": {
    "img": "@",
+   "vurl": null,
    "job": "e2545ef5-d799-434f-970c-7685ecd605bf",
    "sig": "1jwe0od6b6q|wivrqs6s3t",
-   "vurl": null,
    "off": false,
    "vid": "@",
    "vfall": "https://app-uploads.krea.ai/public/2d822db8-22ac-4590-8fcb-089b0ab60859-video.mp4",
