@@ -1750,6 +1750,89 @@ html.pvin .laybar .lh,html.pvin .laybar .lf i,html.pvin #layPv{display:none!impo
 .vwmsg{color:#9A6417!important;background:#FBEFE0;padding:8px 12px;border-radius:10px}
 @media (max-width:900px){.vwshots{grid-template-columns:repeat(3,1fr)}}
 .vwfmt .tgl{display:inline-flex;align-items:center;gap:6px}
+/* ===== mobile only (html.dm = phone) ===== */
+#introV{opacity:0;transition:opacity .7s ease}#introV.vplay{opacity:1}
+#intro{background:radial-gradient(ellipse at 50% 40%,#F6E7E4,#E9D3D0 60%,#D9BDBB)}
+html.dm .shbar{padding:8px 10px 6px}
+html.dm .shmenu{flex-wrap:wrap;justify-content:center;overflow:visible;gap:6px;padding:2px 0}
+html.dm .shmenu button{padding:7px 13px!important;font-size:12.5px!important;flex:0 0 auto}
+html.dm .evtag,html.dm #shDots{display:none!important}
+html.dm .shsc[data-s="hall"] .scw>:not(.scm),html.dm #hCardW,html.dm #railR,html.dm #railL,html.dm #railB,html.dm #fsH,html.dm #hChips{display:none!important}
+html.dm .shsc[data-s="hall"] .scm{filter:blur(3px) saturate(1.05) brightness(.96)}
+html.dm .shsc[data-s="hall"] ~ .shhint,html.dm #shop[data-cur="hall"] .shhint{display:none}
+.mhx{display:none}
+html.dm .mhx{display:flex;flex-direction:column;position:absolute;left:0;right:0;top:var(--mt,98px);bottom:0;z-index:12;padding:0 12px calc(12px + env(safe-area-inset-bottom));gap:10px;pointer-events:none}
+html.dm .mhx>*{pointer-events:auto}
+.mhc{align-self:center;position:relative;display:flex;align-items:center;gap:8px;padding:6px 34px 6px 14px;border-radius:999px;background:rgba(255,250,251,.62);-webkit-backdrop-filter:blur(16px) saturate(1.4);backdrop-filter:blur(16px) saturate(1.4);border:1px solid rgba(255,255,255,.7);box-shadow:0 8px 22px -14px rgba(60,20,30,.5)}
+html[dir=rtl] .mhc{padding:6px 14px 6px 34px}
+.mhcl{font:700 10.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#9b6a78}
+html[lang=fa] .mhcl,.shop[lang=fa] .mhcl{letter-spacing:0;font-family:var(--fa)}
+.mhc select{appearance:none;-webkit-appearance:none;background:none;border:0;font:700 14px var(--sans);color:#2A1F1C;padding:2px 0;max-width:190px;text-overflow:ellipsis}
+.mhc i{position:absolute;inset-inline-end:13px;font-style:normal;font-size:11px;color:#9b6a78;pointer-events:none}
+.mhm{flex:1;min-height:0;display:flex;gap:10px}
+.mhf{position:relative;flex:1;min-width:0;margin:0;border-radius:22px;overflow:hidden;background:rgba(255,250,248,.55);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:0 18px 40px -22px rgba(60,20,30,.6),inset 0 0 0 1px rgba(255,255,255,.65)}
+.mhd{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.mhd>*{width:100%!important;height:100%!important;max-width:none!important;position:relative!important;inset:auto!important;transform:none!important}
+.mhd img,.mhd video{width:100%!important;height:100%!important;object-fit:contain!important}
+.mhd .silv{background:none!important;box-shadow:none!important;border:0!important;padding:0!important}
+.mha{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.78);color:#2A1F1C;font-size:20px;line-height:1;display:grid;place-items:center;box-shadow:0 6px 14px -8px rgba(0,0,0,.4);z-index:2}
+.mha.p{left:8px}.mha.n{right:8px}
+.mhz{position:absolute;bottom:8px;left:50%;transform:translateX(-50%);font:600 10.5px var(--sans);color:#6b5058;background:rgba(255,255,255,.7);padding:3px 10px;border-radius:999px;white-space:nowrap;pointer-events:none}
+.shop[lang=fa] .mhz{font-family:var(--fa)}
+.mhr{width:66px;flex:none;display:flex;flex-direction:column;gap:8px;overflow-y:auto;scrollbar-width:none;padding:2px;border-radius:18px;scroll-snap-type:y proximity}
+.mhr::-webkit-scrollbar{display:none}
+.mhr button{position:relative;flex:none;width:62px;height:78px;border-radius:14px;overflow:hidden;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(255,255,255,.7);scroll-snap-align:center;opacity:.78;transition:.2s}
+.mhr button img{width:100%;height:100%;object-fit:cover}.mhr button span{display:grid;place-items:center;height:100%;font:700 12px var(--sans);color:#6b5058}
+.mhr button em{position:absolute;left:0;right:0;bottom:0;font:700 9px var(--sans);font-style:normal;color:#fff;background:linear-gradient(transparent,rgba(30,10,18,.6));padding:8px 0 3px;text-align:center}
+.mhr button.on{opacity:1;box-shadow:0 0 0 2.5px #C24D74,0 8px 16px -8px rgba(194,77,116,.8)}
+.mhb{display:grid;grid-template-columns:1fr auto;grid-template-areas:"n go" "p p";gap:6px 10px;align-items:center;padding:10px 12px 10px 14px;border-radius:20px;background:rgba(255,250,251,.72);-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.75);box-shadow:0 14px 30px -18px rgba(60,20,30,.55)}
+.mhn{grid-area:n;min-width:0;display:flex;flex-direction:column;line-height:1.2}
+.mhn small{font:700 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;color:#a07a51;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mhn small em{font-style:normal;margin-inline-start:6px;padding:1px 7px;border-radius:999px;background:#C24D74;color:#fff;letter-spacing:0;text-transform:none}
+.mhn b{font:500 19px var(--serif,'CG');color:#2A1F1C;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.shop[lang=fa] .mhn b{font:800 16px var(--fa)}.shop[lang=fa] .mhn small{letter-spacing:0;font-family:var(--fa)}
+.mhp{grid-area:p;display:flex;gap:8px}
+.mhp span{flex:1;display:flex;align-items:baseline;gap:6px;padding:5px 10px;border-radius:12px;background:rgba(255,255,255,.7);font:600 11px var(--sans);color:#5d4a50;white-space:nowrap;overflow:hidden}
+.shop[lang=fa] .mhp span{font-family:var(--fa)}
+.mhp span b{font:600 17px 'CG',serif;color:#B5466A}
+.mhgo{grid-area:go;padding:10px 14px!important;font-size:12.5px!important;white-space:nowrap}
+/* order page on a phone: big picture, compact choices, everything reachable, form usable */
+html.dm #cfg .cbar{background:rgba(255,247,249,.66)!important;-webkit-backdrop-filter:blur(20px) saturate(1.5);backdrop-filter:blur(20px) saturate(1.5);color:#2A1F1C!important;border-bottom:1px solid rgba(255,255,255,.7);box-shadow:0 8px 24px -18px rgba(60,20,30,.45);position:sticky;top:0;z-index:30}
+html.dm #cfg .cbar .nm{color:#2A1F1C!important}
+html.dm #cfg .cbar .lang button{color:#5d4a50!important}html.dm #cfg .cbar .lang button.on{color:#fff!important}
+html.dm #cfg .cbar .x{background:rgba(42,31,28,.08)!important;color:#2A1F1C!important}
+html.dm #cfg.on{display:flex;flex-direction:column}
+html.dm #cfg .cbody{flex:1;min-height:0;display:block!important;overflow-y:auto!important;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;position:relative}
+html.dm #cfg .cviz{height:min(48vh,440px)!important;min-height:min(48vh,440px)!important}
+html.dm #cfW{bottom:auto!important;height:min(48vh,440px)!important}
+html.dm #cfg .cside{position:relative;overflow:visible!important;padding-bottom:calc(130px + env(safe-area-inset-bottom))!important;height:auto!important}
+html.dm #cfg #cPane{overflow:visible!important;height:auto!important;max-height:none!important;flex:none!important}
+html.dm #cfg #cTabs{position:sticky;top:0;z-index:8;background:rgba(250,243,240,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);margin-top:4px}
+html.dm #cfg #cPkg{padding:10px 12px 4px!important}
+html.dm #cfg #cPkg .mh{margin:0 0 6px!important;font-size:11px!important}
+html.dm #cfg #cPkg .opts{gap:8px!important}
+html.dm #cfg #cPkg .opts>*{padding:10px 12px!important;min-height:0!important}
+html.dm #cfg #cPkg .opts>* p,html.dm #cfg #cPkg .opts>* .ds{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;font-size:12px!important;margin-top:2px!important}
+html.dm #cfg .csum{position:fixed!important;left:8px;right:8px;bottom:calc(8px + env(safe-area-inset-bottom));z-index:40;border-radius:20px;padding:8px 10px 8px 14px!important;background:rgba(255,248,250,.78)!important;-webkit-backdrop-filter:blur(18px) saturate(1.4);backdrop-filter:blur(18px) saturate(1.4);border:1px solid rgba(255,255,255,.8);box-shadow:0 14px 30px -16px rgba(60,20,30,.5)}
+html.dm #cfg .csum #sumBtn{padding:12px 20px!important;min-height:0!important}
+html.dm #cfg input,html.dm #cfg select,html.dm #cfg textarea{font-size:16px!important}
+.mhb,.mhb *{text-transform:none;letter-spacing:normal}
+.mhn small{letter-spacing:.08em!important;text-transform:uppercase!important}
+.mhn b{font:500 20px 'CG',serif!important}
+.shop[lang=fa] .mhn b{font:800 16px var(--fa)!important}
+.mhp span{flex-direction:column;align-items:flex-start;gap:0;padding:5px 10px}
+.mhp span small{font:600 10.5px var(--sans);color:#6b5a60;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.shop[lang=fa] .mhp span small{font-family:var(--fa)}
+.mhp span b{font:600 18px 'CG',serif!important;line-height:1.1}
+.mhtag{position:absolute;top:10px;inset-inline-start:10px;z-index:2}
+.mhtag em{font:700 11px var(--sans);font-style:normal;color:#fff;background:#C24D74;padding:4px 11px;border-radius:999px;box-shadow:0 6px 14px -8px rgba(194,77,116,.9)}
+.shop[lang=fa] .mhtag em{font-family:var(--fa)}
+.mhgo{align-self:stretch}
+html.dm #cfg #cPkg .opts button span{display:none!important}
+html.dm #cfg #cPkg .opts button b{font-size:24px!important;margin:2px 0!important}
+html.dm #cfg #cPkg .opts button strong{font-size:12.5px!important}
+html.dm #cfg #cPkg .opts button{padding:9px 12px!important;border-radius:16px!important}
+html.dm #cfg .cfsh{display:none!important}
 </style>
 </head>
 <body>
@@ -1852,7 +1935,7 @@ html.pvin .laybar .lh,html.pvin .laybar .lf i,html.pvin #layPv{display:none!impo
 <div class="abody"><nav class="anav" id="aNav"></nav><main class="amain"><div id="admMain" style="display:flex;flex-direction:column;gap:16px"></div><div id="sBody"></div></main></div></div>
 <div class="gate" id="gate"><div class="gbox" dir="rtl"><b>🔒</b><input id="gIn" type="password" autocomplete="off" autocapitalize="characters" placeholder="••••••"><button id="gGo">ورود</button><p id="gMsg"></p></div></div>
 <button class="admPill" id="admPill" dir="rtl">⚙ پنل مدیریت</button>
-<script type="application/json" id="lcAdmin">{"sid":"g_launch","auto":false,"ov":{},"wmode":"auto","weekly":[{"code":"E09","photo":true},{"code":"E04","photo":false},{"code":"E03","photo":false},{"code":"E07","photo":false}],"ev":{"on":true,"lead":10,"disc":0.12,"off":[],"ds":{}},"base":{"LABOR_RATE":20,"TAX":0.0825,"FUEL":38,"EXTRA_FT":18,"EXTRA_HR":35,"EXTRA_HR2":25,"FLOOR":0.25,"WFLOOR":0.15,"MINI":0.72,"W_BAL":0.1,"W_FLO":0.1,"W_MAT":0.1,"SITE":"mrjnexus.com","ORD_URL":"","ORD_KEY":"","MAIL":"","BK":1,"POSL":{"en":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":401.00979676224256,"t":225.92773663925382,"w":599.3116381721053,"h":573.645470710852},"hCardW":{"l":32.35363174082809,"t":75.57323424796748,"w":36.21916118421053,"h":210.87109375},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356,"q":[0,0,-4.250357379630397,-31.141232286400925,-2.76127558630977,7.380666279937019,0,0]},"bBook":{"l":374.04679604762237,"t":186.4083373710805},"bDesk":{"l":242.47503145643293,"t":499.434767222397,"q":[263.63685514312675,119.53444479396039,195.4624095627556,231.11631016042782,-102.58483406731676,-9.667938030827301,-65.7513172381252,-155.24978373702422]}},"es":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":374.9821234683145,"t":225.87409537708893,"w":653.202448817517,"h":571.6374217228529},"hCardW":{"l":29.038116389950904,"t":77.02403460235082,"w":42.49497441520468,"h":165.8828125},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356}},"fa":{"lkC":{"l":52.407330922032244,"t":65.81197599085368,"z":1.0947605795900575,"f":0.5},"hCardW":{"l":30.76029292503862,"t":77.0129408084417,"w":38.342699195906434,"h":144.4453125},"bDesk":{"l":744.5482306405256,"t":905.4463420431457,"z":0.6898697810559997,"q":[0,0,93.0084954511103,153.88134275543345,-342.5558210224144,51.33652870450614,-468.40174077427673,-156.3963375000994]}}},"LIBSRC":{"owner":"mrjnexus-netizen","repo":"living-canvas","folder":"library","base":""},"NOBAKE":false,"MUS":{"src":"track","vol":0.11,"t0":0,"t1":0,"fi":2.5,"fo":2.5},"GHLINK":true,"TRX":{"vsp":1.3,"qdur":1.3,"out":0.4,"inn":1.15}},"autoBase":"m_under","evStrat":{},"rules":[],"sample":true}</script>
+<script type="application/json" id="lcAdmin">{"sid":"m_sat","auto":true,"ov":{},"wmode":"auto","weekly":[{"code":"E09","photo":true},{"code":"E04","photo":false},{"code":"E03","photo":false},{"code":"E07","photo":false}],"ev":{"on":true,"lead":10,"disc":0.12,"off":[],"ds":{}},"base":{"LABOR_RATE":15,"TAX":0.0825,"FUEL":38,"EXTRA_FT":18,"EXTRA_HR":35,"EXTRA_HR2":25,"FLOOR":0.4,"WFLOOR":0.1,"MINI":0.8,"W_BAL":0.1,"W_FLO":0.1,"W_MAT":0.1,"SITE":"mrjnexus.com","ORD_URL":"","ORD_KEY":"","MAIL":"","BK":1,"POSL":{"en":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":401.00979676224256,"t":225.92773663925382,"w":599.3116381721053,"h":573.645470710852},"hCardW":{"l":32.35363174082809,"t":75.57323424796748,"w":36.21916118421053,"h":210.87109375},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356,"q":[0,0,-4.250357379630397,-31.141232286400925,-2.76127558630977,7.380666279937019,0,0]},"bBook":{"l":374.04679604762237,"t":186.4083373710805},"bDesk":{"l":242.47503145643293,"t":499.434767222397,"q":[263.63685514312675,119.53444479396039,195.4624095627556,231.11631016042782,-102.58483406731676,-9.667938030827301,-65.7513172381252,-155.24978373702422]}},"es":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":374.9821234683145,"t":225.87409537708893,"w":653.202448817517,"h":571.6374217228529},"hCardW":{"l":29.038116389950904,"t":77.02403460235082,"w":42.49497441520468,"h":165.8828125},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356}},"fa":{"lkC":{"l":52.407330922032244,"t":65.81197599085368,"z":1.0947605795900575,"f":0.5},"hCardW":{"l":30.76029292503862,"t":77.0129408084417,"w":38.342699195906434,"h":144.4453125},"bDesk":{"l":744.5482306405256,"t":905.4463420431457,"z":0.6898697810559997,"q":[0,0,93.0084954511103,153.88134275543345,-342.5558210224144,51.33652870450614,-468.40174077427673,-156.3963375000994]}}},"LIBSRC":{"owner":"mrjnexus-netizen","repo":"living-canvas","folder":"library","base":""},"NOBAKE":false,"MUS":{"src":"track","vol":0.11,"t0":0,"t1":0,"fi":2.5,"fo":2.5},"GHLINK":true,"TRX":{"vsp":1.3,"qdur":1.3,"out":0.4,"inn":1.15},"FEAT":["E10","C01","E03"]},"autoBase":"m_under","evStrat":{},"rules":[{"from":"2026-11-18","to":"2026-11-25","sid":"g_portfolio"}],"sample":true}</script>
 <script type="application/json" id="lcPhotos">{}</script>
 <script type="application/json" id="lcMedia">{}</script>
 <div class="mdl" id="edmdl"><div class="box"><div class="mb"><h3 id="edTitle"></h3><button class="x" id="edClose">✕</button></div><div class="edwrap"><div class="edc" id="edc"><canvas id="edCanvas"></canvas></div><div class="edside" id="edSide"></div></div></div></div>
@@ -5230,6 +5313,46 @@ document.addEventListener('change', e => { const t = e.target; if (!t.closest ||
 document.addEventListener('input', e => { const t = e.target; if (!VW.sc) return; if (t.id === 'vwTxt') VW.prm[VW.sc + '|' + VW.lang] = t.value; else if (t.dataset && t.dataset.vwt !== undefined) VW.prm[VW.sc + '|' + VW.lang + '|' + t.dataset.vwt] = t.value; else return; clearTimeout(vwSave.t); vwSave.t = setTimeout(vwSave, 500); }, true);
 document.addEventListener('dragover', e => { if (e.target.closest && e.target.closest('#vwDrop')) e.preventDefault(); });
 document.addEventListener('drop', e => { const z = e.target.closest && e.target.closest('#vwDrop'); if (!z) return; e.preventDefault(); vwAdd(e.dataTransfer.files); });
+
+/* ===== MOBILE ONLY · a phone gets its own showroom and order page; desktop, MacBook and iPad stay exactly as they are ===== */
+const isM = () => DEVQ() === 'm';
+function mobFlag() { const H = document.documentElement, on = isM(); H.classList.toggle('dm', on);
+  try { const C = document.getElementById('cfg'), cs = document.querySelector('#cfg .csum'); if (C && cs) { if (on && cs.parentNode !== C) { cs._home = [cs.parentNode, cs.nextSibling]; C.appendChild(cs); } else if (!on && cs._home && cs.parentNode === C) { cs._home[0].insertBefore(cs, cs._home[1]); } } } catch (e) {} if (on) { const b = document.querySelector('#shop .shbar'); if (b) H.style.setProperty('--mt', Math.ceil(b.getBoundingClientRect().height + 6) + 'px'); } }
+addEventListener('resize', () => { mobFlag(); if (isM()) mhDraw(); });
+/* entrance: never show the old still for a split second; the street video fades in on its first real frame */
+{ const V = document.getElementById('introV'); if (V) { V.removeAttribute('poster'); const on = () => V.classList.add('vplay'); V.addEventListener('playing', on); V.addEventListener('loadeddata', () => { if (!V.paused) on(); }); } }
+/* ---- showroom on a phone: one big picture, one thin rail beside it, one slim price bar ---- */
+let MHX = null;
+function mhDraw() { if (!isM() || !SH.built) return; const S = document.querySelector('#shop .shsc[data-s="hall"]'); if (!S) return; mobFlag();
+  let M = document.getElementById('mH'); if (!M) { M = document.createElement('div'); M.id = 'mH'; M.className = 'mhx'; M.innerHTML = '<div class="mhc"><span class="mhcl"></span><select id="mhSel"></select><i>▾</i></div><div class="mhm"><figure class="mhf" id="mhF"><div class="mhd"></div><button class="mha p" data-mha="-1" dir="ltr">‹</button><button class="mha n" data-mha="1" dir="ltr">›</button><span class="mhz"></span><span class="mhtag"></span></figure><div class="mhr" id="mhR"></div></div><div class="mhb" id="mhB"></div>'; const scr = S.querySelector('.scr'); S.insertBefore(M, scr ? scr.nextSibling : S.firstChild); mhTouch(M.querySelector('#mhF')); }
+  const L = hallList(), n = L.length; if (!n) return; const d = D[L[((SH.hi % n) + n) % n]], fa = LANG === 'fa';
+  const opts = [['all', sx('all')], ['off', (EVT ? evName(EVT) + ' · ' : '') + sx('off')], ...Object.keys(COLL).map(k => [k, collName(k)])];
+  const sel = M.querySelector('#mhSel'), sk = LANG + '|' + opts.map(o => o[0]).join(); if (sel.dataset.k !== sk) { sel.dataset.k = sk; sel.innerHTML = opts.map(([k, nn]) => `<option value="${k}">${esc(nn)}</option>`).join(''); }
+  sel.value = SH.filt || 'all'; M.querySelector('.mhcl').textContent = ({en: 'Collection', es: 'Colección', fa: 'مجموعه'})[LANG] || 'Collection';
+  const F = M.querySelector('.mhd'), fk = d.code + '|' + medSig('d:' + d.code) + '|' + !!PH[d.code]; if (F.dataset.k !== fk) { F.dataset.k = fk; F.innerHTML = dvis(d, 'mh'); F.classList.remove('lcin'); void F.offsetWidth; F.classList.add('lcin'); }
+   M.querySelector('.mhz').textContent = ({en: 'Tap for full screen', es: 'Toque para ampliar', fa: 'برای بزرگ‌نمایی بزنید'})[LANG];
+  const R = M.querySelector('#mhR'), rk = L.join() + '|' + d.code; if (R.dataset.k !== rk) { R.dataset.k = rk;
+    R.innerHTML = L.map(c => { const x = D[c], p = PH[c]; return `<button data-hgo="${c}" class="${c === d.code ? 'on' : ''}">${p && p.img ? `<img src="${p.img}" alt="" loading="lazy" decoding="async">` : `<span>${c}</span>`}<em>${c}</em></button>`; }).join('');
+    const on = R.querySelector('.on'); if (on) requestAnimationFrame(() => { R.scrollTo({top: on.offsetTop - R.clientHeight / 2 + on.offsetHeight / 2, behavior: MHX ? 'smooth' : 'auto'}); MHX = 1; }); }
+  M.querySelector('.mhtag').innerHTML = isEvt(d.code) ? `<em>${esc(evName(EVT))}</em>` : (typeof isWeekly === 'function' && isWeekly(d.code) ? `<em>${esc(t('offer'))}</em>` : '');
+  const pp = priceOf(d, 'petite'), pf = priceOf(d, 'full'), kp = pack(d, 'petite'), kf = pack(d, 'full'), tag = isEvt(d.code) ? `<em>${esc(evName(EVT))}</em>` : (typeof isWeekly === 'function' && isWeekly(d.code) ? `<em>${esc(t('offer'))}</em>` : '');
+  M.querySelector('#mhB').innerHTML = `<div class="mhn"><small>${d.code} · ${esc(collName(d.coll))}</small><b>${esc(fa ? d.fa : d.en)}</b></div>
+    <div class="mhp"><span><b>${money(pp)}</b><small>${esc(sx('mini'))} · ${nf(kp.hrs)} ${t('hrsU')}</small></span><span><b>${money(pf)}</b><small>${esc(sx('full'))} · ${nf(kf.hrs)} ${t('hrsU')}</small></span></div>
+    <button class="shbtn mhgo" data-sopen="${d.code}">${esc(sx('cust'))} →</button>`;
+  try { document.querySelectorAll('#hMain video, #hL video, #hR video').forEach(v => v.pause()); } catch (e) {} }
+function mhTouch(F) { let x0 = null, y0 = 0, t0 = 0; F.addEventListener('touchstart', e => { const t = e.touches[0]; x0 = t.clientX; y0 = t.clientY; t0 = Date.now(); }, {passive: true});
+  F.addEventListener('touchend', e => { if (x0 === null) return; const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0; x0 = null; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) { e.preventDefault(); hallStep((dx < 0) !== (LANG === 'fa') ? 1 : -1); } }, {passive: false}); }
+document.addEventListener('click', e => { const a = e.target.closest('[data-mha]'); if (a) { e.stopPropagation(); hallStep(+a.dataset.mha * (LANG === 'fa' ? -1 : 1)); return; }
+  const f = e.target.closest('#mhF'); if (f && !e.target.closest('button')) { e.stopPropagation(); shZoomImg(hallList()[((SH.hi % hallList().length) + hallList().length) % hallList().length]); } }, true);
+document.addEventListener('change', e => { if (e.target.id !== 'mhSel') return; const b = document.querySelector(`#hChips [data-hf="${e.target.value}"]`); if (b) b.click(); else { SH.filt = e.target.value; SH.hi = 0; hallDraw(); } });
+{ const _hd = hallDraw; hallDraw = function () { const r = _hd.apply(this, arguments); try { mhDraw(); } catch (e) { console.error(e); } return r; }; }
+{ const _so = shopOpen; shopOpen = function () { const r = _so.apply(this, arguments); mobFlag(); setTimeout(() => { mobFlag(); mhDraw(); }, 60); return r; }; }
+mobFlag();
+/* order page on a phone: frame the picture itself, edge to edge, instead of the whole stage */
+{ const _cf = cfgFit; cfgFit = function () { const C = document.getElementById('cfg'), cs = document.getElementById('cScene'), S = SCN.show;
+  if (!isM() || !C || C.classList.contains('bk') || !cs || !S || !cs.offsetWidth) return _cf.apply(this, arguments);
+  const a0 = S.a, f0 = S.f, p0 = S.pad, l = cs.offsetLeft, t = cs.offsetTop, w = cs.offsetWidth, h = cs.offsetHeight; S.a = [l, t, l + w, t + h]; S.f = [l + w / 2, t + h / 2]; S.pad = [.94, .9];
+  try { return _cf.apply(this, arguments); } finally { S.a = a0; S.f = f0; S.pad = p0; } }; }
 
 
 
