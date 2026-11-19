@@ -1,6 +1,6 @@
 {
  "app": "LIVING CANVAS",
- "at": "2026-11-19T02:27:16.001Z",
+ "at": "2026-11-19T03:48:09.095Z",
  "root": "library",
  "files": [
   {
@@ -4182,8 +4182,8 @@
  },
  "settings": {
   "admin": {
-   "sid": "g_launch",
-   "auto": false,
+   "sid": "m_sat",
+   "auto": true,
    "ov": {},
    "wmode": "auto",
    "weekly": [
@@ -4212,15 +4212,15 @@
     "ds": {}
    },
    "base": {
-    "LABOR_RATE": 20,
+    "LABOR_RATE": 15,
     "TAX": 0.0825,
     "FUEL": 38,
     "EXTRA_FT": 18,
     "EXTRA_HR": 35,
     "EXTRA_HR2": 25,
-    "FLOOR": 0.25,
-    "WFLOOR": 0.15,
-    "MINI": 0.72,
+    "FLOOR": 0.4,
+    "WFLOOR": 0.1,
+    "MINI": 0.8,
     "W_BAL": 0.1,
     "W_FLO": 0.1,
     "W_MAT": 0.1,
@@ -4361,11 +4361,22 @@
      "qdur": 1.3,
      "out": 0.4,
      "inn": 1.15
-    }
+    },
+    "FEAT": [
+     "E10",
+     "C01",
+     "E03"
+    ]
    },
    "autoBase": "m_under",
    "evStrat": {},
-   "rules": [],
+   "rules": [
+    {
+     "from": "2026-11-18",
+     "to": "2026-11-25",
+     "sid": "g_portfolio"
+    }
+   ],
    "sample": true
   },
   "prompts": {
