@@ -8,7 +8,10 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    concurrency: {group: lc-fetch, cancel-in-progress: true}
     steps:
+      - name: let the upload from the admin panel finish first
+        run: sleep 60
       - uses: actions/checkout@v4
       - name: download
         run: |
@@ -30,4 +33,7 @@ jobs:
           git config user.name "living-canvas-bot"
           git config user.email "living-canvas-bot@users.noreply.github.com"
           git add library
-          git diff --cached --quiet || (git commit -m "videos downloaded from Krea" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "videos downloaded from Krea"
+          for i in 1 2 3 4 5 6; do git pull --rebase origin "$GITHUB_REF_NAME" && git push && exit 0; sleep 20; done
+          exit 1
