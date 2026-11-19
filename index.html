@@ -1889,6 +1889,9 @@ html.dm .shop[lang=fa] .shsc[data-s="desk"] .mdh{font-family:var(--fa)}
 .mpgo{display:flex!important;justify-content:center;width:100%;padding:15px!important}
 html.dm .shmenu button *{font-size:inherit!important;letter-spacing:0!important}
 html.dm .shmenu{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
+html.dm #shZoom .zc{overflow-x:hidden!important}html.dm #shZoom .pk{display:flex!important;flex-direction:column!important;gap:12px}html.dm #shZoom .pk .pc{width:auto!important;min-width:0!important;max-width:100%!important;transform:none!important}
+html.dm .lxv{-webkit-backdrop-filter:none!important;backdrop-filter:none!important;background:radial-gradient(ellipse at 50% 42%,rgba(90,52,52,.55),rgba(24,14,16,.86) 78%)!important}
+html.dm .trx .glint{filter:none}
 </style>
 </head>
 <body>
@@ -4384,7 +4387,7 @@ function shopBuild() { if (SH.built) return; SH.built = true; trxMake(); const e
   setInterval(() => { if (SH.on && SH.cur === 'look' && !SH.busy && !document.hidden && !document.documentElement.classList.contains('layx')) lookStep(); }, 3500);
   setInterval(() => { if (SH.on && SH.cur === 'hall' && !SH.hold && Date.now() - (SH.touch || 0) > 9000 && !document.documentElement.classList.contains('layx') && !document.getElementById('shZoom').classList.contains('on') && !SH.busy && !document.hidden && !TRB && !document.getElementById('cfg').classList.contains('on')) { SH.hi++; SH.scrollRail = true; SH.fade = true; hallDraw(); } }, 5000);
   cfgSetup(); }
-const canScroll = (t, dy) => { if (t && t.closest && t.closest('.hrail,.zc,.laybar')) return true; const s = t && t.closest && t.closest('.rl,.gscroll,.zc,.hchips,.shmenu'); if (!s) return false; if (s.classList.contains('zc')) return true; return dy > 0 ? s.scrollTop + s.clientHeight < s.scrollHeight - 2 : s.scrollTop > 0; };
+const canScroll = (t, dy) => { if (t && t.closest && t.closest('.hrail,.zc,.laybar,.mhr,.mcpop,.mpk,.mhb,.mhc')) return true; const s = t && t.closest && t.closest('.rl,.gscroll,.zc,.hchips,.shmenu'); if (!s) return false; if (s.classList.contains('zc')) return true; return dy > 0 ? s.scrollTop + s.clientHeight < s.scrollHeight - 2 : s.scrollTop > 0; };
 let whA = 0, whT = 0, whR = 0; function shopWheel(e) { const n0 = Date.now(); SH.touch = n0; if (canScroll(e.target, e.deltaY) || document.getElementById('shZoom').classList.contains('on') || document.documentElement.classList.contains('layx')) { if (e.target.closest && e.target.closest('.hrail')) whR = n0; whA = 0; return; } if (n0 - whR < 900) { whA = 0; return; } const n = Date.now(); if (n - whT > 400) whA = 0; whT = n; whA += e.deltaY; if (Math.abs(whA) > 90) { const d = whA > 0 ? 1 : -1; whA = 0; step(d); } }
 function step(d) { if (SH.cur === 'look' && !lookEnd(d)) { lookStep(d); return; } const O = sho(), i = O.indexOf(SH.cur) + d; if (i < 0 || i >= O.length) return; shopGo(O[i], 'walk', d); }
 function shopFit() { const S = document.getElementById('shop'), W = S.clientWidth, H = S.clientHeight, mob = W < 820; const railW = mob ? 0 : Math.min(330, W * .33);
@@ -4419,6 +4422,7 @@ function shopClick(e) { const b = e.target.closest('#bgmB,#railB,#layB,[data-hgo
   if (b.dataset.gt) { SH.gtab = b.dataset.gt; gentDraw(); return; }
   if (b.dataset.zx) { document.getElementById('shZoom').classList.remove('on'); return; }
   if (b.closest('.shzoom') && b.tagName === 'A') { e.preventDefault(); document.getElementById('shZoom').classList.remove('on'); shopGo('hall', 'pop'); return; }
+  if (b.id === 'bDesk' && typeof isM === 'function' && isM() && typeof mpOpen === 'function') { mpOpen(); return; }
   if (b.id === 'bDesk') { document.getElementById('shZc').innerHTML = `<div class="shead center" style="margin-bottom:18px"><h2 class="h2">${t('pkg_h')}</h2></div><div class="pk">${document.getElementById('pkGrid').innerHTML}</div>`; document.getElementById('shZc').querySelectorAll('.rv').forEach(x => x.classList.add('in', 'on', 'vis')); document.getElementById('shZc').querySelectorAll('.rv').forEach(x => { x.style.opacity = 1; x.style.transform = 'none'; }); document.getElementById('shZoom').classList.add('on'); return; }
   if (b.closest('.gq')) { b.closest('.gq').classList.toggle('on'); } }
 /* hall */
@@ -5022,7 +5026,8 @@ function trxOut(L, ms) { L.forEach(e => { (e.getAnimations ? e.getAnimations() :
 function trxClear(L) { L.forEach(e => (e.getAnimations ? e.getAnimations() : []).filter(a => a.id === 'tro').forEach(a => a.cancel())); }
 /* the next room's words light up like lamps: no movement, only light */
 function trxIn(L, ms) { const H = document.documentElement; H.classList.remove('trxhide'); trxClear(L); const n = L.length, st = n > 1 ? Math.min(110, ms * .4 / (n - 1)) : 0;
-  L.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top).forEach((e, i) => e.animate([{opacity: 0, filter: 'brightness(1.9)'}, {opacity: .6, filter: 'brightness(1.45)', offset: .5}, {opacity: 1, filter: 'brightness(1)'}], {duration: ms, delay: i * st, easing: 'cubic-bezier(.3,.5,.3,1)', fill: 'backwards', id: 'lit'})); }
+  const lite = document.documentElement.classList.contains('dm'), K = lite ? [{opacity: 0}, {opacity: 1}] : [{opacity: 0, filter: 'brightness(1.9)'}, {opacity: .6, filter: 'brightness(1.45)', offset: .5}, {opacity: 1, filter: 'brightness(1)'}];
+  L.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top).forEach((e, i) => e.animate(K, {duration: ms, delay: i * st, easing: 'cubic-bezier(.3,.5,.3,1)', fill: 'backwards', id: 'lit'})); }
 function glint(X, ms = 950) { if (!X) return; const g = document.createElement('i'); g.className = 'glint'; X.appendChild(g);
   const a = g.animate([{opacity: 0, transform: 'translateX(-38%) skewX(-12deg)'}, {opacity: 1, offset: .42}, {opacity: 0, transform: 'translateX(38%) skewX(-12deg)'}], {duration: ms, easing: 'cubic-bezier(.35,0,.25,1)', fill: 'forwards'}); a.onfinish = () => g.remove(); }
 const TRPRE = {}, LIBMISS = new Set();
@@ -5064,7 +5069,8 @@ function walk3(key, run, outEls) { const C = trxCfg(), X = document.getElementBy
       if (sc) { host = document.createElement('div'); host.className = 'wv3h'; const scr = sc.querySelector('.scr'); sc.insertBefore(host, scr ? scr.nextSibling : sc.firstChild); host.appendChild(v); v.play().catch(() => {});
         bv = sc.querySelector('.vbox video.vv'); if (bv) { try { bv.pause(); bv.currentTime = +bv.dataset.t0 || 0; } catch (er) {} } }
       H.classList.remove('trxnow'); const left = Math.max(300, (t1 - v.currentTime) / sp * 1000);
-      v.animate([rcss(RA), rcss(RB)], {duration: left, easing: 'cubic-bezier(.42,0,.22,1)', fill: 'forwards'}); })); };
+      Object.assign(v.style, rcss(RB), {transformOrigin: '0 0', willChange: 'transform'}); const sx = RA.w / RB.w, sy = RA.h / RB.h;
+      v.animate([{transform: `translate(${RA.l - RB.l}px,${RA.t - RB.t}px) scale(${sx},${sy})`}, {transform: 'none'}], {duration: left, easing: 'cubic-bezier(.42,0,.22,1)', fill: 'forwards'}); })); };
   const finish = () => { if (done) return; done = true; clearTimeout(dog); if (!switched) { handoff(); }
     if (!lit) { lit = true; trxIn(trxEls(viewEl()), C.inn * 1000); } if (bv) bv.play().catch(() => {}); glint(X, 800);
     const f = v.animate([{opacity: 1}, {opacity: 0}], {duration: 460, easing: 'ease-out', fill: 'forwards'}); f.onfinish = () => { try { v.pause(); } catch (er) {} trxDone(); }; };
@@ -5092,6 +5098,11 @@ document.addEventListener('click', e => { const b = e.target.closest('[data-trt]
 { const _am = aMedia; aMedia = function () { const h = _am.apply(this, arguments); const i = h.indexOf('<div class="acard'); return i < 0 ? h + trxCard() : h.slice(0, i) + trxCard() + h.slice(i); }; }
 /* corridor: the occasion pill sits above the button, never on top of it */
 { const _sr = shopRender; shopRender = function () { const r = _sr.apply(this, arguments); try { const g = document.querySelector('.corrgo'); if (g) { g.querySelectorAll('.cgev').forEach(x => x.remove()); if (EVT) { const pc = evPct(), s = document.createElement('span'); s.className = 'cgev'; s.innerHTML = `<i></i>${esc(evName(EVT))}${pc > 0 ? ` <b>−${pctS(pc)}</b>` : ''}<i></i>`; g.insertBefore(s, g.firstChild); } } } catch (e) {} return r; }; }
+
+function enterTrans(cb) { const I = document.getElementById('intro'), H = document.documentElement; if (!I || !I.animate || TRB) { cb(); return; } TRB = true;
+  H.classList.add('trxhide'); shopOpen('corr'); I.style.willChange = 'opacity';
+  const a = I.animate([{opacity: 1}, {opacity: 0}], {duration: 1150, easing: 'cubic-bezier(.4,0,.25,1)', fill: 'forwards'});
+  a.onfinish = () => { const so = shopOpen; shopOpen = () => {}; try { cb(); } catch (e) { console.error(e); } finally { shopOpen = so; } trxIn(trxEls(viewEl()), Math.max(700, trxCfg().inn * 1000)); TRB = false; setTimeout(() => H.classList.remove('trxhide'), 50); }; }
 
 /* ===== ONLINE COPY · a few-MB file that reads every photo, video and the music from the GitHub library ===== */
 function onlineHTML() { let s = buildHTML({}, {});
@@ -5476,7 +5487,7 @@ setInterval(() => { if (isM() && SH.on) { const m = document.querySelector('#sho
   I.addEventListener('touchmove', e => { if (ty == null) return; const y = e.touches[0].clientY; push((ty - y) * 3); ty = y; e.preventDefault(); }, {passive: false});
   addEventListener('keydown', e => { if (gone) return; if (['ArrowDown', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); push(260); } if (e.key === 'ArrowUp') push(-260); if (e.key === 'Enter') enter(); });
   function enter() { if (gone) return; gone = true; I.classList.add('go'); trans0(() => { document.documentElement.classList.remove('intro-on'); scrollTo(0, 0); document.body.classList.add('entered'); try { V.pause(); } catch (e) {} I.remove(); shopOpen('corr'); }); }
-  const trans0 = cb => { shopBuild(); trans(cb); };
+  const trans0 = cb => { shopBuild(); enterTrans(cb); };
   I.addEventListener('click', e => { const l = e.target.closest('[data-il]'); if (l) { const b = document.querySelector(`.nav .lang [data-l="${l.dataset.il}"]`); if (b) b.click(); txt(); return; } if (e.target.closest('#iGo,#iDoor,#iSkip')) enter(); });
   try { introPick(false); } catch (e) {} })();
 
