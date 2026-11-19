@@ -28,7 +28,7 @@
   "path": "scenes/gent.mp4"
  },
  {
-  "url": "https://app-uploads.krea.ai/public/db26f432-646a-4237-b2cb-faf9de923c8f-video.mp4",
+  "url": "https://app-uploads.krea.ai/public/2d822db8-22ac-4590-8fcb-089b0ab60859-video.mp4",
   "path": "lookbook/sl1-wide-16x9.mp4"
  },
  {
@@ -72,15 +72,18 @@
   "path": "scenes/trans.mp4"
  },
  {
-  "url": "https://app-uploads.krea.ai/public/a954df9c-7dcf-4661-bd8c-735d63283b64-video.mp4",
+  "url": "https://app-uploads.krea.ai/public/0c92bbb3-eecc-4a79-bd75-b8ad2fce9bc3-video.mp4",
   "path": "transitions/corr-to-hall.mp4"
  },
  {
-  "url": "https://app-uploads.krea.ai/public/870eb1d0-3126-44bb-baa8-2b6382745992-video.mp4",
+  "url": "https://app-uploads.krea.ai/public/3e42ba24-ef96-4b4f-9831-575734b29d2a-video.mp4",
   "path": "transitions/desk-to-work.mp4"
  },
  {
-  "url": "https://app-uploads.krea.ai/public/2b8119ee-9e0c-45b0-af1e-874f38200e10-video.mp4",
+  "url": "https://app-uploads.krea.ai/public/0050abd1-025f-44fe-a6da-4f46a03c5115-video.mp4",
   "path": "transitions/work-to-gent.mp4"
+ },
+ {
+  "at": "2026-11-19T01:32:59.512Z"
  }
 ]
