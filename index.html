@@ -4656,7 +4656,10 @@ permissions:
 jobs:
   fetch:
     runs-on: ubuntu-latest
+    concurrency: {group: lc-fetch, cancel-in-progress: true}
     steps:
+      - name: let the upload from the admin panel finish first
+        run: sleep 60
       - uses: actions/checkout@v4
       - name: download
         run: |
@@ -4678,7 +4681,10 @@ jobs:
           git config user.name "living-canvas-bot"
           git config user.email "living-canvas-bot@users.noreply.github.com"
           git add ${root}
-          git diff --cached --quiet || (git commit -m "videos downloaded from Krea" && git push)
+          git diff --cached --quiet && exit 0
+          git commit -m "videos downloaded from Krea"
+          for i in 1 2 3 4 5 6; do git pull --rebase origin "$GITHUB_REF_NAME" && git push && exit 0; sleep 20; done
+          exit 1
 `;
 /* ===== every copy of the site, on any laptop or phone, fills itself from the GitHub library ===== */
 const LIBDEF = {owner: 'mrjnexus-netizen', repo: 'living-canvas', folder: 'library', base: ''};
@@ -4701,7 +4707,7 @@ async function libLoad() { const S = {...LIBDEF, ...(ADMIN.base.LIBSRC || {})}; 
   if (ch) { try { applyConfig(false); renderAll(); refreshVisuals(); if (SH.built) shopRender(); applyPos(); } catch (e) { console.error(e); } } }
 /* if GitHub has not finished downloading a video yet, play it from Krea meanwhile */
 addEventListener('error', e => { const v = e.target; if (!v || v.tagName !== 'VIDEO') return; const src = v.getAttribute('src') || ''; let f = VFALL[src]; if (!f) { const m = Object.values(MED).find(x => x.vid === src && x.vfall); f = m && m.vfall; } if (f && src !== f) { v.src = f; v.play && v.play().catch(() => {}); } }, true);
-{ const _lp = loadPhotos; loadPhotos = async function () { await _lp.apply(this, arguments); try { introPick(true); } catch (e) {} try { await libLoad(); } catch (e) {} try { introPick(true); } catch (e) {} try { if (0) await libLoad(); } catch (e) { console.warn('library', e); } }; }
+{ const _lp = loadPhotos; loadPhotos = async function () { await _lp.apply(this, arguments); try { introPick(true); } catch (e) {} try { await libLoad(); } catch (e) {} try { await libVidCheck(); } catch (e) {} try { introPick(true); } catch (e) {} try { if (0) await libLoad(); } catch (e) { console.warn('library', e); } }; }
 
 function setPOSL(src) { Object.keys(POSL).forEach(l => delete POSL[l]); Object.assign(POSL, JSON.parse(JSON.stringify(src))); ADMIN.base.POSL = POSL; }
 
@@ -4876,18 +4882,23 @@ function trxEls(v) { if (!v) return []; let L = [];
 function trxOut(L, ms) { L.forEach(e => { (e.getAnimations ? e.getAnimations() : []).filter(a => a.id === 'lit').forEach(a => a.cancel()); e.animate([{opacity: getComputedStyle(e).opacity}, {opacity: 0}], {duration: ms, easing: 'cubic-bezier(.4,0,.6,1)', fill: 'forwards', id: 'tro'}); }); }
 function trxClear(L) { L.forEach(e => (e.getAnimations ? e.getAnimations() : []).filter(a => a.id === 'tro').forEach(a => a.cancel())); }
 /* the next room's words light up like lamps: no movement, only light */
-function trxIn(L, ms) { const H = document.documentElement; H.classList.remove('trxhide'); const n = L.length, st = n > 1 ? Math.min(110, ms * .4 / (n - 1)) : 0;
+function trxIn(L, ms) { const H = document.documentElement; H.classList.remove('trxhide'); trxClear(L); const n = L.length, st = n > 1 ? Math.min(110, ms * .4 / (n - 1)) : 0;
   L.sort((a, b) => a.getBoundingClientRect().top - b.getBoundingClientRect().top).forEach((e, i) => e.animate([{opacity: 0, filter: 'brightness(1.9)'}, {opacity: .6, filter: 'brightness(1.45)', offset: .5}, {opacity: 1, filter: 'brightness(1)'}], {duration: ms, delay: i * st, easing: 'cubic-bezier(.3,.5,.3,1)', fill: 'backwards', id: 'lit'})); }
 function glint(X, ms = 950) { if (!X) return; const g = document.createElement('i'); g.className = 'glint'; X.appendChild(g);
   const a = g.animate([{opacity: 0, transform: 'translateX(-38%) skewX(-12deg)'}, {opacity: 1, offset: .42}, {opacity: 0, transform: 'translateX(38%) skewX(-12deg)'}], {duration: ms, easing: 'cubic-bezier(.35,0,.25,1)', fill: 'forwards'}); a.onfinish = () => g.remove(); }
-const TRPRE = {};
+const TRPRE = {}, LIBMISS = new Set();
+/* if the library has no copy of the videos yet, play them straight from Krea instead of waiting for a 404 each time */
+async function libVidCheck() { const L = Object.entries(MED).filter(([k, m]) => m && m.vid && /^https?:/.test(m.vid) && VFALL[m.vid]); if (!L.length) return; let ok = false; try { const r = await fetch(L[0][1].vid, {method: 'HEAD', cache: 'no-store'}); ok = r.ok; } catch (e) {} if (ok) return;
+  L.forEach(([k, m]) => { LIBMISS.add(m.vid); m.vid = VFALL[m.vid]; }); try { if (SH.built) { shopMedia(); shopRender(); shopFit(); applyPos(); } streetVid(); } catch (e) {} }
+/* safety net: whatever happens, no page is ever left with its words hidden */
+setInterval(() => { if (TRB) return; const H = document.documentElement; if (H.classList.contains('trxhide')) H.classList.remove('trxhide'); try { document.getAnimations().forEach(a => { if (a.id === 'tro' && a.playState === 'finished') a.cancel(); }); } catch (e) {} }, 1500);
 function trxPreload(k) { try { const O = sho(), i = O.indexOf(k); [O[i + 1] && 'w:' + k + '>' + O[i + 1]].filter(Boolean).forEach(w => { if (!hasVid(w) || TRPRE[w]) return; const v = document.createElement('video'); v.muted = true; v.preload = 'auto'; v.src = vsrc(MED[w]); TRPRE[w] = v; }); } catch (e) {} }
 function trRect(k) { const sc = document.querySelector(`#shop .shsc[data-s="${k}"]`); if (!sc) return null; const v = sc.querySelector('.vbox video.vv');
   if (v && hasVid(k)) { const r = v.getBoundingClientRect(); if (r.width > 20) return {l: r.left, t: r.top, w: r.width, h: r.height}; }
   const im = sc.querySelector('.scv'); if (!im) return null; const R = im.getBoundingClientRect(); if (R.width < 20) return null; const vr = (MED[k] || {}).vr || [0, 0, 1, 1];
   return {l: R.left + vr[0] * R.width, t: R.top + vr[1] * R.height, w: vr[2] * R.width, h: vr[3] * R.height}; }
 const vpRect = () => ({l: 0, t: 0, w: innerWidth, h: innerHeight}), rcss = r => ({left: r.l + 'px', top: r.t + 'px', width: r.w + 'px', height: r.h + 'px'});
-function trxDone() { const X = document.getElementById('trx'), H = document.documentElement; H.classList.remove('trxhide', 'trxnow'); if (X) { X.getAnimations().forEach(g => g.cancel()); X.className = 'trx'; X.innerHTML = ''; X.style.opacity = ''; } document.querySelectorAll('.wv3h').forEach(h => h.remove()); TRB = false; }
+function trxDone() { const X = document.getElementById('trx'), H = document.documentElement; H.classList.remove('trxhide', 'trxnow'); try { document.getAnimations().forEach(a => { if (a.id === 'tro') a.cancel(); }); } catch (e) {} if (X) { X.getAnimations().forEach(g => g.cancel()); X.className = 'trx'; X.innerHTML = ''; X.style.opacity = ''; } document.querySelectorAll('.wv3h').forEach(h => h.remove()); TRB = false; }
 trans = function (cb, walk) { const X = document.getElementById('trx'); if (!X || TRB || !X.animate) { cb && cb(); return; }
   const run = () => { try { cb && cb(); } catch (e) { console.error(e); } }, outEls = trxEls(viewEl()); TRB = true;
   if (walk && hasVid(walk) && !document.documentElement.classList.contains('layx') && document.querySelector(`#shop .shsc[data-s="${walk.slice(2).split('>')[0]}"].on`)) return walk3(walk, run, outEls);
@@ -4908,7 +4919,7 @@ function walk3(key, run, outEls) { const C = trxCfg(), X = document.getElementBy
   let started = false, switched = false, lit = false, done = false, dog = 0, fell = false, t0 = +e.t0 || 0, t1 = 0, host = null, bv = null;
   trxOut(outEls, C.out * 1000);
   const watch = ms => { clearTimeout(dog); dog = setTimeout(bail, ms); };
-  const bail = () => { if (done) return; if (switched) return finish(); done = true; clearTimeout(dog); X.innerHTML = ''; X.className = 'trx'; TRB = true; luxe(run, []); };
+  const bail = () => { if (done) return; if (switched) return finish(); done = true; clearTimeout(dog); X.innerHTML = ''; X.className = 'trx'; TRB = true; luxe(run, outEls); };
   const handoff = () => { if (switched) return; switched = true; H.classList.add('trxhide', 'trxnow'); run(); trxClear(outEls);
     requestAnimationFrame(() => requestAnimationFrame(() => { if (done) return; const RB = trRect(b) || vpRect(), sc = document.querySelector(`#shop .shsc[data-s="${b}"]`);
       if (sc) { host = document.createElement('div'); host.className = 'wv3h'; const scr = sc.querySelector('.scr'); sc.insertBefore(host, scr ? scr.nextSibling : sc.firstChild); host.appendChild(v); v.play().catch(() => {});
@@ -4928,8 +4939,9 @@ function walk3(key, run, outEls) { const C = trxCfg(), X = document.getElementBy
     v.onended = finish; watch(D + 4000); };
   v.addEventListener('loadedmetadata', () => { try { v.currentTime = t0; } catch (er) {} });
   v.addEventListener('canplay', start, {once: true});
-  v.addEventListener('error', () => { const src = v.getAttribute('src') || '', f = VFALL[src] || m.vfall || m.vurl; if (!fell && f) { fell = true; watch(7000); if (f !== src) { v.src = f; v.load(); } return; } bail(); });
-  watch(6000); v.src = vsrc(m); v.load(); }
+  const src0 = vsrc(m);
+  v.addEventListener('error', () => { if (fell) return bail(); fell = true; const cur = v.getAttribute('src') || ''; if (cur && cur !== src0) { LIBMISS.add(src0); watch(9000); return; } const f = VFALL[cur] || m.vfall || m.vurl; if (f && f !== cur) { LIBMISS.add(src0); watch(9000); v.src = f; v.load(); return; } bail(); });
+  watch(LIBMISS.has(src0) ? 9000 : 6000); v.src = LIBMISS.has(src0) && VFALL[src0] ? VFALL[src0] : src0; v.load(); }
 { const _ss = shopShow; shopShow = function (k) { const r = _ss.apply(this, arguments); trxPreload(k); return r; }; }
 /* admin: one card that sets every transition */
 function trxCard() { const C = trxCfg(), W = (typeof walkSlots === 'function' ? walkSlots() : []), rg = (k, l, a, b, s, u) => `<label class="trr"><span>${l}</span><input type="range" min="${a}" max="${b}" step="${s}" value="${C[k]}" data-trx="${k}"><b>${C[k]}${u}</b></label>`;
