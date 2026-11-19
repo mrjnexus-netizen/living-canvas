@@ -1,6 +1,6 @@
 {
  "app": "LIVING CANVAS",
- "at": "2026-11-19T01:39:51.161Z",
+ "at": "2026-11-19T02:09:12.077Z",
  "root": "library",
  "files": [
   {
@@ -2417,6 +2417,13 @@
    "vid": "@",
    "vfall": "https://app-uploads.krea.ai/public/0050abd1-025f-44fe-a6da-4f46a03c5115-video.mp4",
    "aud": null
+  },
+  "music": {
+   "aud": "@",
+   "img": null,
+   "vid": null,
+   "vfall": null,
+   "vurl": null
   }
  },
  "photos": {
@@ -4426,7 +4433,13 @@
     "https://app-uploads.krea.ai/public/a81a0fbc-19c7-44ca-afaf-fa20518de429-video.mp4",
     "https://app-uploads.krea.ai/public/a954df9c-7dcf-4661-bd8c-735d63283b64-video.mp4",
     "https://app-uploads.krea.ai/public/870eb1d0-3126-44bb-baa8-2b6382745992-video.mp4",
-    "https://app-uploads.krea.ai/public/2b8119ee-9e0c-45b0-af1e-874f38200e10-video.mp4"
+    "https://app-uploads.krea.ai/public/2b8119ee-9e0c-45b0-af1e-874f38200e10-video.mp4",
+    "https://app-uploads.krea.ai/public/308e4b41-6e35-4924-9433-d06abfab62ac-video.mp4",
+    "https://app-uploads.krea.ai/public/d0d34b70-c87d-4d76-8631-b1fac0bc2d8e-video.mp4",
+    "https://app-uploads.krea.ai/public/27be86d1-b8e8-4f26-b5f3-8548f3f7c3c4-video.mp4",
+    "https://app-uploads.krea.ai/public/70e32290-035e-4f7f-b4f5-4e840003214e-video.mp4",
+    "https://app-uploads.krea.ai/public/a03eeb96-e844-42e2-a31c-24aa2a0ce447-video.mp4",
+    "https://app-uploads.krea.ai/public/db26f432-646a-4237-b2cb-faf9de923c8f-video.mp4"
    ]
   },
   "inventory": {},
