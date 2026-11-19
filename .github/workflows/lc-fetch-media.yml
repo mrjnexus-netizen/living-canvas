@@ -16,6 +16,7 @@ jobs:
           import json, os, urllib.request
           L = json.load(open('library/fetch-list.json'))
           for it in L:
+              if not it.get('url'): continue
               p = 'library/' + it['path']
               if os.path.exists(p) and os.path.getsize(p) > 20000: continue
               os.makedirs(os.path.dirname(p), exist_ok=True)
