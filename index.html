@@ -1833,6 +1833,62 @@ html.dm #cfg #cPkg .opts button b{font-size:24px!important;margin:2px 0!importan
 html.dm #cfg #cPkg .opts button strong{font-size:12.5px!important}
 html.dm #cfg #cPkg .opts button{padding:9px 12px!important;border-radius:16px!important}
 html.dm #cfg .cfsh{display:none!important}
+/* phone: one-row page menu */
+html.dm .shmenu{flex-wrap:nowrap!important;justify-content:space-between!important;gap:3px!important;overflow-x:auto;scrollbar-width:none;padding:2px 0!important}
+html.dm .shmenu::-webkit-scrollbar{display:none}
+html.dm .shmenu.ovf{justify-content:flex-start!important}
+html.dm .shmenu button{padding:6px 6px!important;font-size:var(--mfs,12px)!important;letter-spacing:0!important;background:rgba(255,255,255,.14)!important;border:1px solid rgba(255,255,255,.38)!important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);white-space:nowrap;font-weight:600!important;min-height:0!important;line-height:1.2!important}
+html.dm .shmenu button.on{background:rgba(255,255,255,.92)!important;color:#2A1F1C!important;border-color:#fff!important}
+/* phone: collection stepper + popover */
+.mhc{padding:4px!important;gap:2px!important}
+.mcp{width:30px;height:30px;border-radius:50%;font-size:18px;line-height:1;color:#8A3355;display:grid;place-items:center}
+.mcp:active{background:rgba(194,77,116,.12)}
+.mcn{display:flex;align-items:baseline;gap:8px;padding:4px 10px;border-radius:999px;min-width:0;max-width:240px}
+.mcn small{font:700 9.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;color:#a07a51;flex:none}
+.mcn b{font:600 14px var(--sans);color:#2A1F1C;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mcn em{font:700 10px var(--sans);font-style:normal;color:#fff;background:#C24D74;border-radius:999px;padding:1px 7px;flex:none}
+.shop[lang=fa] .mcn small,.shop[lang=fa] .mcn b{font-family:var(--fa);letter-spacing:0}
+.mcpop{position:absolute;left:12px;right:12px;top:46px;z-index:30;display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:10px;border-radius:20px;background:rgba(255,250,251,.86);-webkit-backdrop-filter:blur(22px) saturate(1.5);backdrop-filter:blur(22px) saturate(1.5);border:1px solid rgba(255,255,255,.8);box-shadow:0 24px 50px -22px rgba(60,20,30,.6);opacity:0;transform:translateY(-6px) scale(.98);pointer-events:none!important;transition:.25s}
+.mcpop.on{opacity:1;transform:none;pointer-events:auto!important}
+.mcpop button{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border-radius:14px;background:rgba(255,255,255,.75);text-align:start}
+.mcpop button b{font:600 13px var(--sans);color:#2A1F1C;line-height:1.3}.shop[lang=fa] .mcpop button b{font-family:var(--fa)}
+.mcpop button em{font:700 11px var(--sans);font-style:normal;color:#9b6a78}
+.mcpop button.on{background:#2A1F1C}.mcpop button.on b{color:#fff}.mcpop button.on em{color:#F7DFAE}
+/* phone: Mini & Full hint and comparison sheet */
+.mdh{display:none}
+html.dm .shsc[data-s="desk"] .mdh{display:inline-flex;align-items:center;gap:8px;position:absolute;left:50%;transform:translateX(-50%);bottom:calc(64px + env(safe-area-inset-bottom));z-index:14;padding:9px 16px;border-radius:999px;background:rgba(255,250,251,.82);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border:1px solid rgba(236,210,160,.75);color:#2A1F1C;font:600 12.5px var(--sans);white-space:nowrap;box-shadow:0 12px 28px -14px rgba(60,20,30,.6);animation:mdhP 2.6s ease-in-out infinite}
+html.dm .shop[lang=fa] .shsc[data-s="desk"] .mdh{font-family:var(--fa)}
+.mdh i{width:7px;height:7px;transform:rotate(45deg);background:#C24D74;box-shadow:0 0 10px #C24D74}
+@keyframes mdhP{50%{box-shadow:0 12px 28px -14px rgba(60,20,30,.6),0 0 0 6px rgba(194,77,116,.12)}}
+.mpk{position:fixed;inset:0;z-index:9500;background:rgba(30,14,20,.42);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;align-items:flex-end;opacity:0;pointer-events:none;transition:opacity .3s}
+.mpk.on{opacity:1;pointer-events:auto}
+.mps{position:relative;width:100%;max-height:92vh;overflow-y:auto;-webkit-overflow-scrolling:touch;border-radius:28px 28px 0 0;padding:26px 16px calc(20px + env(safe-area-inset-bottom));background:linear-gradient(170deg,#FFFBFA,#F8EEEB 60%,#F3E5E3);box-shadow:0 -20px 60px -20px rgba(30,10,20,.5);transform:translateY(40px);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+.mpk.on .mps{transform:none}
+.mps::before{content:"";position:absolute;top:9px;left:50%;width:42px;height:4px;border-radius:4px;background:rgba(42,31,28,.18);transform:translateX(-50%)}
+.mpx{position:absolute;top:14px;inset-inline-end:14px;width:34px;height:34px;border-radius:50%;background:rgba(42,31,28,.07);font-size:14px;color:#2A1F1C}
+.mpt{font:500 26px/1.15 'CG',serif;color:#2A1F1C;text-align:center;padding:4px 30px 16px}.mpt em{color:#B5466A}
+.mpk[lang=fa] .mpt{font:800 20px/1.5 var(--fa)}
+.mpg{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mpc{position:relative;padding:16px 12px 14px;border-radius:20px;background:#fff;box-shadow:inset 0 0 0 1px rgba(42,31,28,.08);text-align:center}
+.mpc.hot{background:linear-gradient(165deg,#3A2329,#22161A);color:#F5F1E8;box-shadow:0 16px 30px -16px rgba(34,22,26,.8)}
+.mpb{position:absolute;top:-9px;left:50%;transform:translateX(-50%);white-space:nowrap;font:700 9.5px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#fff;background:#C24D74;padding:4px 10px;border-radius:999px}
+.mpk[lang=fa] .mpb{font-family:var(--fa);letter-spacing:0}
+.mpc h4{margin:2px 0 2px;font:500 20px 'CG',serif}.mpk[lang=fa] .mpc h4{font:800 16px var(--fa)}
+.mpc p{margin:0 0 8px;font:500 11.5px/1.45 var(--sans);opacity:.75;min-height:33px}.mpk[lang=fa] .mpc p{font-family:var(--fa)}
+.mpc small{display:block;font:600 10px var(--sans);letter-spacing:.1em;text-transform:uppercase;opacity:.6}
+.mpc>b{display:block;font:600 34px/1.1 'CG',serif;color:#B5466A}.mpc.hot>b{color:#F2C6D3}
+.mph{display:flex;flex-direction:column;align-items:center;margin-top:6px;padding-top:8px;border-top:1px solid currentColor;border-top-color:rgba(127,127,127,.2)}
+.mph em{font:600 24px/1 'CG',serif;font-style:normal;color:#C49A46}.mph span{font:500 11px/1.4 var(--sans);opacity:.8}.mpk[lang=fa] .mph span{font-family:var(--fa)}
+.mpi{margin-top:18px}.mpi h5{margin:0 0 10px;text-align:center;font:700 10.5px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:#a07a51}.mpk[lang=fa] .mpi h5{font-family:var(--fa);letter-spacing:0;font-size:13px}
+.mpi ul{list-style:none;margin:0;padding:12px;border-radius:18px;background:rgba(255,255,255,.7);display:flex;flex-direction:column;gap:9px}
+.mpi ul.hot{background:rgba(194,77,116,.07);box-shadow:inset 0 0 0 1px rgba(194,77,116,.2)}
+.mpi li{position:relative;padding-inline-start:18px;font:500 12px/1.45 var(--sans);color:#3a2f2c}.mpk[lang=fa] .mpi li{font-family:var(--fa)}
+.mpi li::before{content:"";position:absolute;inset-inline-start:0;top:5px;width:9px;height:9px;border-radius:50%;background:#C24D74;box-shadow:inset 0 0 0 2.5px #F8DCE5}
+.mpi li b{color:#B5466A}
+.mpn{margin:16px 4px 14px;font:500 11.5px/1.6 var(--sans);color:#7a6e66;text-align:center}.mpk[lang=fa] .mpn{font-family:var(--fa)}
+.mpgo{display:flex!important;justify-content:center;width:100%;padding:15px!important}
+html.dm .shmenu button *{font-size:inherit!important;letter-spacing:0!important}
+html.dm .shmenu{width:100%!important;max-width:100%!important;min-width:0!important;box-sizing:border-box}
 </style>
 </head>
 <body>
@@ -1935,7 +1991,7 @@ html.dm #cfg .cfsh{display:none!important}
 <div class="abody"><nav class="anav" id="aNav"></nav><main class="amain"><div id="admMain" style="display:flex;flex-direction:column;gap:16px"></div><div id="sBody"></div></main></div></div>
 <div class="gate" id="gate"><div class="gbox" dir="rtl"><b>🔒</b><input id="gIn" type="password" autocomplete="off" autocapitalize="characters" placeholder="••••••"><button id="gGo">ورود</button><p id="gMsg"></p></div></div>
 <button class="admPill" id="admPill" dir="rtl">⚙ پنل مدیریت</button>
-<script type="application/json" id="lcAdmin">{"sid":"m_sat","auto":true,"ov":{},"wmode":"auto","weekly":[{"code":"E09","photo":true},{"code":"E04","photo":false},{"code":"E03","photo":false},{"code":"E07","photo":false}],"ev":{"on":true,"lead":10,"disc":0.12,"off":[],"ds":{}},"base":{"LABOR_RATE":15,"TAX":0.0825,"FUEL":38,"EXTRA_FT":18,"EXTRA_HR":35,"EXTRA_HR2":25,"FLOOR":0.4,"WFLOOR":0.1,"MINI":0.8,"W_BAL":0.1,"W_FLO":0.1,"W_MAT":0.1,"SITE":"mrjnexus.com","ORD_URL":"","ORD_KEY":"","MAIL":"","BK":1,"POSL":{"en":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":401.00979676224256,"t":225.92773663925382,"w":599.3116381721053,"h":573.645470710852},"hCardW":{"l":32.35363174082809,"t":75.57323424796748,"w":36.21916118421053,"h":210.87109375},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356,"q":[0,0,-4.250357379630397,-31.141232286400925,-2.76127558630977,7.380666279937019,0,0]},"bBook":{"l":374.04679604762237,"t":186.4083373710805},"bDesk":{"l":242.47503145643293,"t":499.434767222397,"q":[263.63685514312675,119.53444479396039,195.4624095627556,231.11631016042782,-102.58483406731676,-9.667938030827301,-65.7513172381252,-155.24978373702422]}},"es":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":374.9821234683145,"t":225.87409537708893,"w":653.202448817517,"h":571.6374217228529},"hCardW":{"l":29.038116389950904,"t":77.02403460235082,"w":42.49497441520468,"h":165.8828125},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356}},"fa":{"lkC":{"l":52.407330922032244,"t":65.81197599085368,"z":1.0947605795900575,"f":0.5},"hCardW":{"l":30.76029292503862,"t":77.0129408084417,"w":38.342699195906434,"h":144.4453125},"bDesk":{"l":744.5482306405256,"t":905.4463420431457,"z":0.6898697810559997,"q":[0,0,93.0084954511103,153.88134275543345,-342.5558210224144,51.33652870450614,-468.40174077427673,-156.3963375000994]}}},"LIBSRC":{"owner":"mrjnexus-netizen","repo":"living-canvas","folder":"library","base":""},"NOBAKE":false,"MUS":{"src":"track","vol":0.11,"t0":0,"t1":0,"fi":2.5,"fo":2.5},"GHLINK":true,"TRX":{"vsp":1.3,"qdur":1.3,"out":0.4,"inn":1.15},"FEAT":["E10","C01","E03"]},"autoBase":"m_under","evStrat":{},"rules":[{"from":"2026-11-18","to":"2026-11-25","sid":"g_portfolio"}],"sample":true}</script>
+<script type="application/json" id="lcAdmin">{"sid":"m_sat","auto":true,"ov":{},"wmode":"auto","weekly":[{"code":"E09","photo":true},{"code":"E04","photo":false},{"code":"E03","photo":false},{"code":"E07","photo":false}],"ev":{"on":true,"lead":10,"disc":0.12,"off":[],"ds":{}},"base":{"LABOR_RATE":15,"TAX":0.0825,"FUEL":38,"EXTRA_FT":18,"EXTRA_HR":35,"EXTRA_HR2":25,"FLOOR":0.4,"WFLOOR":0.1,"MINI":0.8,"W_BAL":0.1,"W_FLO":0.1,"W_MAT":0.1,"SITE":"mrjnexus.com","ORD_URL":"","ORD_KEY":"","MAIL":"","BK":1,"POSL":{"en":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":401.00979676224256,"t":225.92773663925382,"w":599.3116381721053,"h":573.645470710852},"hCardW":{"l":32.35363174082809,"t":75.57323424796748,"w":36.21916118421053,"h":210.87109375},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356,"q":[0,0,-4.250357379630397,-31.141232286400925,-2.76127558630977,7.380666279937019,0,0]},"bBook":{"l":374.04679604762237,"t":186.4083373710805},"bDesk":{"l":242.47503145643293,"t":499.434767222397,"q":[263.63685514312675,119.53444479396039,195.4624095627556,231.11631016042782,-102.58483406731676,-9.667938030827301,-65.7513172381252,-155.24978373702422]}},"es":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":374.9821234683145,"t":225.87409537708893,"w":653.202448817517,"h":571.6374217228529},"hCardW":{"l":29.038116389950904,"t":77.02403460235082,"w":42.49497441520468,"h":165.8828125},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356}},"fa":{"lkC":{"l":52.407330922032244,"t":65.81197599085368,"z":1.0947605795900575,"f":0.5},"hCardW":{"l":30.76029292503862,"t":77.0129408084417,"w":38.342699195906434,"h":144.4453125},"bDesk":{"l":744.5482306405256,"t":905.4463420431457,"z":0.6898697810559997,"q":[0,0,93.0084954511103,153.88134275543345,-342.5558210224144,51.33652870450614,-468.40174077427673,-156.3963375000994]}}},"LIBSRC":{"owner":"mrjnexus-netizen","repo":"living-canvas","folder":"library","base":""},"NOBAKE":false,"MUS":{"src":"track","vol":0.11,"t0":0,"t1":0,"fi":2.5,"fo":2.5},"GHLINK":true,"TRX":{"vsp":1.3,"qdur":1.3,"out":0.4,"inn":1.15},"FEAT":["A03","D01","E04"]},"autoBase":"m_under","evStrat":{},"rules":[{"from":"2026-11-18","to":"2026-11-25","sid":"g_portfolio"}],"sample":true}</script>
 <script type="application/json" id="lcPhotos">{}</script>
 <script type="application/json" id="lcMedia">{}</script>
 <div class="mdl" id="edmdl"><div class="box"><div class="mb"><h3 id="edTitle"></h3><button class="x" id="edClose">✕</button></div><div class="edwrap"><div class="edc" id="edc"><canvas id="edCanvas"></canvas></div><div class="edside" id="edSide"></div></div></div></div>
@@ -5322,13 +5378,15 @@ addEventListener('resize', () => { mobFlag(); if (isM()) mhDraw(); });
 /* entrance: never show the old still for a split second; the street video fades in on its first real frame */
 { const V = document.getElementById('introV'); if (V) { V.removeAttribute('poster'); const on = () => V.classList.add('vplay'); V.addEventListener('playing', on); V.addEventListener('loadeddata', () => { if (!V.paused) on(); }); } }
 /* ---- showroom on a phone: one big picture, one thin rail beside it, one slim price bar ---- */
-let MHX = null;
+let MHX = null, MCOPTS = [];
+const mcCount = k => { const f = SH.filt; SH.filt = k; let n = 0; try { n = hallList().length; } catch (e) {} SH.filt = f; return n; };
+function mcSet(k) { const P = document.getElementById('mcPop'); if (P) P.classList.remove('on'); const b = document.querySelector(`#hChips [data-hf="${k}"]`); if (b) b.click(); else { SH.filt = k; SH.hi = 0; hallDraw(); } }
 function mhDraw() { if (!isM() || !SH.built) return; const S = document.querySelector('#shop .shsc[data-s="hall"]'); if (!S) return; mobFlag();
-  let M = document.getElementById('mH'); if (!M) { M = document.createElement('div'); M.id = 'mH'; M.className = 'mhx'; M.innerHTML = '<div class="mhc"><span class="mhcl"></span><select id="mhSel"></select><i>▾</i></div><div class="mhm"><figure class="mhf" id="mhF"><div class="mhd"></div><button class="mha p" data-mha="-1" dir="ltr">‹</button><button class="mha n" data-mha="1" dir="ltr">›</button><span class="mhz"></span><span class="mhtag"></span></figure><div class="mhr" id="mhR"></div></div><div class="mhb" id="mhB"></div>'; const scr = S.querySelector('.scr'); S.insertBefore(M, scr ? scr.nextSibling : S.firstChild); mhTouch(M.querySelector('#mhF')); }
+  let M = document.getElementById('mH'); if (!M) { M = document.createElement('div'); M.id = 'mH'; M.className = 'mhx'; M.innerHTML = '<div class="mhc"><button class="mcp" data-mcs="-1" dir="ltr">‹</button><button class="mcn" id="mcN"><small></small><b></b><em></em></button><button class="mcp" data-mcs="1" dir="ltr">›</button></div><div class="mcpop" id="mcPop"></div><div class="mhm"><figure class="mhf" id="mhF"><div class="mhd"></div><button class="mha p" data-mha="-1" dir="ltr">‹</button><button class="mha n" data-mha="1" dir="ltr">›</button><span class="mhz"></span><span class="mhtag"></span></figure><div class="mhr" id="mhR"></div></div><div class="mhb" id="mhB"></div>'; const scr = S.querySelector('.scr'); S.insertBefore(M, scr ? scr.nextSibling : S.firstChild); mhTouch(M.querySelector('#mhF')); }
   const L = hallList(), n = L.length; if (!n) return; const d = D[L[((SH.hi % n) + n) % n]], fa = LANG === 'fa';
   const opts = [['all', sx('all')], ['off', (EVT ? evName(EVT) + ' · ' : '') + sx('off')], ...Object.keys(COLL).map(k => [k, collName(k)])];
-  const sel = M.querySelector('#mhSel'), sk = LANG + '|' + opts.map(o => o[0]).join(); if (sel.dataset.k !== sk) { sel.dataset.k = sk; sel.innerHTML = opts.map(([k, nn]) => `<option value="${k}">${esc(nn)}</option>`).join(''); }
-  sel.value = SH.filt || 'all'; M.querySelector('.mhcl').textContent = ({en: 'Collection', es: 'Colección', fa: 'مجموعه'})[LANG] || 'Collection';
+  const cur = opts.find(o => o[0] === (SH.filt || 'all')) || opts[0]; M.querySelector('#mcN small').textContent = ({en: 'Collection', es: 'Colección', fa: 'مجموعه'})[LANG] || 'Collection'; M.querySelector('#mcN b').textContent = cur[1]; M.querySelector('#mcN em').textContent = nf(L.length); MCOPTS = opts;
+
   const F = M.querySelector('.mhd'), fk = d.code + '|' + medSig('d:' + d.code) + '|' + !!PH[d.code]; if (F.dataset.k !== fk) { F.dataset.k = fk; F.innerHTML = dvis(d, 'mh'); F.classList.remove('lcin'); void F.offsetWidth; F.classList.add('lcin'); }
    M.querySelector('.mhz').textContent = ({en: 'Tap for full screen', es: 'Toque para ampliar', fa: 'برای بزرگ‌نمایی بزنید'})[LANG];
   const R = M.querySelector('#mhR'), rk = L.join() + '|' + d.code; if (R.dataset.k !== rk) { R.dataset.k = rk;
@@ -5344,15 +5402,50 @@ function mhTouch(F) { let x0 = null, y0 = 0, t0 = 0; F.addEventListener('touchst
   F.addEventListener('touchend', e => { if (x0 === null) return; const t = e.changedTouches[0], dx = t.clientX - x0, dy = t.clientY - y0; x0 = null; if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy) * 1.3) { e.preventDefault(); hallStep((dx < 0) !== (LANG === 'fa') ? 1 : -1); } }, {passive: false}); }
 document.addEventListener('click', e => { const a = e.target.closest('[data-mha]'); if (a) { e.stopPropagation(); hallStep(+a.dataset.mha * (LANG === 'fa' ? -1 : 1)); return; }
   const f = e.target.closest('#mhF'); if (f && !e.target.closest('button')) { e.stopPropagation(); shZoomImg(hallList()[((SH.hi % hallList().length) + hallList().length) % hallList().length]); } }, true);
-document.addEventListener('change', e => { if (e.target.id !== 'mhSel') return; const b = document.querySelector(`#hChips [data-hf="${e.target.value}"]`); if (b) b.click(); else { SH.filt = e.target.value; SH.hi = 0; hallDraw(); } });
+document.addEventListener('click', e => { const st = e.target.closest('[data-mcs]'), nb = e.target.closest('#mcN'), it = e.target.closest('[data-mck]'), P = document.getElementById('mcPop');
+  if (it) { e.stopPropagation(); mcSet(it.dataset.mck); return; }
+  if (st) { e.stopPropagation(); const i = MCOPTS.findIndex(o => o[0] === (SH.filt || 'all')), d = +st.dataset.mcs * (LANG === 'fa' ? -1 : 1); let j = i; for (let n = 0; n < MCOPTS.length; n++) { j = (j + d + MCOPTS.length) % MCOPTS.length; if (mcCount(MCOPTS[j][0])) break; } mcSet(MCOPTS[j][0]); return; }
+  if (nb) { e.stopPropagation(); if (!P) return; if (P.classList.contains('on')) { P.classList.remove('on'); return; } const cur = SH.filt || 'all';
+    P.innerHTML = MCOPTS.map(([k, n]) => { const c = mcCount(k); return c ? `<button data-mck="${k}" class="${k === cur ? 'on' : ''}"><b>${esc(n)}</b><em>${nf(c)}</em></button>` : ''; }).join(''); P.classList.add('on'); return; }
+  if (P && P.classList.contains('on') && !e.target.closest('#mcPop')) P.classList.remove('on'); }, true);
 { const _hd = hallDraw; hallDraw = function () { const r = _hd.apply(this, arguments); try { mhDraw(); } catch (e) { console.error(e); } return r; }; }
-{ const _so = shopOpen; shopOpen = function () { const r = _so.apply(this, arguments); mobFlag(); setTimeout(() => { mobFlag(); mhDraw(); }, 60); return r; }; }
+{ const _so = shopOpen; shopOpen = function () { const r = _so.apply(this, arguments); mobFlag(); setTimeout(() => { mobFlag(); mhDraw(); fitNav(); }, 60); return r; }; }
 mobFlag();
 /* order page on a phone: frame the picture itself, edge to edge, instead of the whole stage */
 { const _cf = cfgFit; cfgFit = function () { const C = document.getElementById('cfg'), cs = document.getElementById('cScene'), S = SCN.show;
   if (!isM() || !C || C.classList.contains('bk') || !cs || !S || !cs.offsetWidth) return _cf.apply(this, arguments);
   const a0 = S.a, f0 = S.f, p0 = S.pad, l = cs.offsetLeft, t = cs.offsetTop, w = cs.offsetWidth, h = cs.offsetHeight; S.a = [l, t, l + w, t + h]; S.f = [l + w / 2, t + h / 2]; S.pad = [.94, .9];
   try { return _cf.apply(this, arguments); } finally { S.a = a0; S.f = f0; S.pad = p0; } }; }
+/* ---- phone: the page menu always fits on one row ---- */
+const NAVS = {'Mini & Full': 'Mini · Full', 'Good to know': 'Info', 'Catalogue': 'Catalog', 'Mini y Completo': 'Paquetes', 'سالن اصلی': 'سالن', 'خوب است بدانید': 'نکته‌ها', 'مینی و کامل': 'مینی · کامل', 'Por qué nosotros': 'Nosotros', 'Bueno saber': 'Info', 'Bueno es saber': 'Info', 'Catálogo': 'Catálogo'};
+function fitNav() { const m = document.querySelector('#shop .shmenu'); if (!m) return; const mob = isM();
+  [...m.children].forEach(b => { const tn = [...b.childNodes].find(n => n.nodeType === 3 && n.textContent.trim()) || (b.children.length === 0 ? b.firstChild : null); const el = tn || b; const cur = (el.textContent || '').trim(); if (mob) { if (!b.dataset.full || NAVS[cur]) { if (NAVS[cur]) { b.dataset.full = cur; el.textContent = NAVS[cur]; } } } else if (b.dataset.full) { el.textContent = b.dataset.full; delete b.dataset.full; } });
+  if (!mob) { m.style.removeProperty('--mfs'); return; } if (!m.clientWidth) { setTimeout(fitNav, 300); return; } let f = 12.5; m.style.setProperty('--mfs', f + 'px'); const av = () => Math.min(m.clientWidth || 9999, document.documentElement.clientWidth - 20); while (m.scrollWidth > av() + 1 && f > 9.5) { f -= .5; m.style.setProperty('--mfs', f + 'px'); } m.classList.toggle('ovf', m.scrollWidth > av() + 4); mobFlag(); }
+{ const _sr2 = shopRender; shopRender = function () { const r = _sr2.apply(this, arguments); requestAnimationFrame(fitNav); return r; }; }
+addEventListener('resize', () => requestAnimationFrame(fitNav));
+/* ---- Safari: never stay zoomed or mis-scaled after a reload, a rotation or typing in a form ---- */
+function vpReset() { const m = document.querySelector('meta[name=viewport]'); if (!m) return; const c = 'width=device-width,initial-scale=1,viewport-fit=cover'; m.setAttribute('content', c + ',maximum-scale=1'); setTimeout(() => m.setAttribute('content', c + ',maximum-scale=1'), 60); }
+function refit() { try { mobFlag(); if (SH.on) { shopFit(); applyPos(); } if (document.getElementById('cfg') && document.getElementById('cfg').classList.contains('on')) cfgFit(); fitNav(); if (isM()) mhDraw(); } catch (e) {} }
+vpReset(); addEventListener('pageshow', () => { vpReset(); [50, 400, 1200].forEach(t => setTimeout(refit, t)); }); addEventListener('orientationchange', () => [300, 900].forEach(t => setTimeout(refit, t)));
+if (window.visualViewport) visualViewport.addEventListener('resize', () => { clearTimeout(refit.t); refit.t = setTimeout(refit, 120); });
+document.addEventListener('focusout', e => { if (isM() && /INPUT|SELECT|TEXTAREA/.test(e.target.tagName)) setTimeout(() => { if (!/INPUT|SELECT|TEXTAREA/.test((document.activeElement || {}).tagName || '')) { vpReset(); refit(); } }, 250); });
+/* ---- phone: Mini & Full — a hint on the menu, and a clean side-by-side comparison sheet ---- */
+const MPT = {en: ['Tap the menu to compare Mini & Full', 'Compare', 'Choose a design', 'Most popular', 'What’s included'], es: ['Toque el menú para comparar Mini y Completo', 'Comparar', 'Elegir un diseño', 'Más popular', 'Qué incluye'], fa: ['برای مقایسهٔ مینی و کامل روی منو بزنید', 'مقایسه', 'انتخاب طرح', 'پرطرفدار', 'چه چیزهایی همراه است']};
+function deskHint() { const S = document.querySelector('#shop .shsc[data-s="desk"]'); if (!S) return; let h = S.querySelector('.mdh'); if (!h) { h = document.createElement('button'); h.className = 'mdh'; S.appendChild(h); h.onclick = ev => { ev.stopPropagation(); mpOpen(); }; } h.innerHTML = `<i></i>${esc((MPT[LANG] || MPT.en)[0])}`; }
+{ const _sr3 = shopRender; shopRender = function () { const r = _sr3.apply(this, arguments); try { deskHint(); } catch (e) {} return r; }; }
+function mpOpen() { const G = document.getElementById('pkGrid'); if (!G) return; const T = MPT[LANG] || MPT.en, cards = [...G.querySelectorAll('.pc')].map(c => ({h: (c.querySelector('h4') || {}).textContent || '', s: (c.querySelector('.pp') || {}).textContent || '', p: ((c.querySelector('.pv') || {}).textContent || '').replace(/^\D*?(?=[$\d])/, '').replace(/[⁦-⁩]/g, '').trim(), hb: (c.querySelector('.hrsline b') || {}).textContent || '', hs: (c.querySelector('.hrsline span') || {}).textContent || '', li: [...c.querySelectorAll('li')].map(l => l.innerHTML), hot: c.classList.contains('hot')}));
+  const note = (G.querySelector('.pnote') || {}).textContent || '', from = ((G.querySelector('.pv small') || {}).textContent || '').trim();
+  let O = document.getElementById('mPk'); if (!O) { O = document.createElement('div'); O.id = 'mPk'; O.className = 'mpk'; document.body.appendChild(O); O.addEventListener('click', e => { if (e.target === O || e.target.closest('[data-mpx]')) mpClose(); else if (e.target.closest('[data-mpgo]')) { mpClose(); try { SH.busy = false; shopGo('hall'); } catch (er) {} } }); }
+  O.dir = LANG === 'fa' ? 'rtl' : 'ltr'; O.lang = LANG;
+  O.innerHTML = `<div class="mps"><button class="mpx" data-mpx="1" aria-label="close">✕</button><div class="mpt">${t('pkg_h')}</div>
+    <div class="mpg">${cards.map(c => `<div class="mpc ${c.hot ? 'hot' : ''}">${c.hot ? `<span class="mpb">${esc(T[3])}</span>` : ''}<h4>${esc(c.h)}</h4><p>${esc(c.s)}</p><small>${esc(from)}</small><b dir="ltr">${esc(c.p)}</b><div class="mph"><em>${esc(c.hb)}</em><span>${esc(c.hs)}</span></div></div>`).join('')}</div>
+    <div class="mpi"><h5>${esc(T[4])}</h5><div class="mpg">${cards.map(c => `<ul class="${c.hot ? 'hot' : ''}">${c.li.map(l => `<li>${l}</li>`).join('')}</ul>`).join('')}</div></div>
+    <p class="mpn">${esc(note)}</p><button class="shbtn mpgo" data-mpgo="1">${esc(T[2])} →</button></div>`;
+  requestAnimationFrame(() => O.classList.add('on')); }
+function mpClose() { const O = document.getElementById('mPk'); if (O) O.classList.remove('on'); }
+document.addEventListener('click', e => { if (!isM()) return; const d = e.target.closest('#bDesk'); if (d && !document.documentElement.classList.contains('layx')) { e.stopPropagation(); e.preventDefault(); mpOpen(); } }, true);
+
+setInterval(() => { if (isM() && SH.on) { const m = document.querySelector('#shop .shmenu'); if (m && m.clientWidth && m.scrollWidth > Math.min(m.clientWidth, document.documentElement.clientWidth - 20) + 1 && !m.classList.contains('ovf')) fitNav(); } }, 800);
 
 
 
