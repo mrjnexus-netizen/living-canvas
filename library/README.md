@@ -1,6 +1,6 @@
 # LIVING CANVAS · media library
 
-Updated Fri, 20 Nov 2026 03:00:08 GMT
+Updated Fri, 20 Nov 2026 04:47:52 GMT
 
 - designs/CODE/photo-main.jpg, photo-v2.jpg, photo-mini.jpg … approved photos of each design and its versions
 - designs/CODE/video-3d-*.mp4 … the 3D turn video of each version
