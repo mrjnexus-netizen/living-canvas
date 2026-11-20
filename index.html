@@ -1902,6 +1902,78 @@ html.dm .trx .glint{filter:none}
 .lk.prev{opacity:1!important;z-index:1}.lk.on{z-index:2}
 .vbox video.vv{transition:opacity 1s ease}
 html.lxon #shop .shsc{isolation:isolate}
+.trx video.wv3,.wv3h video{object-fit:fill!important}
+
+/* ===== p6 ===== */
+/* no glint, no veil anywhere */
+.trx .glint{display:none!important}
+.trx.w3{background:none!important}
+/* lookbook: still pictures, calm and slow */
+.lk{transition:opacity 1.5s cubic-bezier(.45,.05,.35,1)!important}
+@keyframes lkKbW{from{transform:scale(1.015)}to{transform:scale(1.055) translate(-.6%,-.3%)}}
+.lk.wide img.kb{animation:lkKbW 20s ease-in-out infinite alternate!important}
+
+/* occasion pill under "Enter the showroom": rose, readable on any picture */
+.cgev{background:linear-gradient(100deg,rgba(181,70,106,.94),rgba(226,121,158,.94))!important;border:1px solid rgba(255,214,228,.75)!important;color:#fff!important;text-shadow:0 1px 2px rgba(90,20,45,.35)!important;box-shadow:0 12px 30px -10px rgba(181,70,106,.75),inset 0 1px 0 rgba(255,255,255,.4)!important}
+.cgev b{color:#fff!important;background:rgba(255,255,255,.22);padding:3px 9px;border-radius:999px;letter-spacing:.04em!important}
+.cgev i{background:#FFE1EB!important;box-shadow:0 0 8px rgba(255,225,235,.9)!important}
+
+/* Mini & Full comparison card on laptops and desktops: centred, two columns, no scrolling */
+html:not(.dm) .mpk{align-items:center;justify-content:center;padding:24px}
+html:not(.dm) .mps{width:min(820px,94vw);max-height:min(88vh,860px);border-radius:30px;padding:34px 34px 26px;transform:translateY(24px) scale(.98)}
+html:not(.dm) .mpk.on .mps{transform:none}
+html:not(.dm) .mps::before{display:none}
+html:not(.dm) .mpx{top:18px;inset-inline-end:18px;width:38px;height:38px}
+html:not(.dm) .mpt{font-size:34px;padding:0 50px 22px}
+html:not(.dm) .mpg{gap:18px}
+html:not(.dm) .mpc{padding:24px 20px 20px;border-radius:24px}
+html:not(.dm) .mpc h4{font-size:26px}
+html:not(.dm) .mpc p{font-size:13px;min-height:0}
+html:not(.dm) .mpc>b{font-size:44px}
+html:not(.dm) .mph em{font-size:30px}html:not(.dm) .mph span{font-size:12px}
+html:not(.dm) .mpi{margin-top:22px}
+html:not(.dm) .mpi ul{padding:16px 18px;gap:10px}
+html:not(.dm) .mpi li{font-size:13.5px}
+html:not(.dm) .mpgo{width:auto;margin:0 auto;padding:15px 40px!important}
+
+/* ===== catalogue inside "Good to know" ===== */
+.shsc[data-s="gent"] .gwash{position:absolute;inset:0;z-index:11;pointer-events:none;opacity:0;background:linear-gradient(90deg,rgba(255,247,244,.95) 0%,rgba(251,236,236,.9) 45%,rgba(250,232,233,.55) 58%,rgba(250,232,233,0) 72%)}
+html.dm .shsc[data-s="gent"] .gwash{background:linear-gradient(180deg,rgba(255,247,244,.9),rgba(251,236,236,.95))}
+.shsc[data-s="gent"].gcon .gwash{opacity:1}
+.gcat{position:absolute;z-index:13;display:none;flex-direction:column;overflow:hidden;border-radius:24px;background:linear-gradient(165deg,rgba(255,252,251,.9),rgba(250,238,238,.86));-webkit-backdrop-filter:blur(18px) saturate(1.15);backdrop-filter:blur(18px) saturate(1.15);border:1px solid rgba(255,255,255,.85);box-shadow:0 40px 90px -40px rgba(80,30,45,.45),inset 0 1px 0 #fff;color:#2A1F1C}
+.shsc[data-s="gent"].gcon .gcat{display:flex}
+.shsc[data-s="gent"].gcon .gpanel{opacity:0;pointer-events:none;visibility:hidden}
+.gch{display:flex;align-items:center;gap:12px;padding:16px 18px 12px;border-bottom:1px solid rgba(184,145,58,.22)}
+.gct{flex:1;min-width:0}.gct span{display:block;font:600 9.5px var(--sans);letter-spacing:.3em;color:#B5466A}
+.gct h3{margin:3px 0 0;font:500 30px/1.05 'CG',var(--serif),serif;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.gct h3 em{font-size:.55em;color:#a07a51;font-style:normal;letter-spacing:.06em}
+.gcat[lang=fa] .gct h3{font:800 24px/1.3 var(--fa)}.gcat[lang=fa] .gct span{letter-spacing:.2em}
+.gca{display:flex;align-items:center;gap:7px;flex:none}
+.gcl{display:flex;padding:3px;border-radius:999px;background:rgba(42,31,28,.06)}
+.gcl button{min-width:34px;height:28px;padding:0 9px;border-radius:999px;font:700 11px var(--sans);color:#2A1F1C}
+.gcl button.on{background:linear-gradient(100deg,#B5466A,#DE6F96);color:#fff;box-shadow:0 6px 14px -8px rgba(181,70,106,.8)}
+.gcb{display:inline-flex;align-items:center;gap:6px;height:34px;padding:0 14px;border-radius:999px;font:700 11.5px var(--sans);letter-spacing:.06em;color:#2A1F1C;background:#fff;box-shadow:inset 0 0 0 1px rgba(42,31,28,.12)}
+.gcb.pdf{background:linear-gradient(100deg,#B5466A,#DE6F96);color:#fff;box-shadow:0 8px 18px -10px rgba(181,70,106,.9)}
+.gcb.ic{width:34px;padding:0;justify-content:center;font-size:13px}
+.gcb:disabled{opacity:.55}
+.gcp{flex:1;min-height:0;overflow-y:auto;-webkit-overflow-scrolling:touch;overscroll-behavior:contain;padding:14px 16px 18px;scrollbar-width:thin}
+.gcq{display:flex;align-items:center;gap:14px;padding:12px 14px;margin-bottom:14px;border-radius:18px;background:linear-gradient(100deg,#9E3A5D,#C9628A);color:#fff;box-shadow:0 14px 30px -18px rgba(158,58,93,.9)}
+.gcq .qrbox{flex:none;width:74px;height:74px;padding:6px;border-radius:12px;background:#fff}.gcq .qrbox svg{display:block;width:100%;height:100%}
+.gcq b{display:block;font:600 13px/1.4 var(--sans)}.gcq small{display:block;margin-top:3px;font:500 12px var(--sans);opacity:.85;word-break:break-all}
+.gcat[lang=fa] .gcq b{font-family:var(--fa)}
+.gcpg{display:flex;flex-direction:column;gap:14px}
+.gcpi{display:block;width:100%;height:auto;border-radius:6px;background:#fff;box-shadow:0 18px 40px -22px rgba(60,20,30,.45),0 0 0 1px rgba(42,31,28,.06);cursor:zoom-in}
+.gcld{padding:60px 10px;text-align:center;font:500 13px var(--sans);color:#8a7a72}
+/* phones & small tablets */
+html.dm .gch{flex-wrap:wrap;padding:12px 12px 10px;gap:8px}
+html.dm .gct h3{font-size:24px}
+html.dm .gca{width:100%;justify-content:space-between}
+html.dm .gcp{padding:10px 10px 14px}
+html.dm .gcq{gap:12px;padding:10px 12px}html.dm .gcq .qrbox{width:64px;height:64px}
+html.dm .gcq b{font-size:12px}html.dm .gcq small{font-size:11px}
+html.dm .gcpg{gap:10px}
+
+.lks{background:#EADCD7!important}
+.lks .lkw::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46%;background:linear-gradient(180deg,rgba(30,12,18,0),rgba(30,12,18,.42));z-index:5;pointer-events:none}
 </style>
 </head>
 <body>
@@ -2004,7 +2076,7 @@ html.lxon #shop .shsc{isolation:isolate}
 <div class="abody"><nav class="anav" id="aNav"></nav><main class="amain"><div id="admMain" style="display:flex;flex-direction:column;gap:16px"></div><div id="sBody"></div></main></div></div>
 <div class="gate" id="gate"><div class="gbox" dir="rtl"><b>🔒</b><input id="gIn" type="password" autocomplete="off" autocapitalize="characters" placeholder="••••••"><button id="gGo">ورود</button><p id="gMsg"></p></div></div>
 <button class="admPill" id="admPill" dir="rtl">⚙ پنل مدیریت</button>
-<script type="application/json" id="lcAdmin">{"sid":"m_sat","auto":true,"ov":{},"wmode":"auto","weekly":[{"code":"E09","photo":true},{"code":"E04","photo":false},{"code":"E03","photo":false},{"code":"E07","photo":false}],"ev":{"on":true,"lead":10,"disc":0.12,"off":[],"ds":{}},"base":{"LABOR_RATE":15,"TAX":0.0825,"FUEL":38,"EXTRA_FT":18,"EXTRA_HR":35,"EXTRA_HR2":25,"FLOOR":0.4,"WFLOOR":0.1,"MINI":0.8,"W_BAL":0.1,"W_FLO":0.1,"W_MAT":0.1,"SITE":"mrjnexus.com","ORD_URL":"","ORD_KEY":"","MAIL":"","BK":1,"POSL":{"en":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":401.00979676224256,"t":225.92773663925382,"w":599.3116381721053,"h":573.645470710852},"hCardW":{"l":32.35363174082809,"t":75.57323424796748,"w":36.21916118421053,"h":210.87109375},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356,"q":[0,0,-4.250357379630397,-31.141232286400925,-2.76127558630977,7.380666279937019,0,0]},"bBook":{"l":374.04679604762237,"t":186.4083373710805},"bDesk":{"l":242.47503145643293,"t":499.434767222397,"q":[263.63685514312675,119.53444479396039,195.4624095627556,231.11631016042782,-102.58483406731676,-9.667938030827301,-65.7513172381252,-155.24978373702422]}},"es":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":374.9821234683145,"t":225.87409537708893,"w":653.202448817517,"h":571.6374217228529},"hCardW":{"l":29.038116389950904,"t":77.02403460235082,"w":42.49497441520468,"h":165.8828125},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356}},"fa":{"lkC":{"l":52.407330922032244,"t":65.81197599085368,"z":1.0947605795900575,"f":0.5},"hCardW":{"l":30.76029292503862,"t":77.0129408084417,"w":38.342699195906434,"h":144.4453125},"bDesk":{"l":744.5482306405256,"t":905.4463420431457,"z":0.6898697810559997,"q":[0,0,93.0084954511103,153.88134275543345,-342.5558210224144,51.33652870450614,-468.40174077427673,-156.3963375000994]}}},"LIBSRC":{"owner":"mrjnexus-netizen","repo":"living-canvas","folder":"library","base":""},"NOBAKE":false,"MUS":{"src":"track","vol":0.11,"t0":0,"t1":0,"fi":2.5,"fo":2.5},"GHLINK":true,"FEAT":["A03","D01","E04"]},"autoBase":"m_under","evStrat":{},"rules":[{"from":"2026-11-18","to":"2026-11-25","sid":"g_portfolio"}],"sample":true}</script>
+<script type="application/json" id="lcAdmin">{"sid":"m_sat","auto":true,"ov":{},"wmode":"auto","weekly":[{"code":"E09","photo":true},{"code":"E04","photo":false},{"code":"E03","photo":false},{"code":"E07","photo":false}],"ev":{"on":true,"lead":10,"disc":0.12,"off":[],"ds":{}},"base":{"LABOR_RATE":15,"TAX":0.0825,"FUEL":38,"EXTRA_FT":18,"EXTRA_HR":35,"EXTRA_HR2":25,"FLOOR":0.4,"WFLOOR":0.1,"MINI":0.8,"W_BAL":0.1,"W_FLO":0.1,"W_MAT":0.1,"SITE":"mrjnexus.com","ORD_URL":"","ORD_KEY":"","MAIL":"","BK":1,"POSL":{"en":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":401.00979676224256,"t":225.92773663925382,"w":599.3116381721053,"h":573.645470710852},"hCardW":{"l":32.35363174082809,"t":75.57323424796748,"w":36.21916118421053,"h":210.87109375},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356,"q":[0,0,-4.250357379630397,-31.141232286400925,-2.76127558630977,7.380666279937019,0,0]},"bBook":{"l":374.04679604762237,"t":186.4083373710805},"bDesk":{"l":242.47503145643293,"t":499.434767222397,"q":[263.63685514312675,119.53444479396039,195.4624095627556,231.11631016042782,-102.58483406731676,-9.667938030827301,-65.7513172381252,-155.24978373702422]}},"es":{"bCorr":{"w":156.0418732041941,"h":290.7912605317639,"l":520.3424249393775,"t":554.2070580891291},"hMain":{"l":374.9821234683145,"t":225.87409537708893,"w":653.202448817517,"h":571.6374217228529},"hCardW":{"l":29.038116389950904,"t":77.02403460235082,"w":42.49497441520468,"h":165.8828125},"bWork":{"w":347.626713043701,"h":530.1458295808585,"l":972.3570607560155,"t":335.9070045722356}},"fa":{"lkC":{"l":52.407330922032244,"t":65.81197599085368,"z":1.0947605795900575,"f":0.5},"hCardW":{"l":30.76029292503862,"t":77.0129408084417,"w":38.342699195906434,"h":144.4453125},"bDesk":{"l":744.5482306405256,"t":905.4463420431457,"z":0.6898697810559997,"q":[0,0,93.0084954511103,153.88134275543345,-342.5558210224144,51.33652870450614,-468.40174077427673,-156.3963375000994]}}},"LIBSRC":{"owner":"mrjnexus-netizen","repo":"living-canvas","folder":"library","base":""},"NOBAKE":false,"MUS":{"src":"track","vol":0.11,"t0":0,"t1":0,"fi":2.5,"fo":2.5},"GHLINK":true,"FEAT":["A03","D01","E04"],"ARC":{"GCG":{},"PLC":{},"CUB":{},"COL":{},"CAN":{},"LED":{},"UPL":{},"CHA":{},"SCH":{},"TBL":{},"RUG":{},"LAN":{},"STM":{},"PLT":{},"DSC":{},"RNG":{},"PIL":{},"SAM":{},"KID":{},"ICE":{}},"AST":{}},"autoBase":"m_under","evStrat":{},"rules":[{"from":"2026-11-18","to":"2026-11-25","sid":"g_portfolio"}],"sample":true}</script>
 <script type="application/json" id="lcPhotos">{}</script>
 <script type="application/json" id="lcMedia">{}</script>
 <div class="mdl" id="edmdl"><div class="box"><div class="mb"><h3 id="edTitle"></h3><button class="x" id="edClose">✕</button></div><div class="edwrap"><div class="edc" id="edc"><canvas id="edCanvas"></canvas></div><div class="edside" id="edSide"></div></div></div></div>
@@ -4409,7 +4481,7 @@ function shopFit() { const S = document.getElementById('shop'), W = S.clientWidt
 function shopMedia() { document.querySelectorAll('#shop .scm').forEach(m => { const k = m.dataset.m, sig = medSig(k); if (m.dataset.sig !== sig) { m.dataset.sig = sig; m.innerHTML = mediaHTML(k); } }); cfgMedia(); lookDraw(); }
 function shopOpen(k) { shopBuild(); const S = document.getElementById('shop'); document.documentElement.classList.add('shopx'); S.hidden = false; SH.on = true; shopMedia(); shopRender(); shopShow(k || 'corr'); try { if (location.hash) history.replaceState(null, '', location.pathname + location.search); } catch (e) {} }
 function shopShow(k) { const S = document.getElementById('shop'); SH.cur = k; S.querySelectorAll('.shsc').forEach(s => { const on = s.dataset.s === k; s.classList.toggle('on', on); if (!on) s.classList.remove('in'); s.querySelectorAll('video').forEach(v => { try { on ? v.play().catch(() => {}) : v.pause(); } catch (e) {} }); });
-  shopFit(); const c = S.querySelector('.shsc[data-s="corr"]'); if (k === 'corr' && window.CORRNOZ) { c.classList.add('in'); shopFit(); } else if (k === 'corr') { const w = c.querySelector('.scw'); w.style.transition = 'none'; void w.offsetWidth; requestAnimationFrame(() => { w.style.transition = 'transform 1.9s cubic-bezier(.45,0,.2,1)'; c.classList.add('in'); shopFit(); }); }
+  shopFit(); const c = S.querySelector('.shsc[data-s="corr"]'); if (k === 'corr' && window.CORRNOZ) { const w0 = c.querySelector('.scw'); w0.style.transition = 'none'; c.classList.add('in'); shopFit(); void w0.offsetWidth; } else if (k === 'corr') { const w = c.querySelector('.scw'); w.style.transition = 'none'; void w.offsetWidth; requestAnimationFrame(() => { w.style.transition = 'transform 1.9s cubic-bezier(.45,0,.2,1)'; c.classList.add('in'); shopFit(); }); }
   S.querySelectorAll('#shMenu [data-sg]').forEach(b => b.classList.toggle('on', b.dataset.sg === k)); S.querySelectorAll('#shDots button').forEach(b => b.classList.toggle('on', b.dataset.sg === k));
   document.getElementById('shHint').textContent = k === sho()[sho().length - 1] ? '' : (k === 'desk' ? sx('closer') + ' · ' : '') + sx('scroll') + ' ↓'; if (k === 'hall') hallDraw(); }
 function shopGo(k, mode, dir = 1) { if (SH.busy || TRB || k === SH.cur || !document.querySelector(`#shop .shsc[data-s="${k}"]`)) return; SH.busy = true; const from = SH.cur; trans(() => { shopShow(k); setTimeout(() => { SH.busy = false; }, 500); }, 'w:' + from + '>' + k); }
@@ -5031,7 +5103,7 @@ const trxCfg = () => ({vsp: 1.45, qdur: 1.15, out: .38, inn: .85});
 try { if (ADMIN.base.TRX) { delete ADMIN.base.TRX; saveAdmin(); } } catch (e) {}
 function trxEls(v) { if (!v) return []; let L = [];
   if (v.closest && v.closest('#intro')) L = [...document.querySelectorAll('#intro .icta,#intro .itop,#intro .ihint,#iDoor')];
-  else if (v.classList && v.classList.contains('shsc')) L = [...v.children].filter(c => !c.classList.contains('scr') && !c.classList.contains('wv3h')).concat([...v.querySelectorAll('.scw > :not(.scm)')]);
+  else if (v.classList && v.classList.contains('shsc')) L = [...v.children].filter(c => !c.classList.contains('scr') && !c.classList.contains('wv3h')).concat([...v.querySelectorAll('.scw > :not(.scm)')]).filter(e => e.id !== 'hMain');
   else if (v.classList && v.classList.contains('cbody')) L = [...v.children];
   return L.filter(e => e.getClientRects().length && getComputedStyle(e).visibility !== 'hidden' && +getComputedStyle(e).opacity > .02); }
 function trxOut(L, ms) { L.forEach(e => { (e.getAnimations ? e.getAnimations() : []).filter(a => a.id === 'lit').forEach(a => a.cancel()); e.animate([{opacity: getComputedStyle(e).opacity}, {opacity: 0}], {duration: ms, easing: 'cubic-bezier(.4,0,.6,1)', fill: 'forwards', id: 'tro'}); }); }
@@ -5051,9 +5123,16 @@ async function libVidCheck() { const L = Object.entries(MED).filter(([k, m]) => 
 /* safety net: whatever happens, no page is ever left with its words hidden */
 setInterval(() => { if (TRB) return; const H = document.documentElement; if (H.classList.contains('trxhide')) H.classList.remove('trxhide'); try { document.getAnimations().forEach(a => { if (a.id === 'tro' && a.playState === 'finished') a.cancel(); }); } catch (e) {} }, 1500);
 function trxPreload(k) { try { const O = sho(), i = O.indexOf(k); [O[i + 1] && 'w:' + k + '>' + O[i + 1]].filter(Boolean).forEach(w => { if (!hasVid(w) || TRPRE[w]) return; const v = document.createElement('video'); v.muted = true; v.preload = 'auto'; v.src = vsrc(MED[w]); TRPRE[w] = v; }); } catch (e) {} }
-function trRect(k) { if (k === 'street') { const V = document.getElementById('introV'); if (V && V.getBoundingClientRect().width > 20) { const r = V.getBoundingClientRect(); return {l: r.left, t: r.top, w: r.width, h: r.height}; } return null; }
-  const sc = document.querySelector(`#shop .shsc[data-s="${k}"]`); if (!sc) return null; const im = sc.querySelector('.scv'); if (!im) return null; const R = im.getBoundingClientRect(); if (R.width < 20) return null; const vr = (MED[k] || {}).vr || [0, 0, 1, 1];
-  return {l: R.left + vr[0] * R.width, t: R.top + vr[1] * R.height, w: vr[2] * R.width, h: vr[3] * R.height}; }
+/* where the picture really is on screen: the image's own pixels (object-fit honoured), never a sub-box.
+   Walk videos are made from these exact pictures, so start = this rect of room A, end = this rect of room B. */
+function fitRect(el, nw, nh) { const R = el.getBoundingClientRect(); if (R.width < 20) return null; if (!nw || !nh) return {l: R.left, t: R.top, w: R.width, h: R.height};
+  const of = getComputedStyle(el).objectFit, sx = R.width / nw, sy = R.height / nh; if (of === 'fill' || !of) return {l: R.left, t: R.top, w: R.width, h: R.height};
+  const s = of === 'contain' ? Math.min(sx, sy) : of === 'none' ? 1 : Math.max(sx, sy), w = nw * s, h = nh * s; return {l: R.left + (R.width - w) / 2, t: R.top + (R.height - h) / 2, w, h}; }
+function trRect(k) { if (k === 'street') { const V = document.getElementById('introV'); return V ? fitRect(V, V.videoWidth || 1, V.videoHeight || 1) : null; }
+  const sc = document.querySelector(`#shop .shsc[data-s="${k}"]`); if (!sc) return null; const im = sc.querySelector('.scv'), vv = sc.querySelector('.vbox video.vv');
+  /* the room's own moving picture is what the eye sees (with its zoom/offset framing) — start and land exactly on it */
+  if (vv && vv.getBoundingClientRect().width > 20) { const r = fitRect(vv, vv.videoWidth || (im && im.naturalWidth) || 1, vv.videoHeight || (im && im.naturalHeight) || 1); if (r) return r; }
+  return im ? fitRect(im, im.naturalWidth, im.naturalHeight) : null; }
 const vpRect = () => ({l: 0, t: 0, w: innerWidth, h: innerHeight}), rcss = r => ({left: r.l + 'px', top: r.t + 'px', width: r.w + 'px', height: r.h + 'px'});
 function trxDone() { const X = document.getElementById('trx'), H = document.documentElement; if (X) X.style.zIndex = ''; H.classList.remove('trxhide', 'trxnow'); try { document.getAnimations().forEach(a => { if (a.id === 'tro') a.cancel(); }); } catch (e) {} if (X) { X.getAnimations().forEach(g => g.cancel()); X.className = 'trx'; X.innerHTML = ''; X.style.opacity = ''; } document.querySelectorAll('.wv3h').forEach(h => h.remove()); TRB = false; }
 trans = function (cb, walk) { const X = document.getElementById('trx'); if (!X || TRB || !X.animate) { cb && cb(); return; }
@@ -5068,6 +5147,8 @@ setTimeout(() => { try { ['corr', ...sho()].forEach(sceneCol); } catch (e) {} },
 const rgba = (c, a) => `rgba(${c[0]},${c[1]},${c[2]},${a})`;
 /* no walk video: the current room itself dissolves into the next one — picture into picture, its own colours
    melting into the next room's colours. No veil, no flash, no dark dip. */
+/* a room's moving picture shows at once (no late fade that would reveal the still behind it at another zoom) */
+function vvShow(v) { if (!v || v.classList.contains('vplay')) return; if (v.readyState >= 2) { v.style.transition = 'none'; v.classList.add('vplay'); requestAnimationFrame(() => requestAnimationFrame(() => { v.style.transition = ''; })); } }
 function lxLayer() { const H = document.documentElement; if (document.getElementById('cfg') && document.getElementById('cfg').classList.contains('on')) return {el: document.getElementById('cfg'), cfg: true};
   const s = document.querySelector('#shop .shsc.on'); return s ? {el: s, cfg: false} : null; }
 function luxe(run, outEls) { const C = trxCfg(), Q = Math.max(800, C.qdur * 1000), X = document.getElementById('trx'), H = document.documentElement, A = lxLayer();
@@ -5076,7 +5157,7 @@ function luxe(run, outEls) { const C = trxCfg(), Q = Math.max(800, C.qdur * 1000
   setTimeout(() => { let old = A && A.el;
     if (old) { old.classList.add(A.cfg ? 'lvc' : 'lv'); old.style.opacity = '1'; H.classList.add('lxon'); }
     H.classList.add('trxhide', 'trxnow'); run();
-    const B = lxLayer(), nu = B && B.el, sameEl = nu === old;
+    const B = lxLayer(), nu = B && B.el, sameEl = nu === old; if (nu) nu.querySelectorAll('.vbox video.vv').forEach(vvShow);
     requestAnimationFrame(() => { H.classList.remove('trxnow'); glint(X, Q * .8);
       let anim;
       if (old && !sameEl && !(B && B.cfg && !A.cfg)) { anim = old.animate([{opacity: 1, transform: 'scale(1)'}, {opacity: 0, transform: 'scale(1.02)'}], {duration: Q, easing: 'cubic-bezier(.4,0,.5,1)', fill: 'forwards'}); }
@@ -5095,12 +5176,12 @@ function walk3(key, run, outEls) { const C = trxCfg(), X = document.getElementBy
   const handoff = () => { if (switched) return; switched = true; H.classList.add('trxhide', 'trxnow'); run(); trxClear(outEls);
     requestAnimationFrame(() => requestAnimationFrame(() => { if (done) return; const RB = trRect(b) || vpRect(), sc = document.querySelector(`#shop .shsc[data-s="${b}"]`);
       if (sc) { host = document.createElement('div'); host.className = 'wv3h'; const scr = sc.querySelector('.scr'); sc.insertBefore(host, scr ? scr.nextSibling : sc.firstChild); host.appendChild(v); v.play().catch(() => {});
-        bv = sc.querySelector('.vbox video.vv'); if (bv) { try { bv.pause(); bv.currentTime = +bv.dataset.t0 || 0; } catch (er) {} } }
+        bv = sc.querySelector('.vbox video.vv'); if (bv) { try { bv.pause(); bv.currentTime = +bv.dataset.t0 || 0; } catch (er) {} vvShow(bv); } }
       if (key === 'w:street>corr') X.style.zIndex = '';
       H.classList.remove('trxnow'); const left = Math.max(300, (t1 - v.currentTime) / sp * 1000);
       const hr = host ? host.getBoundingClientRect() : {left: 0, top: 0}; Object.assign(v.style, rcss({l: RB.l - hr.left, t: RB.t - hr.top, w: RB.w, h: RB.h}), {transformOrigin: '50% 50%', willChange: 'transform'}); const k = Math.sqrt((RA.w * RA.h) / (RB.w * RB.h)), dx = (RA.l + RA.w / 2) - (RB.l + RB.w / 2), dy = (RA.t + RA.h / 2) - (RB.t + RB.h / 2);
       v.animate([{transform: `translate(${dx}px,${dy}px) scale(${k})`}, {transform: 'none'}], {duration: left, easing: 'cubic-bezier(.42,0,.22,1)', fill: 'forwards'});
-      setTimeout(() => { if (!lit && !done) { lit = true; trxIn(trxEls(viewEl()), Math.max(450, Math.min(C.inn * 1000, left * .5))); } }, Math.max(250, left * .55)); setTimeout(finish, left + 700); })); };
+      setTimeout(() => { if (!lit && !done) { lit = true; trxIn(trxEls(viewEl()), Math.max(450, Math.min(C.inn * 1000, left * .5))); } }, Math.max(250, left * .55)); setTimeout(finish, left + 150); })); };
   const finish = () => { if (done) return; done = true; clearTimeout(dog); if (!switched) { handoff(); }
     if (!lit) { lit = true; trxIn(trxEls(viewEl()), C.inn * 1000); } if (bv) bv.play().catch(() => {}); glint(X, 800);
     const f = v.animate([{opacity: 1}, {opacity: 0}], {duration: 460, easing: 'ease-out', fill: 'forwards'}); f.onfinish = () => { try { v.pause(); } catch (er) {} trxDone(); }; };
@@ -5131,10 +5212,11 @@ document.addEventListener('click', e => { const b = e.target.closest('[data-trt]
 
 function enterTrans(cb, plain) { const I = document.getElementById('intro'), H = document.documentElement; if (!I || !I.animate || TRB) { cb(); return; }
   if (!plain && hasVid('w:street>corr')) { const X = document.getElementById('trx'); window.CORRNOZ = true; TRB = true; X.style.zIndex = '100000'; const run = () => { try { cb(); } finally { setTimeout(() => { window.CORRNOZ = false; }, 400); } }; return walk3('w:street>corr', run, trxEls(document.querySelector('#intro .istage') || I)); }
-  TRB = true;
+  TRB = true; window.CORRNOZ = true;
   H.classList.add('trxhide'); shopOpen('corr'); I.style.willChange = 'opacity';
-  const a = I.animate([{opacity: 1}, {opacity: 0}], {duration: 1150, easing: 'cubic-bezier(.4,0,.25,1)', fill: 'forwards'});
-  a.onfinish = () => { const so = shopOpen; shopOpen = () => {}; try { cb(); } catch (e) { console.error(e); } finally { shopOpen = so; } trxIn(trxEls(viewEl()), Math.max(700, trxCfg().inn * 1000)); TRB = false; setTimeout(() => H.classList.remove('trxhide'), 50); }; }
+  document.querySelectorAll('#shop .shsc[data-s="corr"] .vbox video.vv').forEach(vvShow);
+  const a = I.animate([{opacity: 1, transform: 'scale(1)'}, {opacity: 0, transform: 'scale(1.06)'}], {duration: 1300, easing: 'cubic-bezier(.4,0,.25,1)', fill: 'forwards'});
+  a.onfinish = () => { const so = shopOpen; shopOpen = () => {}; try { cb(); } catch (e) { console.error(e); } finally { shopOpen = so; } trxIn(trxEls(viewEl()), Math.max(700, trxCfg().inn * 1000)); TRB = false; setTimeout(() => { window.CORRNOZ = false; }, 400); setTimeout(() => H.classList.remove('trxhide'), 50); }; }
 /* scene videos never pop in: they fade in on their first real frame */
 document.addEventListener('playing', e => { const v = e.target; if (v && v.classList && v.classList.contains('vv')) v.classList.add('vplay'); }, true);
 /* video making: a failure stays written on its card until the next try, with the exact reason */
@@ -5504,6 +5586,154 @@ function mpClose() { const O = document.getElementById('mPk'); if (O) O.classLis
 document.addEventListener('click', e => { if (!isM()) return; const d = e.target.closest('#bDesk'); if (d && !document.documentElement.classList.contains('layx')) { e.stopPropagation(); e.preventDefault(); mpOpen(); } }, true);
 
 setInterval(() => { if (isM() && SH.on) { const m = document.querySelector('#shop .shmenu'); if (m && m.clientWidth && m.scrollWidth > Math.min(m.clientWidth, document.documentElement.clientWidth - 20) + 1 && !m.classList.contains('ovf')) fitNav(); } }, 800);
+
+/* ===================== p6 · transitions v4 ===================== */
+/* One timeline for everything: image, words and colour move together.
+   Walk videos start on the exact picture the eye sees in room A (same centre, same zoom, same colour)
+   and land on the exact picture of room B. No glint, no veil, no jump. */
+let TRDIR = 1;
+const P6Q = () => document.documentElement.classList.contains('dm') ? 1100 : 1250;
+{ const _tr = trans; trans = function (cb, walk) { TRDIR = 1; try { if (walk) { const [a, b] = walk.slice(2).split('>'), O = sho(), ia = O.indexOf(a), ib = O.indexOf(b); if (ia >= 0 && ib >= 0 && ib < ia) TRDIR = -1; } } catch (e) {} return _tr.apply(this, arguments); }; }
+
+/* colour of what is on screen: mean brightness + colourfulness of a frame */
+function frameStats(el) { try { if (!el) return null; if (el.tagName === 'VIDEO' && el.readyState < 2) return null; if (el.tagName === 'IMG' && !(el.complete && el.naturalWidth)) return null;
+  const c = frameStats.c || (frameStats.c = document.createElement('canvas')); c.width = c.height = 12; const x = c.getContext('2d', {willReadFrequently: true}); x.clearRect(0, 0, 12, 12); x.drawImage(el, 0, 0, 12, 12);
+  const d = x.getImageData(0, 0, 12, 12).data; let r = 0, g = 0, b = 0, s = 0; const n = d.length / 4; for (let i = 0; i < d.length; i += 4) { r += d[i]; g += d[i + 1]; b += d[i + 2]; s += Math.max(d[i], d[i + 1], d[i + 2]) - Math.min(d[i], d[i + 1], d[i + 2]); }
+  const L = (.2126 * r + .7152 * g + .0722 * b) / n; return L > 3 ? {L, S: s / n + 2} : null; } catch (e) { return null; } }
+function sceneStats(k) { if (k === 'street') return frameStats(document.getElementById('introV')); const sc = document.querySelector(`#shop .shsc[data-s="${k}"]`); if (!sc) return null;
+  return frameStats(sc.querySelector('.vbox video.vv.vplay')) || frameStats(sc.querySelector('.scv')); }
+
+/* walk videos are loaded ahead, and their first/last frame colours measured once */
+const WST = {};
+function wPre(w) { try { if (!hasVid(w) || TRPRE[w]) return; const v = document.createElement('video'); v.muted = true; v.playsInline = true; v.preload = 'auto'; const u = vsrc(MED[w]); v.src = LIBMISS.has(u) && VFALL[u] ? VFALL[u] : u;
+  v.addEventListener('loadeddata', () => { if (WST[w]) return; const a = frameStats(v); WST[w] = {a}; if (!a) return; const d = v.duration; if (!(d > 1)) return; v.dataset.meas = '1';
+    const back = () => { v.removeEventListener('seeked', got); try { v.currentTime = 0; } catch (e) {} delete v.dataset.meas; };
+    const got = () => { let n = 0; const m = () => { const st = frameStats(v); if (st || ++n > 15) { WST[w].b = st; back(); } else setTimeout(m, 120); }; setTimeout(m, 60); }; v.addEventListener('seeked', got); try { v.currentTime = Math.max(0, d - .06); } catch (e) { back(); } }, {once: true});
+  v.load(); TRPRE[w] = v; } catch (e) {} }
+function trxPreloadAll() { try { ['w:street>corr', ...walkSlots()].forEach(wPre); } catch (e) {} }
+function trxPreload(k) { try { const O = sho(), i = O.indexOf(k); if (i >= 0 && O[i + 1]) wPre('w:' + k + '>' + O[i + 1]); } catch (e) {} }
+
+/* on phones a room's picture must always fill the glass: grow the landing frame about its own centre until it covers the screen */
+function coverVP(R) { if (!R || !document.documentElement.classList.contains('dm')) return R; const W = innerWidth, Hh = innerHeight, cx = R.l + R.w / 2, cy = R.t + R.h / 2;
+  const k = Math.max(1, (2 * Math.max(cx, W - cx)) / R.w, (2 * Math.max(cy, Hh - cy)) / R.h); return k > 1.0005 ? {l: cx - R.w * k / 2, t: cy - R.h * k / 2, w: R.w * k, h: R.h * k} : R; }
+const ease = p => p <= 0 ? 0 : p >= 1 ? 1 : p * p * (3 - 2 * p);
+const clampN = (x, a, b) => Math.max(a, Math.min(b, x));
+
+function walk3(key, run, outEls) {
+  const X = document.getElementById('trx'), H = document.documentElement, m = MED[key], [a, b] = key.slice(2).split('>'), ent = key === 'w:street>corr', SP = 1.35;
+  const RA = coverVP(trRect(a)) || vpRect(), sA = sceneStats(a), ws = WST[key] || {};
+  X.className = 'trx on w3'; X.style.opacity = 1; X.innerHTML = ''; if (ent) X.style.zIndex = '100000';
+  let v = TRPRE[key]; if (v && v.readyState >= 2 && !v.dataset.meas) delete TRPRE[key]; else v = null;
+  const fresh = !v; if (fresh) { v = document.createElement('video'); v.muted = true; v.playsInline = true; v.preload = 'auto'; }
+  v.className = 'wv3'; v.removeAttribute('style'); X.appendChild(v); Object.assign(v.style, rcss(RA), {opacity: 0, transformOrigin: '0 0'});
+  let done = false, phase = 0, dog = 0, raf = 0, RB = null, old = null, bv = null, sB = null, lit = false, fell = false;
+  const gain = (s, f) => s && f ? [s.L / f.L, s.S / f.S] : [1, 1];
+  const filt = p => { const g0 = gain(sA, ws.a), g1 = gain(sB, ws.b); return `brightness(${clampN(g0[0] + (g1[0] - g0[0]) * p, .8, 1.25).toFixed(3)}) saturate(${clampN(g0[1] + (g1[1] - g0[1]) * p, .75, 1.3).toFixed(3)})`; };
+  const watch = ms => { clearTimeout(dog); dog = setTimeout(bail, ms); };
+  const cleanOld = () => { H.classList.remove('lxon'); if (old) { old.classList.remove('lv'); old.style.opacity = ''; try { old.getAnimations().forEach(g => g.cancel()); } catch (e) {} old = null; } };
+  const close = () => { clearTimeout(dog); cancelAnimationFrame(raf); try { v.pause(); } catch (e) {} cleanOld(); if (bv) { try { bv.play().catch(() => {}); } catch (e) {} } if (!lit) { lit = true; trxIn(trxEls(viewEl()), 700); } X.style.zIndex = ''; trxDone(); };
+  const bail = () => { if (done) return; done = true; if (phase >= 2) { close(); return; } clearTimeout(dog); try { v.pause(); } catch (e) {} X.innerHTML = ''; X.className = 'trx'; X.style.zIndex = ''; TRB = true; if (ent) { TRB = false; enterTrans(run, true); return; } luxe(run, outEls); };
+  /* 1 · the walk film appears on top of room A, frozen on its first frame = room A itself */
+  const fadeIn = () => { if (phase) return; phase = 1; clearTimeout(dog); v.style.filter = filt(0);
+    try { v.playbackRate = SP; } catch (e) {} v.play().catch(() => {}); trxOut(outEls, 460); v.animate([{opacity: 0}, {opacity: 1}], {duration: 460, easing: 'cubic-bezier(.4,0,.2,1)', fill: 'forwards'}).onfinish = go; watch(3000); };
+  /* 2 · room B is set up underneath, the camera walks and the frame glides from A's picture to B's */
+  const go = () => { if (done || phase > 1) return; phase = 2;
+    if (!ent) { const cur = document.querySelector('#shop .shsc.on'); if (cur) { old = cur; old.classList.add('lv'); old.style.opacity = '1'; H.classList.add('lxon'); } }
+    setTimeout(() => { if (done) return; H.classList.add('trxhide', 'trxnow'); if (ent) window.CORRNOZ = true; try { run(); } catch (e) { console.error(e); } if (ent) setTimeout(() => { window.CORRNOZ = false; }, 500);
+    requestAnimationFrame(() => { if (done) return; H.classList.remove('trxnow'); RB = coverVP(trRect(b)) || vpRect(); const sc = document.querySelector(`#shop .shsc[data-s="${b}"]`);
+      bv = sc && sc.querySelector('.vbox video.vv'); if (bv) { try { bv.pause(); bv.currentTime = +bv.dataset.t0 || 0; } catch (e) {} vvShow(bv); }
+      Object.assign(v.style, rcss(RB), {willChange: 'transform,filter'}); v.style.transform = `translate(${(RA.l - RB.l).toFixed(2)}px,${(RA.t - RB.t).toFixed(2)}px) scale(${(RA.w / RB.w).toFixed(5)})`; const D = (v.duration > 1 ? v.duration : 4) / SP * 1000;
+      if (old) old.animate([{opacity: 1}, {opacity: 0}], {duration: D * .85, easing: 'ease-in-out', fill: 'forwards'});
+      let last = -1, still = performance.now();
+      const tm0 = Math.min(v.currentTime || 0, 1.5);
+      const tick = () => { if (done) return; const dur = v.duration > 1 ? v.duration : 4, p = clampN((v.currentTime - tm0) / Math.max(.5, dur - tm0), 0, 1), e = ease(p);
+        const R2 = coverVP(trRect(b)); if (R2 && (Math.abs(R2.w - RB.w) > .5 || Math.abs(R2.l - RB.l) > .5 || Math.abs(R2.t - RB.t) > .5)) { RB = R2; Object.assign(v.style, rcss(RB)); }
+        const l = RA.l + (RB.l - RA.l) * e, t = RA.t + (RB.t - RA.t) * e, w = RA.w + (RB.w - RA.w) * e;
+        v.style.transform = `translate(${(l - RB.l).toFixed(2)}px,${(t - RB.t).toFixed(2)}px) scale(${(w / RB.w).toFixed(5)})`;
+        if (p > .55 && !sB) sB = sceneStats(b); v.style.filter = filt(e);
+        if (v.currentTime !== last) { last = v.currentTime; still = performance.now(); } else if (performance.now() - still > 2500) { bail(); return; }
+        if (p >= .86 && !lit) { lit = true; trxIn(trxEls(viewEl()), 900); }
+        if (v.currentTime >= dur - .12 || v.ended) { land(); return; } raf = requestAnimationFrame(tick); };
+      clearTimeout(dog); raf = requestAnimationFrame(tick); }); }, 20); };
+  /* 3 · frozen on its last frame = room B, the film melts into room B's own picture */
+  const land = () => { if (done) return; done = true; phase = 3; cancelAnimationFrame(raf); try { v.pause(); } catch (e) {} sB = sceneStats(b) || sB; v.style.transform = 'none'; v.style.filter = filt(1);
+    if (!lit) { lit = true; trxIn(trxEls(viewEl()), 800); }
+    const f = v.animate([{opacity: 1}, {opacity: 0}], {duration: 650, easing: 'cubic-bezier(.4,0,.3,1)', fill: 'forwards'}); f.onfinish = close; setTimeout(close, 1200); };
+  const ready = () => { if (phase) return; if (Math.abs(v.currentTime) > .02) { v.addEventListener('seeked', ready, {once: true}); try { v.currentTime = 0; } catch (e) {} return; } requestAnimationFrame(fadeIn); };
+  const src0 = vsrc(m);
+  v.addEventListener('error', () => { if (fell || phase) return bail(); fell = true; const cur = v.getAttribute('src') || ''; const f = VFALL[cur] || m.vfall || m.vurl; if (f && f !== cur) { LIBMISS.add(src0); watch(9000); v.src = f; v.load(); v.addEventListener('loadeddata', ready, {once: true}); return; } bail(); });
+  if (!fresh) { ready(); return; }
+  watch(1400); v.addEventListener('loadeddata', ready, {once: true}); v.src = LIBMISS.has(src0) && VFALL[src0] ? VFALL[src0] : src0; v.load(); }
+
+/* rooms without a walk film: the whole page — picture, words, colour — dissolves as one into the next,
+   with a gentle push forward (or back when going back). */
+function luxe(run, outEls) { const X = document.getElementById('trx'), H = document.documentElement, A = lxLayer(), Q = P6Q(), d = TRDIR;
+  X.className = 'trx'; X.innerHTML = ''; X.style.opacity = ''; TRB = true; const old = A && A.el;
+  if (old) { old.classList.add(A.cfg ? 'lvc' : 'lv'); old.style.opacity = '1'; H.classList.add('lxon'); }
+  trxOut(outEls, Q * .45); H.classList.add('trxhide', 'trxnow'); try { run(); } catch (e) { console.error(e); }
+  const B = lxLayer(), nu = B && B.el; if (nu) nu.querySelectorAll('.vbox video.vv').forEach(vvShow);
+  requestAnimationFrame(() => { H.classList.remove('trxnow'); const ez = 'cubic-bezier(.45,.05,.35,1)'; let anim = null;
+    if (old && nu && old !== nu && !(B.cfg && !A.cfg)) { anim = old.animate([{opacity: 1, transform: 'scale(1)'}, {opacity: 0, transform: `scale(${d > 0 ? 1.03 : .975})`}], {duration: Q, easing: ez, fill: 'forwards'});
+      if (!B.cfg) nu.animate([{transform: `scale(${d > 0 ? .98 : 1.025})`}, {transform: 'scale(1)'}], {duration: Q, easing: ez}); }
+    else if (nu) { if (old && old !== nu) { old.classList.remove('lv', 'lvc'); old.style.opacity = ''; } anim = nu.animate([{opacity: 0, transform: 'scale(.985)'}, {opacity: 1, transform: 'scale(1)'}], {duration: Q * .85, easing: ez}); }
+    setTimeout(() => trxIn(trxEls(viewEl()), Q * .6), Q * .42);
+    let ended = false; const end = () => { if (ended) return; ended = true; H.classList.remove('lxon'); if (old) { old.classList.remove('lv', 'lvc'); old.style.opacity = ''; try { old.getAnimations().forEach(g => g.cancel()); } catch (e) {} } trxDone(); };
+    if (anim) anim.onfinish = end; setTimeout(end, Q + 500); }); }
+
+/* ===================== lookbook: still landscape pictures, a calm cross-fade ===================== */
+function lookDraw() { const W = document.getElementById('lkW'); if (!W) return; const K = slidesOn(), wd = wideOK(), sig = K.map(k => medSig(k) + '/' + medSig('W:' + k)).join('#') + LANG + wd + 'p6'; if (W.dataset.sig === sig) return; W.dataset.sig = sig; LKI = 0;
+  W.innerHTML = K.map((k, i) => { const mw = MED['W:' + k] || {}, useW = wd && mw.img && !mw.hide;
+    return useW ? `<div class="lk wide${i ? '' : ' on'}"><img class="kb" src="${mw.img}" alt=""></div>` : `<div class="lk${i ? '' : ' on'}"><img class="bg" src="${MED[k].img}" alt="" aria-hidden="true"><img src="${MED[k].img}" alt=""></div>`; }).join(''); const f = W.querySelector('.lk.on'); if (f) { f.style.transition = 'none'; requestAnimationFrame(() => requestAnimationFrame(() => { f.style.transition = ''; })); } lookCap(); }
+let LKLAST = 0;
+{ const _ls = lookStep; lookStep = function (d) { const auto = !arguments.length; if (auto && Date.now() - LKLAST < 5200) return; if (auto && TRB) return; LKLAST = Date.now(); return _ls.call(this, d === undefined ? 1 : d); }; }
+/* scrolling never flips slides: it walks on to the next room. Arrows / swipe still change the slide. */
+function step(d) { if (SH.cur === 'gent') { if (d > 0 && !GCAT) { gCatSet(true); return; } if (d < 0 && GCAT) { gCatSet(false); return; } }
+  const O = sho(), i = O.indexOf(SH.cur) + d; if (i < 0 || i >= O.length) return; shopGo(O[i], 'walk', d); }
+
+/* ===================== catalogue inside "Good to know" ===================== */
+let GCAT = false, GCATL = null; const GCPG = {};
+const GCT = {en: {h: 'Catalogue', y: '2026 – 27', q: 'Scan to open this catalogue on your phone', pdf: 'PDF', full: 'Full screen', back: 'Good to know', ld: 'Preparing the pages…'},
+  es: {h: 'Catálogo', y: '2026 – 27', q: 'Escanee para abrir este catálogo en su teléfono', pdf: 'PDF', full: 'Pantalla completa', back: 'Bueno saber', ld: 'Preparando las páginas…'},
+  fa: {h: 'کاتالوگ', y: '۲۰۲۶ – ۲۷', q: 'برای باز کردن این کاتالوگ روی گوشی اسکن کنید', pdf: 'PDF', full: 'تمام‌صفحه', back: 'خوب است بدانید', ld: 'در حال آماده‌سازی صفحه‌ها…'}};
+function gCatEl() { let g = document.getElementById('gCat'); if (g) return g; const sec = document.querySelector('#shop .shsc[data-s="gent"]'); if (!sec) return null;
+  const w = document.createElement('div'); w.className = 'gwash'; sec.appendChild(w); g = document.createElement('div'); g.id = 'gCat'; g.className = 'gcat'; sec.appendChild(g);
+  g.addEventListener('click', e => { const b = e.target.closest('[data-gc]'); if (!b) return; e.stopPropagation(); const a = b.dataset.gc;
+    if (a === 'back') gCatSet(false); else if (a === 'full') openCat(GCATL || LANG); else if (a === 'pdf') { b.disabled = true; catPDF(GCATL || LANG).finally(() => { b.disabled = false; }); } else if (a.startsWith('l:')) gCatDraw(a.slice(2)); else if (a === 'pg') openCat(GCATL || LANG); });
+  gCatPos(); return g; }
+function gCatPos() { const g = document.getElementById('gCat'), p = document.getElementById('gPanel'); if (!g || !p) return; const S = document.getElementById('shop');
+  if (S && (S.clientWidth < 820 || S.clientWidth < S.clientHeight)) { const bar = S.querySelector('.shbar'), top = bar ? Math.round(bar.getBoundingClientRect().bottom + 8) : 96; g.style.cssText = `left:8px;right:8px;top:${top}px;bottom:10px`; } else { const W = S.clientWidth, Hh = S.clientHeight, w = Math.round(Math.min(W * .56, Math.max(520, Math.min(W * .5, (Hh - 150) * .78 + 60)))); g.style.cssText = `left:${Math.round(W * .04)}px;top:96px;bottom:28px;width:${Math.max(w, Math.round(W * .46))}px`; } }
+async function gCatDraw(lang) { const g = gCatEl(); if (!g) return; lang = lang || LANG; GCATL = lang; const T = GCT[lang] || GCT.en;
+  g.dir = lang === 'fa' ? 'rtl' : 'ltr'; g.lang = lang;
+  g.innerHTML = `<div class="gch"><div class="gct"><span>LIVING · CANVAS</span><h3>${esc(T.h)} <em>${esc(T.y)}</em></h3></div>
+    <div class="gca"><div class="gcl">${['en', 'es', 'fa'].map(l => `<button data-gc="l:${l}" class="${l === lang ? 'on' : ''}">${l === 'fa' ? 'فا' : l.toUpperCase()}</button>`).join('')}</div>
+    <button class="gcb pdf" data-gc="pdf" title="PDF"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>${esc(T.pdf)}</button>
+    <button class="gcb ic" data-gc="full" title="${esc(T.full)}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+    <button class="gcb ic" data-gc="back" title="${esc(T.back)}">✕</button></div></div>
+    <div class="gcp gscroll"><div class="gcq"><div class="qrbox">${QR.svg(catURL(lang))}</div><div><b>${esc(T.q)}</b><small dir="ltr">${esc(catURL(lang).replace(/^https?:\/\//, '').replace(/[?#].*$/, ''))}</small></div></div><div class="gcpg"><div class="gcld">${esc(T.ld)}</div></div></div>`;
+  let pages = GCPG[lang]; if (!pages) { try { pages = await catPages(lang, Math.min(2, Math.max(1.25, devicePixelRatio || 1))); GCPG[lang] = pages; } catch (e) { pages = []; } }
+  if (GCATL !== lang) return; const box = g.querySelector('.gcpg'); if (!box) return; box.innerHTML = ''; pages.forEach(c => { const im = document.createElement('img'); im.className = 'gcpi'; im.alt = ''; im.dataset.gc = 'pg'; try { im.src = c.toDataURL('image/jpeg', .9); } catch (e) { im.replaceWith(c); return; } box.appendChild(im); }); }
+function gCatNav() { document.querySelectorAll('#shMenu [data-scat]').forEach(b => b.classList.toggle('on', GCAT && SH.cur === 'gent')); document.querySelectorAll('#shMenu [data-sg="gent"]').forEach(b => b.classList.toggle('on', !GCAT && SH.cur === 'gent')); }
+function gCatSet(on, instant) { const g = gCatEl(); if (!g) return; const sec = g.parentElement, P = document.getElementById('gPanel'), w = sec.querySelector('.gwash'); if (on === GCAT && !instant) return; GCAT = on; gCatPos();
+  if (on && (GCATL !== LANG || !g.querySelector('.gch'))) gCatDraw(LANG);
+  sec.classList.toggle('gcon', on); gCatNav();
+  const D = instant ? 0 : 950, ez = 'cubic-bezier(.45,.05,.3,1)', all = [g, P, w];
+  all.forEach(x => x && x.getAnimations().forEach(a => a.cancel()));
+  if (instant) return;
+  if (on) { P && P.animate([{opacity: 1, transform: 'none'}, {opacity: 0, transform: 'translateY(-14px) scale(.985)'}], {duration: D * .6, easing: ez});
+    w && w.animate([{opacity: 0}, {opacity: 1}], {duration: D, easing: ez});
+    g.animate([{opacity: 0, transform: 'translateY(26px) scale(.985)'}, {opacity: 1, transform: 'none'}], {duration: D, delay: D * .25, easing: ez, fill: 'backwards'}); }
+  else { g.animate([{opacity: 1, transform: 'none'}, {opacity: 0, transform: 'translateY(20px) scale(.985)'}], {duration: D * .6, easing: ez});
+    w && w.animate([{opacity: 1}, {opacity: 0}], {duration: D, easing: ez});
+    P && P.animate([{opacity: 0, transform: 'translateY(-14px) scale(.985)'}, {opacity: 1, transform: 'none'}], {duration: D, delay: D * .25, easing: ez, fill: 'backwards'}); } }
+{ const _sf = shopFit; shopFit = function () { const r = _sf.apply(this, arguments); try { gCatPos(); } catch (e) {} return r; }; }
+{ const _sr = shopRender; shopRender = function () { const r = _sr.apply(this, arguments); try { gCatNav(); if (GCAT && GCATL !== LANG) gCatDraw(LANG); } catch (e) {} return r; }; }
+{ const _sw = shopShow; shopShow = function (k) { const r = _sw.apply(this, arguments); try { if (k !== 'gent' && GCAT) setTimeout(() => { if (SH.cur !== 'gent' && GCAT) gCatSet(false, true); }, 1700); gCatNav(); } catch (e) {} return r; }; }
+/* the menu's Catalogue opens it right inside the room, never as a full-screen sheet */
+document.addEventListener('click', e => { const b = e.target.closest('#shop [data-scat]'); if (!b) return; e.stopPropagation(); e.preventDefault();
+  if (SH.cur === 'gent') { gCatSet(true); return; } gCatSet(true, true); SH.busy = false; shopGo('gent'); }, true);
+
+/* ===================== Mini & Full: one clean comparison card on every screen ===================== */
+document.addEventListener('click', e => { if (isM()) return; const d = e.target.closest('#bDesk'); if (d && !document.documentElement.classList.contains('layx')) { e.stopPropagation(); e.preventDefault(); mpOpen(); } }, true);
 
 
 
