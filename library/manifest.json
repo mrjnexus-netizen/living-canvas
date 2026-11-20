@@ -1,6 +1,6 @@
 {
  "app": "LIVING CANVAS",
- "at": "2026-11-19T23:38:17.429Z",
+ "at": "2026-11-20T00:50:10.118Z",
  "root": "library",
  "files": [
   {
@@ -1990,6 +1990,12 @@
    "hash": "23nzhc755v5"
   },
   {
+   "kind": "mv",
+   "k": "w:street>corr",
+   "path": "transitions/street-to-corr.mp4",
+   "hash": "1zryypa0i8v"
+  },
+  {
    "kind": "ma",
    "k": "music",
    "path": "music/background.mp3",
@@ -2424,6 +2430,27 @@
    "vid": null,
    "vfall": null,
    "vurl": null
+  },
+  "w:street>corr": {
+   "vurl": null,
+   "vr": [
+    0,
+    0,
+    1,
+    1
+   ],
+   "off": false,
+   "job": "8062c313-526a-4e30-80c2-9b0f47c9c8a4",
+   "sig": "29rutrc1w0o|m224a91n6s",
+   "ed": {
+    "t0": 0,
+    "t1": 0,
+    "sp": 1
+   },
+   "img": null,
+   "vid": "@",
+   "vfall": "https://app-uploads.krea.ai/public/7842d623-940a-4b0a-b3d4-5b712d63d361-video.mp4",
+   "aud": null
   }
  },
  "photos": {
