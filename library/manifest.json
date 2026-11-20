@@ -1,6 +1,6 @@
 {
  "app": "LIVING CANVAS",
- "at": "2026-11-20T00:50:10.118Z",
+ "at": "2026-11-20T02:59:59.504Z",
  "root": "library",
  "files": [
   {
@@ -2198,9 +2198,9 @@
   },
   "d:B10": {
    "job": "8c726404-f347-4ed4-be51-31711272bdb7",
+   "sig": "vn5han0e4u|wivrqs6s3t",
    "vurl": null,
    "off": false,
-   "sig": "vn5han0e4u|wivrqs6s3t",
    "img": null,
    "vid": "@",
    "vfall": "https://app-uploads.krea.ai/public/a0173b8f-dedf-455f-92e0-f42649ef0cf3-video.mp4",
@@ -2424,13 +2424,6 @@
    "vfall": "https://app-uploads.krea.ai/public/0050abd1-025f-44fe-a6da-4f46a03c5115-video.mp4",
    "aud": null
   },
-  "music": {
-   "aud": "@",
-   "img": null,
-   "vid": null,
-   "vfall": null,
-   "vurl": null
-  },
   "w:street>corr": {
    "vurl": null,
    "vr": [
@@ -2451,6 +2444,13 @@
    "vid": "@",
    "vfall": "https://app-uploads.krea.ai/public/7842d623-940a-4b0a-b3d4-5b712d63d361-video.mp4",
    "aud": null
+  },
+  "music": {
+   "aud": "@",
+   "img": null,
+   "vid": null,
+   "vfall": null,
+   "vurl": null
   }
  },
  "photos": {
@@ -4387,7 +4387,30 @@
      "A03",
      "D01",
      "E04"
-    ]
+    ],
+    "ARC": {
+     "GCG": {},
+     "PLC": {},
+     "CUB": {},
+     "COL": {},
+     "CAN": {},
+     "LED": {},
+     "UPL": {},
+     "CHA": {},
+     "SCH": {},
+     "TBL": {},
+     "RUG": {},
+     "LAN": {},
+     "STM": {},
+     "PLT": {},
+     "DSC": {},
+     "RNG": {},
+     "PIL": {},
+     "SAM": {},
+     "KID": {},
+     "ICE": {}
+    },
+    "AST": {}
    },
    "autoBase": "m_under",
    "evStrat": {},
