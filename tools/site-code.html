@@ -784,7 +784,7 @@ html.shopx .nav,html.shopx .mbar{display:none!important}
 .onb h3 em{font-style:italic;color:#9a7b3c}
 .onb .rule{width:38%;height:1px;background:linear-gradient(90deg,transparent,#b8913a,transparent);flex:none}
 /* corridor */
-#bCorr{left:519px;top:522px;width:176px;height:292px;justify-content:flex-start;gap:5px;opacity:0;transition:opacity .9s .9s}
+#bCorr{left:519px;top:522px;width:176px;height:292px;justify-content:flex-start;gap:5px;opacity:0;transition:opacity .5s .2s}
 .shsc.in #bCorr{opacity:1}
 #bCorr .ey{font-size:5.6px}#bCorr h3{font-size:16px}
 #bCorr ul{list-style:none;margin:4px 0 0;padding:0;display:flex;flex-direction:column;gap:5.4px;width:100%}
@@ -798,7 +798,7 @@ html.shopx .nav,html.shopx .mbar{display:none!important}
 .crib>div{display:inline-block;padding-left:100%;animation:shMq 46s linear infinite}.crib span{margin:0 34px}
 .crib.l{left:0;transform-origin:0 0;transform:skewY(18.5deg)}
 .crib.r{right:0;transform-origin:100% 0;transform:skewY(-18.5deg)}.crib.r>div{animation-direction:reverse}
-.corrgo{position:absolute;left:50%;bottom:46px;transform:translateX(-50%);z-index:15;opacity:0;transition:opacity .6s 1.9s}
+.corrgo{position:absolute;left:50%;bottom:46px;transform:translateX(-50%);z-index:15;opacity:0;transition:opacity .45s .35s}
 .shsc.in .corrgo{opacity:1}
 /* hall */
 .hbox{position:absolute;display:flex;align-items:flex-end;justify-content:center;perspective:900px}
@@ -2026,31 +2026,24 @@ html.dm .lkb{display:flex;flex-wrap:wrap;justify-content:center;align-items:cent
 html.dm .lkb .shbtn{order:-1;flex:1 1 100%;justify-content:center;text-align:center;padding:13px 20px!important;font-size:13.5px!important;letter-spacing:.04em}
 html.dm .lkb .ar{width:32px!important;height:32px!important;font-size:15px!important;opacity:.9;border-width:1px!important;background:rgba(255,255,255,.14)!important;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
 html.dm .lkdt{justify-content:center;margin-inline:auto}
-/* brand tagline badge above "Enter the showroom" — the sculpted-installation promise, not a balloon-tower one */
-.corrgo{display:flex!important;flex-direction:column;align-items:center;gap:13px}
-.lctag{display:inline-flex;align-items:center;gap:9px;padding:8px 20px;border-radius:999px;background:linear-gradient(100deg,rgba(181,70,106,.40),rgba(226,121,158,.40));-webkit-backdrop-filter:blur(16px) saturate(1.45);backdrop-filter:blur(16px) saturate(1.45);border:1px solid rgba(255,214,228,.6);box-shadow:0 10px 26px -14px rgba(90,20,45,.65),inset 0 1px 0 rgba(255,255,255,.28);max-width:min(560px,86vw)}
-.lctag span{color:#fff;font:600 10.5px/1.35 var(--sans);letter-spacing:.13em;text-transform:uppercase;text-shadow:0 1px 6px rgba(60,15,30,.55);white-space:nowrap}
-.lctag i{width:4px;height:4px;flex:none;border-radius:50%;background:#FFE1EB;box-shadow:0 0 7px rgba(255,225,235,.9)}
-.shop[lang=fa] .lctag span{font:600 12.5px/1.5 var(--fa);letter-spacing:0;text-transform:none}
-@media (max-width:620px){
-  .lctag{padding:7px 15px;max-width:88vw}
-  .lctag span{font-size:9.5px;white-space:normal;text-align:center;line-height:1.4}
-  .shop[lang=fa] .lctag span{font-size:11.5px}
-}
-/* on the street-intro hero: left-aligned, sits between the paragraph and the Enter button */
-.icta .lctag{align-self:flex-start;margin:0 0 20px;max-width:100%}
-.icta .lctag span{white-space:normal;text-align:start;line-height:1.4}
-.intro[lang=fa] .icta .lctag span{font:600 13px/1.6 var(--fa);letter-spacing:0;text-transform:none}
-@media(max-width:700px){.icta .lctag{margin:0 0 16px;padding:7px 15px}.icta .lctag span{font-size:9px}.intro[lang=fa] .icta .lctag span{font-size:11.5px}}
+/* the eyebrow line, moved to sit just above the Enter-the-atelier button instead of above the headline */
+.icta #iEy{margin:0 0 20px}
+/* a small, classic, ornamental floral seal under the LIVING · CANVAS wordmark on the street-intro screen — no slogan text, just a refined mark */
+.itop{display:flex;flex-direction:column;align-items:flex-start;gap:7px}
+.lcseal{display:flex;align-items:center;gap:7px;opacity:.9}
+.lcseal svg{width:68px;height:10px;display:block}
+.lcseal svg path{stroke:#E9CF8F;stroke-width:1;fill:none;opacity:.85}
+.lcseal svg circle{fill:#F7DFAE}
+@media(max-width:700px){.lcseal svg{width:54px;height:9px}}
 </style>
 </head>
 <body>
 <div class="aurora"><i></i><i></i><i></i></div><div class="grain"></div><div class="progress" id="prog"></div>
 
 <div class="intro" id="intro"><div class="istage"><video id="introV" muted loop playsinline preload="auto" poster="__POSTER__" data-src="__VIDEO__"></video><div class="iglow"></div></div><div class="ivig"></div><div class="ibal" id="iBal"></div>
-<div class="itop"><span>LIVING · CANVAS</span><div class="ilang"><button data-il="en">EN</button><button data-il="es">ES</button><button data-il="fa">فا</button></div></div>
+<div class="itop"><span>LIVING · CANVAS</span><div class="lcseal"><svg viewBox="0 0 120 18" xmlns="http://www.w3.org/2000/svg"><path d="M2 9 Q20 1 38 9 Q46 13 54 9"/><path d="M2 9 Q20 17 38 9"/><circle cx="60" cy="9" r="2.2"/><path d="M118 9 Q100 1 82 9 Q74 13 66 9"/><path d="M118 9 Q100 17 82 9"/></svg></div><div class="ilang"><button data-il="en">EN</button><button data-il="es">ES</button><button data-il="fa">فا</button></div></div>
 <div id="iDoor"><b></b><span id="iDoorT"></span></div>
-<div class="icta"><small id="iEy"></small><h1 id="iH"></h1><p id="iP"></p><div class="lctag" id="iTag"><i></i><span></span></div><button id="iGo"><span id="iB"></span><i>→</i></button></div>
+<div class="icta"><h1 id="iH"></h1><p id="iP"></p><small id="iEy"></small><button id="iGo"><span id="iB"></span><i>→</i></button></div>
 <div class="ihint" id="iHint"></div><div class="iprog"></div><div class="iclouds"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="ifade"></div></div>
 <nav class="nav" id="nav">
 <a href="#top" class="logo">LIVING<b>·</b>CANVAS</a>
@@ -4443,9 +4436,9 @@ const slidesOn = () => SLK.filter(k => MED[k] && MED[k].img && !MED[k].hide);
 const sho = () => { const o = (ADMIN.base.SORD || []).filter(k => SHO0.includes(k)); return (o.length ? o : SHO0).filter(k => k !== 'look' || slidesOn().length); };
 const SH = {touch: 0, hold: false, on: false, cur: null, busy: false, hi: 0, sel: true, filt: 'all', rot: 0, gtab: 'faq', built: false};
 const SHT = {
-  en: {m: {corr: 'Welcome', hall: 'Showroom', look: 'Lookbook', desk: 'Mini & Full', work: 'Why us', gent: 'Good to know', cat: 'Catalogue'}, fkL: 'Offers & event deals', fkR: 'Concept collections', fkS: 'Choose a collection', designs: 'designs', slides: ['First birthdays, sculpted.', 'Showers & brunches in bloom.', 'Colour, as loud as the party.', 'Galas in black and gold.'], slc: 'See the designs', enter: 'Enter the showroom', scroll: 'Scroll to walk on', holo: 'Hologram preview · tap the stage or an arrow to place a design on it', cust: 'Customise & reserve', drag: 'Drag to turn', all: 'All designs', off: 'This week', mini: 'Mini setup', full: 'Full setup', from: 'from', closer: 'Tap the page to read closer', pop: 'Pop the balloon to walk through', how: 'How it works', faq: 'Questions', ty: 'Thank you,', fo: 'for your order!', see: 'See you at the party ♥', titles: ['Mr.', 'Mrs.', 'Ms.'], title: 'Title', ph0: 'Your name appears here…', sig: 'Living Canvas', offer: 'event offer', party: 'hours of party time', tag: 'Not a balloon tower — a sculpted art installation'},
-  es: {m: {corr: 'Bienvenida', hall: 'Salón', look: 'Lookbook', desk: 'Mini y Completo', work: 'Por qué nosotros', gent: 'Bueno saber', cat: 'Catálogo'}, fkL: 'Ofertas y eventos', fkR: 'Colecciones', fkS: 'Elija una colección', designs: 'diseños', slides: ['Primeros cumpleaños, esculpidos.', 'Showers y brunches en flor.', 'Color, tan alegre como la fiesta.', 'Galas en negro y oro.'], slc: 'Ver los diseños', enter: 'Entrar al salón', scroll: 'Deslice para seguir', holo: 'Vista en holograma · toque el escenario o una flecha para colocar un diseño', cust: 'Personalizar y reservar', drag: 'Arrastre para girar', all: 'Todos', off: 'Esta semana', mini: 'Montaje Mini', full: 'Montaje Completo', from: 'desde', closer: 'Toque la hoja para leer de cerca', pop: 'Reviente el globo para pasar', how: 'Cómo funciona', faq: 'Preguntas', ty: 'Gracias,', fo: '¡por su pedido!', see: 'Nos vemos en la fiesta ♥', titles: ['Sr.', 'Sra.', 'Srta.'], title: 'Título', ph0: 'Su nombre aparece aquí…', sig: 'Living Canvas', offer: 'oferta del evento', party: 'horas de fiesta', tag: 'No una torre de globos — una instalación de arte esculpida'},
-  fa: {m: {corr: 'ورودی', hall: 'سالن اصلی', look: 'لوک‌بوک', desk: 'مینی و کامل', work: 'چرا ما', gent: 'خوب است بدانید', cat: 'کاتالوگ'}, fkL: 'آفرها و تخفیف مناسبت', fkR: 'کالکشن کانسپت‌ها', fkS: 'یک کالکشن انتخاب کنید', designs: 'طرح', slides: ['تولد یک‌سالگی، با حجم و مجسمه.', 'شاور و برانچ، غرق گل.', 'رنگ، به شادیِ خودِ جشن.', 'گالا با مشکی و طلا.'], slc: 'دیدن طرح‌ها', enter: 'ورود به سالن', scroll: 'برای ادامه اسکرول کنید', holo: 'پیش‌نمایش هولوگرام · روی استیج یا فلش‌ها بزنید تا طرح روی استیج بنشیند', cust: 'شخصی‌سازی و رزرو', drag: 'برای چرخاندن بکشید', all: 'همه طرح‌ها', off: 'آفر این هفته', mini: 'نسخه مینی', full: 'نسخه کامل', from: 'از', closer: 'برای خواندن از نزدیک روی برگه بزنید', pop: 'بادکنک را بترکانید تا وارد شوید', how: 'روند کار', faq: 'سؤالات', ty: 'با سپاس،', fo: 'بابت سفارش‌تان', see: 'در جشن می‌بینیم‌تان ♥', titles: ['آقای', 'خانم', 'دوشیزه'], title: 'عنوان', ph0: 'نام شما اینجا نوشته می‌شود…', sig: 'Living Canvas', offer: 'آفر مناسبت', party: 'ساعت جشن', tag: 'نه برج بادکنک؛ یک میزانسن هنری سه‌بعدی'}};
+  en: {m: {corr: 'Welcome', hall: 'Showroom', look: 'Lookbook', desk: 'Mini & Full', work: 'Why us', gent: 'Good to know', cat: 'Catalogue'}, fkL: 'Offers & event deals', fkR: 'Concept collections', fkS: 'Choose a collection', designs: 'designs', slides: ['First birthdays, sculpted.', 'Showers & brunches in bloom.', 'Colour, as loud as the party.', 'Galas in black and gold.'], slc: 'See the designs', enter: 'Enter the showroom', scroll: 'Scroll to walk on', holo: 'Hologram preview · tap the stage or an arrow to place a design on it', cust: 'Customise & reserve', drag: 'Drag to turn', all: 'All designs', off: 'This week', mini: 'Mini setup', full: 'Full setup', from: 'from', closer: 'Tap the page to read closer', pop: 'Pop the balloon to walk through', how: 'How it works', faq: 'Questions', ty: 'Thank you,', fo: 'for your order!', see: 'See you at the party ♥', titles: ['Mr.', 'Mrs.', 'Ms.'], title: 'Title', ph0: 'Your name appears here…', sig: 'Living Canvas', offer: 'event offer', party: 'hours of party time'},
+  es: {m: {corr: 'Bienvenida', hall: 'Salón', look: 'Lookbook', desk: 'Mini y Completo', work: 'Por qué nosotros', gent: 'Bueno saber', cat: 'Catálogo'}, fkL: 'Ofertas y eventos', fkR: 'Colecciones', fkS: 'Elija una colección', designs: 'diseños', slides: ['Primeros cumpleaños, esculpidos.', 'Showers y brunches en flor.', 'Color, tan alegre como la fiesta.', 'Galas en negro y oro.'], slc: 'Ver los diseños', enter: 'Entrar al salón', scroll: 'Deslice para seguir', holo: 'Vista en holograma · toque el escenario o una flecha para colocar un diseño', cust: 'Personalizar y reservar', drag: 'Arrastre para girar', all: 'Todos', off: 'Esta semana', mini: 'Montaje Mini', full: 'Montaje Completo', from: 'desde', closer: 'Toque la hoja para leer de cerca', pop: 'Reviente el globo para pasar', how: 'Cómo funciona', faq: 'Preguntas', ty: 'Gracias,', fo: '¡por su pedido!', see: 'Nos vemos en la fiesta ♥', titles: ['Sr.', 'Sra.', 'Srta.'], title: 'Título', ph0: 'Su nombre aparece aquí…', sig: 'Living Canvas', offer: 'oferta del evento', party: 'horas de fiesta'},
+  fa: {m: {corr: 'ورودی', hall: 'سالن اصلی', look: 'لوک‌بوک', desk: 'مینی و کامل', work: 'چرا ما', gent: 'خوب است بدانید', cat: 'کاتالوگ'}, fkL: 'آفرها و تخفیف مناسبت', fkR: 'کالکشن کانسپت‌ها', fkS: 'یک کالکشن انتخاب کنید', designs: 'طرح', slides: ['تولد یک‌سالگی، با حجم و مجسمه.', 'شاور و برانچ، غرق گل.', 'رنگ، به شادیِ خودِ جشن.', 'گالا با مشکی و طلا.'], slc: 'دیدن طرح‌ها', enter: 'ورود به سالن', scroll: 'برای ادامه اسکرول کنید', holo: 'پیش‌نمایش هولوگرام · روی استیج یا فلش‌ها بزنید تا طرح روی استیج بنشیند', cust: 'شخصی‌سازی و رزرو', drag: 'برای چرخاندن بکشید', all: 'همه طرح‌ها', off: 'آفر این هفته', mini: 'نسخه مینی', full: 'نسخه کامل', from: 'از', closer: 'برای خواندن از نزدیک روی برگه بزنید', pop: 'بادکنک را بترکانید تا وارد شوید', how: 'روند کار', faq: 'سؤالات', ty: 'با سپاس،', fo: 'بابت سفارش‌تان', see: 'در جشن می‌بینیم‌تان ♥', titles: ['آقای', 'خانم', 'دوشیزه'], title: 'عنوان', ph0: 'نام شما اینجا نوشته می‌شود…', sig: 'Living Canvas', offer: 'آفر مناسبت', party: 'ساعت جشن'}};
 const sx = k => (SHT[LANG] || SHT.en)[k];
 const vurlCache = {};
 function vsrc(m) { if (m.vurl && !m.vid) return m.vurl; if (!m.vid) return ''; if (!/^data:/.test(m.vid)) return m.vid; const key = 'v' + m.vid.length + '-' + cyrb(m.vid);
@@ -4515,7 +4508,7 @@ function trxMake() { if (!document.getElementById('trx')) { const tx = document.
 function shopBuild() { if (SH.built) return; SH.built = true; trxMake(); const el = document.createElement('div'); el.className = 'shop'; el.id = 'shop'; el.hidden = true;
   const sc = (k, inner, ui = '') => `<section class="shsc" data-s="${k}"><div class="scr"><div class="scw"><div class="scm" data-m="${k}"></div>${inner}</div></div>${ui}</section>`;
   el.innerHTML = `<div class="shbar"><button class="lg" id="shLogo">LIVING<b>·</b>CANVAS</button><div class="shmenu" id="shMenu"></div><button class="shbtn gh bgmb" id="bgmB" aria-label="music"></button><button class="shbtn gh layb" id="layB" title="چیدمان">✥</button><div class="shl" id="shLang"><button data-sl="en">EN</button><button data-sl="es">ES</button><button data-sl="fa">فا</button></div></div>
-  ${sc('corr', '<div class="crib l"><div></div></div><div class="crib r"><div></div></div><div class="onb" id="bCorr"></div>', '<div class="corrgo"><div class="lctag" id="lcTag"></div><button class="shbtn" data-sg="hall" id="corrGo"></button></div>')}
+  ${sc('corr', '<div class="crib l"><div></div></div><div class="crib r"><div></div></div><div class="onb" id="bCorr"></div>', '<div class="corrgo"><button class="shbtn" data-sg="hall" id="corrGo"></button></div>')}
   ${sc('hall', '<div class="hbox" id="hL2" data-hs="-2"><div class="dz"></div></div><div class="hbox" id="hR2" data-hs="2"><div class="dz"></div></div><div class="hbox" id="hL" data-hs="-1"><div class="dz"></div></div><div class="hbox" id="hR" data-hs="1"><div class="dz"></div></div><div class="hbox" id="hMain"><i class="beam"></i><div class="dz"></div></div><div class="stk" id="stL" style="left:262px;top:592px"></div><div class="stk" id="stR" style="left:950px;top:592px"></div><div class="pin rt" id="pin1" style="left:812px;top:452px"><i></i><span></span></div><div class="pin lf" id="pin2" style="left:400px;top:500px"><i></i><span></span></div><div class="pin rt" id="pin3" style="left:806px;top:640px"><i></i><span></span></div>',
     '<div class="hchips" id="hChips"></div><button class="railb" id="railB" aria-label="designs"></button><aside class="hrail l" id="railL"><div class="rl" id="hListL"></div><i class="rsc"><b></b><span></span></i></aside><aside class="hrail r" id="railR"><div class="rl" id="hListR"></div><i class="rsc"><b></b><span></span></i></aside><div class="hcard" id="hCardW"><button class="ar" data-hs="-1" aria-label="previous">‹</button><div class="hinfo" id="hInfo"></div><button class="ar" data-hs="1" aria-label="next">›</button></div>')}
   <section class="shsc lks" data-s="look"><div class="lkw" id="lkW"></div><div class="lkc" id="lkC"></div></section>
@@ -4621,7 +4614,7 @@ function shopRender() { if (!SH.built) return; const S = document.getElementById
   document.getElementById('shMenu').innerHTML = sho().filter(k => k !== 'corr').map(k => `<button data-sg="${k}" class="${SH.cur === k ? 'on' : ''}">${esc(M[k])}</button>`).join('') + `<button data-scat="1">${esc(M.cat)}</button>`;
   document.getElementById('shDots').innerHTML = sho().map(k => `<button data-sg="${k}" class="${SH.cur === k ? 'on' : ''}" aria-label="${k}"></button>`).join('');
   S.querySelectorAll('#shLang button').forEach(b => b.classList.toggle('on', b.dataset.sl === LANG)); bgmIcon();
-   document.getElementById('corrGo').textContent = sx('enter') + ' →'; const _lct = document.getElementById('lcTag'); if (_lct) _lct.innerHTML = '<i></i><span>' + esc(sx('tag')) + '</span>';
+   document.getElementById('corrGo').textContent = sx('enter') + ' →';
   const pc = evPct(), offs = [...new Set([...(EVT ? EVT.ds : []), ...CFG.WEEKLY.map(w => w.code)])].filter(c => D[c]).slice(0, 3).map(c => `<span>${esc(LANG === 'fa' ? D[c].fa : D[c].en)} · ${esc(sx('from'))} ${money(priceOf(D[c], 'petite'))}</span>`).join('');
   const tick = (EVT ? `<span>${esc(evName(EVT))}${pc > 0 ? ' · −' + pctS(pc) : ''}</span>` : '') + offs;
   S.querySelectorAll('.crib>div').forEach(r => r.innerHTML = tick);
@@ -5893,10 +5886,10 @@ const floTot = d => { const A = (typeof PAUD !== 'undefined' && PAUD.audit[d.cod
   if (location.hash && location.hash !== '#') { I.remove(); return; }
   I.querySelectorAll('.iclouds,.ifade').forEach(x => x.remove());
   document.documentElement.classList.add('intro-on'); I.classList.add('on');
-  const TX = {en: ['Houston · sculpted backdrop atelier', 'Step inside.', 'Choose your backdrop, your colours and your flowers.', 'Enter the atelier', 'Scroll or tap to step inside', 'Enter', 'Not a balloon tower — a sculpted art installation'],
-    es: ['Houston · atelier de fondos esculpidos', 'Pase adelante.', 'Elija su fondo, sus colores y sus flores.', 'Entrar al atelier', 'Deslice o toque para entrar', 'Entrar', 'No una torre de globos — una instalación de arte esculpida'],
-    fa: ['هیوستون · آتلیه بک‌دراپ حجمی', 'بفرمایید داخل.', 'بک‌دراپ، رنگ‌ها و گل‌های جشن‌تان را انتخاب کنید.', 'ورود به آتلیه', 'برای ورود اسکرول کنید یا بزنید', 'ورود', 'نه برج بادکنک؛ یک میزانسن هنری سه‌بعدی']};
-  const txt = () => { const T = TX[LANG] || TX.en; I.setAttribute('dir', LANG === 'fa' ? 'rtl' : 'ltr'); I.setAttribute('lang', LANG); ['iEy', 'iH', 'iP', 'iB', 'iHint', 'iDoorT'].forEach((id, i) => document.getElementById(id).textContent = T[i]); const _it = document.getElementById('iTag'); if (_it) { _it.querySelector('span').textContent = T[6] || ''; _it.setAttribute('lang', LANG); } I.querySelectorAll('[data-il]').forEach(b => b.classList.toggle('on', b.dataset.il === LANG)); };
+  const TX = {en: ['Houston · sculpted backdrop atelier', 'Step inside.', 'Choose your backdrop, your colours and your flowers.', 'Enter the atelier', 'Scroll or tap to step inside', 'Enter'],
+    es: ['Houston · atelier de fondos esculpidos', 'Pase adelante.', 'Elija su fondo, sus colores y sus flores.', 'Entrar al atelier', 'Deslice o toque para entrar', 'Entrar'],
+    fa: ['هیوستون · آتلیه بک‌دراپ حجمی', 'بفرمایید داخل.', 'بک‌دراپ، رنگ‌ها و گل‌های جشن‌تان را انتخاب کنید.', 'ورود به آتلیه', 'برای ورود اسکرول کنید یا بزنید', 'ورود']};
+  const txt = () => { const T = TX[LANG] || TX.en; I.setAttribute('dir', LANG === 'fa' ? 'rtl' : 'ltr'); I.setAttribute('lang', LANG); ['iEy', 'iH', 'iP', 'iB', 'iHint', 'iDoorT'].forEach((id, i) => document.getElementById(id).textContent = T[i]); I.querySelectorAll('[data-il]').forEach(b => b.classList.toggle('on', b.dataset.il === LANG)); };
   txt();
   /* where the shop door sits on screen (video is object-fit: cover, anchored 70% / 50%) */
   let hx = 0, hy = 0; const place = () => { const W = innerWidth, H = innerHeight, s = Math.max(W / 1280, H / 720), dw = 1280 * s, dh = 720 * s, ox = (W - dw) * .7, oy = (H - dh) * .5; hx = ox + .715 * dw; hy = oy + .56 * dh;
