@@ -5,15 +5,15 @@
 <title>LIVING CANVAS · آینده — داشبوردِ کاملِ نسخهٔ بعدی</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;600;700;800&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap');
-:root{--acc:#0E9F8E;--acc2:#15C2AE;--bg:#F4FBFA;--panel:#E3F6F1;--card:#FFFFFF;--ink:#123A35;--mut:#5C8780;--line:#CFEFE7;--good:#1f9d6f;--warn:#c98a1b;--bad:#c23a3a}
+:root{--acc:#151109;--acc2:#C9981C;--bg:#FFFCEE;--panel:#FFF3BE;--card:#FFFFFF;--ink:#151109;--mut:#8A7A4E;--line:#F0E1A0;--good:#1f9d6f;--warn:#B5651D;--bad:#c23a3a}
 *{box-sizing:border-box}
 body{margin:0;font-family:Vazirmatn,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8}
-header{background:linear-gradient(180deg,#0E9F8E,#15C2AE);color:#fff;padding:22px 20px 0;position:sticky;top:0;z-index:30;border-bottom:3px solid var(--ink)}
+header{background:#0A0A0A;color:#fff;padding:22px 20px 0;position:sticky;top:0;z-index:30;border-bottom:3px solid var(--acc2)}
 header .w{max-width:1280px;margin:0 auto;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
 header h1{font:500 28px 'Cormorant Garamond',serif;margin:0;letter-spacing:.03em;color:#fff}
-header h1 b{color:#DFFBF4;font-weight:700}
-header .badge{background:#fff;color:var(--acc);font:700 11px Vazirmatn;padding:4px 12px;border-radius:99px;letter-spacing:.04em}
-header p{margin:4px 0 10px;color:#E3FBF5;font-size:12px;max-width:1280px}
+header h1 b{color:#F3D77A;font-weight:700}
+header .badge{background:var(--acc2);color:#151109;font:700 11px Vazirmatn;padding:4px 12px;border-radius:99px;letter-spacing:.04em}
+header p{margin:4px 0 10px;color:#D8CBA0;font-size:12px;max-width:1280px}
 nav.tabs{max-width:1280px;margin:0 auto;display:flex;gap:5px;flex-wrap:wrap;padding:0 20px 12px;overflow-x:auto}
 nav.tabs button{font:600 12.5px Vazirmatn;padding:8px 14px;border-radius:99px;border:1px solid rgba(255,255,255,.4);background:rgba(255,255,255,.14);color:#fff;cursor:pointer;transition:.15s;white-space:nowrap}
 nav.tabs button.on,nav.tabs button:hover{background:#fff;border-color:#fff;color:var(--acc)}
@@ -23,15 +23,15 @@ main{max-width:1280px;margin:0 auto;padding:22px 20px 80px}
 .card{background:var(--card);border-radius:18px;padding:20px 22px;margin:0 0 16px;box-shadow:0 14px 34px -26px rgba(14,80,72,.22)}
 .card h2{margin:0 0 10px;font-size:19px;color:var(--acc)}
 .card h3{margin:14px 0 6px;font-size:15px}
-.card p{font-size:14px;color:#1d4a44}
+.card p{font-size:14px;color:#3a3220}
 .row{display:flex;gap:14px;flex-wrap:wrap;align-items:flex-start}
 .row>.card{flex:1;min-width:280px}
 .pillars{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
-.pillars div{background:#EAFBF6;border-radius:12px;padding:12px 14px;font-size:13px}
+.pillars div{background:#FFF7DC;border-radius:12px;padding:12px 14px;font-size:13px}
 .pillars b{display:block;color:var(--acc);margin-bottom:3px}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
 .tags span{background:var(--acc);color:#fff;border-radius:99px;padding:6px 14px;font-size:12.5px}
-.tags span i{color:#DFFBF4;font-style:normal;font-size:11px;margin-inline-start:6px}
+.tags span i{color:#F3D77A;font-style:normal;font-size:11px;margin-inline-start:6px}
 .catfilter{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;position:sticky;top:0;background:var(--bg);padding:8px 0;z-index:10}
 .catfilter button{font:600 12.5px Vazirmatn;padding:7px 13px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
 .catfilter button.on{background:var(--acc);border-color:var(--acc);color:#fff}
@@ -54,16 +54,16 @@ main{max-width:1280px;margin:0 auto;padding:22px 20px 80px}
 table{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0}
 th,td{border:1px solid var(--line);padding:6px 8px;text-align:right}
 th{background:var(--acc);color:#fff;font-weight:600}
-tr:nth-child(even) td{background:#F0FBF8}
+tr:nth-child(even) td{background:#FFFBEF}
 pre{direction:ltr;text-align:left;background:#F0FBF8;border:1px solid var(--line);border-radius:10px;padding:10px 12px;font:12px/1.5 ui-monospace,Menlo,monospace;white-space:pre-wrap;position:relative;max-height:220px;overflow:auto}
 .pbtn{display:flex;align-items:center;gap:8px;margin:12px 0 4px}
 .pbtn button{font:600 12px Vazirmatn;padding:6px 14px;border-radius:99px;border:1px solid var(--acc);background:#fff;color:var(--acc);cursor:pointer}
 .pbtn button.copied{background:var(--acc);color:#fff}
-.migrate{border:2px dashed #BFE8DE;border-radius:16px;padding:20px;text-align:center}
-.migrate button.big{font:700 15px Vazirmatn;padding:14px 30px;border-radius:14px;border:none;background:#DCF3EE;color:#5C8780;cursor:not-allowed}
+.migrate{border:2px dashed #E7D68E;border-radius:16px;padding:20px;text-align:center}
+.migrate button.big{font:700 15px Vazirmatn;padding:14px 30px;border-radius:14px;border:none;background:#F3E6B4;color:#8A7A4E;cursor:not-allowed}
 .migrate .dl{margin-top:14px}
 .note{font-size:12.5px;color:var(--mut);margin-top:10px}
-footer{text-align:center;color:#6FA099;font-size:12px;padding:30px 0}
+footer{text-align:center;color:#A6945E;font-size:12px;padding:30px 0}
 input,select,textarea{font:inherit;border:1px solid var(--line);border-radius:10px;padding:8px 10px;background:#fff;color:var(--ink)}
 label{font-size:12.5px;color:var(--mut);display:block;margin-bottom:3px}
 .field{margin-bottom:10px;min-width:160px}
@@ -77,9 +77,9 @@ button.danger{border-color:var(--bad);color:var(--bad)}
 .pill.done{background:#d9f3e6;color:var(--good)}
 .kpi{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:14px}
 .kpi div{background:var(--acc);color:#fff;border-radius:14px;padding:14px 16px}
-.kpi div b{display:block;font-size:22px;color:#fff}
-.kpi div span{font-size:11.5px;color:#DFFBF4}
-.sync{border:1px dashed var(--acc2);border-radius:16px;padding:18px 20px;background:#EAFBF6}
+.kpi div b{display:block;font-size:22px;color:#F3D77A}
+.kpi div span{font-size:11.5px;color:#cfc3a0}
+.sync{border:1px dashed var(--acc2);border-radius:16px;padding:18px 20px;background:#FFF7DC}
 .sync h3{color:var(--acc);margin-top:0}
 .occ{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
 .occ:last-child{border-bottom:none}
@@ -88,6 +88,67 @@ button.danger{border-color:var(--bad);color:var(--bad)}
 canvas#posterC{border:1px solid var(--line);border-radius:10px;max-width:100%}
 .slider-row{display:flex;align-items:center;gap:10px}
 .slider-row input[type=range]{flex:1}
+/* ---- Kardex (order detail) — mirrors live-site aKardex, new palette only ---- */
+.khead{position:relative;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px 20px;margin-bottom:14px}
+.khead.smp{background:repeating-linear-gradient(135deg,#fff,#fff 22px,#FFF3BE 22px,#FFF3BE 44px)}
+.khead .wmbig{position:absolute;top:14px;inset-inline-start:-34px;transform:rotate(-38deg);background:var(--bad);color:#fff;font:700 12px Vazirmatn;padding:5px 46px;letter-spacing:.05em;box-shadow:0 4px 10px rgba(0,0,0,.2)}
+.khead .ab{position:absolute;inset-inline-end:18px;top:16px;font:600 12.5px Vazirmatn;padding:8px 16px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.kgrid2{display:grid;grid-template-columns:220px 1fr;gap:18px;margin-top:6px}
+.kviz{border-radius:14px;overflow:hidden;background:var(--panel);min-height:180px;display:flex;align-items:center;justify-content:center;font:700 22px ui-monospace,Menlo,monospace;color:var(--acc2)}
+.kviz img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/5}
+.kfacts h3{margin:2px 0 8px;font-size:19px}
+.kfacts h3 i{font-style:normal;color:var(--mut);font-size:13px;font-weight:400}
+.kv2{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-top:8px}
+.kv2 div{background:var(--panel);border-radius:12px;padding:8px 12px}
+.kv2 small{display:block;color:var(--mut);font-size:11px}
+.kv2 b{display:block;font-size:14.5px}
+.kv2 span{font-size:11.5px;color:var(--mut)}
+.sstep{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.sstep button{font:600 11.5px Vazirmatn;padding:6px 12px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:5px}
+.sstep button i{font-style:normal;background:var(--line);border-radius:99px;width:17px;height:17px;display:inline-flex;align-items:center;justify-content:center;font-size:10px}
+.sstep button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.sstep button.done{background:var(--good);color:#fff;border-color:var(--good)}
+.ktabs{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:14px}
+.ktabs button{font:600 12.5px Vazirmatn;padding:8px 15px;border-radius:99px;border:1px solid var(--line);background:#fff;color:var(--ink);cursor:pointer}
+.ktabs button.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+.acard{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:16px 18px;margin-bottom:12px}
+.acard h4{margin:0 0 10px;font-size:14.5px;color:var(--acc)}
+.ch2{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.ch2 span{font-size:12.5px;color:var(--mut)}
+.tw{overflow:auto}
+table.at{width:100%}
+table.at th{background:var(--panel);color:var(--ink);font-weight:700}
+.legend2{display:flex;flex-wrap:wrap;gap:16px;font-size:12px;color:var(--mut);margin-bottom:10px}
+.frow{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.ppack{display:grid;grid-template-columns:260px 1fr;gap:18px}
+.ppimg{position:relative;border-radius:14px;overflow:hidden;background:var(--panel);min-height:260px}
+.ppimg img{width:100%;height:100%;object-fit:cover}
+.ppimg span{position:absolute;bottom:0;inset-inline-start:0;inset-inline-end:0;background:rgba(10,10,10,.72);color:#fff;font-size:11.5px;padding:6px 10px}
+.gantt{margin-top:6px}
+.gax{position:relative;height:16px;border-bottom:1px solid var(--line);margin-bottom:4px}
+.gax span{position:absolute;font-size:10.5px;color:var(--mut)}
+.grow{display:flex;align-items:center;gap:8px;margin:7px 0}
+.grow .gl{min-width:150px;font-size:12.5px}
+.grow .gt{flex:1;position:relative;height:6px;background:var(--panel);border-radius:99px}
+.grow .gm{position:absolute;top:-7px;width:20px;height:20px;border-radius:99px;background:var(--acc);color:#fff;display:flex;align-items:center;justify-content:center;font-size:11px;transform:translateX(50%)}
+.grow .gd{min-width:76px;font-size:11.5px;color:var(--mut);text-align:left}
+.mbr{display:flex;align-items:center;gap:10px;margin:6px 0;font-size:12.5px}
+.mbr span{min-width:90px}
+.mbr div{flex:1;background:var(--panel);border-radius:99px;height:9px;overflow:hidden}
+.mbr i{display:block;height:100%}
+.mbr b{min-width:78px;text-align:left}
+.warn2{background:#FCEFD6;border:1px solid #E7C66A;color:#7a5a12;border-radius:12px;padding:10px 14px;font-size:12.5px;margin-bottom:12px}
+.chkl{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px}
+.chkl label{display:flex;align-items:center;gap:8px;background:var(--panel);border-radius:10px;padding:8px 12px;font-size:12.5px;cursor:pointer}
+.tut{display:flex;flex-direction:column;gap:10px}
+.tstep{display:flex;gap:12px;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.tico{min-width:36px;height:36px;border-radius:99px;background:var(--panel);display:flex;align-items:center;justify-content:center;position:relative}
+.tico b{position:absolute;top:-6px;inset-inline-end:-6px;background:var(--acc);color:#fff;border-radius:99px;width:17px;height:17px;font-size:10px;display:flex;align-items:center;justify-content:center}
+.tbody h4{margin:0;font-size:14px;display:inline}
+.thd{display:flex;align-items:center;justify-content:space-between}
+.tdate{font-size:11.5px;color:var(--mut)}
+.tchk{margin:6px 0 0;padding-inline-start:18px;font-size:12px;color:var(--mut)}
+.amsg{font-size:12px;color:var(--good)}
 </style>
 </head>
 <body>
@@ -175,6 +236,7 @@ canvas#posterC{border:1px solid var(--line);border-radius:10px;max-width:100%}
   </section>
 
   <section class="sec" id="s-orders">
+    <div id="orderList">
     <div class="card"><h2>سفارش‌ها</h2>
       <div class="kpi" id="orderKPI"></div>
       <h3>ثبتِ سفارشِ جدید</h3>
@@ -187,6 +249,8 @@ canvas#posterC{border:1px solid var(--line);border-radius:10px;max-width:100%}
       </div>
       <div class="grid" id="orderBody"></div>
     </div>
+    </div>
+    <div id="orderDetail" style="display:none"></div>
   </section>
 
   <section class="sec" id="s-inv">
@@ -309,6 +373,7 @@ function LSget(k,d){ try{ const v=localStorage.getItem(k); return v?JSON.parse(v
 function LSset(k,v){ try{ localStorage.setItem(k, JSON.stringify(v)); }catch(e){} }
 function fmt(n){ return '$'+Math.round(n).toLocaleString('en-US'); }
 function uid(){ return 'o'+Math.random().toString(36).slice(2,9); }
+function escH(s){ return String(s==null?'':s).replace(/[&<>"]/g, c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 
 let MARKUP = LSget('fc_markup', 2.6);
 function priceFor(costHigh){ return Math.round(costHigh*MARKUP/5)*5; }
@@ -505,7 +570,7 @@ function openDetail(code){
   GOPEN = code;
   const st=bstatus(code);
   document.getElementById('mbody').innerHTML = `
-    <h2>${c.code} — ${c.fa} <small style="color:#6b6480">(${c.en})</small></h2>
+    <h2>${c.code} — ${c.fa} <small style="color:#8A7A4E">(${c.en})</small></h2>
     <div class="meta">فرمِ مادر: ${c.form_code} — ${c.form_fa} · مخاطب: ${c.aud}</div>
     <p><b>پوسته/تم:</b> ${c.skin_fa}</p>
     <p><b>هدیهٔ همراه:</b> ${c.companion}</p>
@@ -644,7 +709,7 @@ document.getElementById('evSave').onclick = ()=>{
   LSset('fc_ev', EV); renderRadar();
 };
 
-/* ---------------------------------------------------------------- orders (سفارش‌ها) */
+/* ---------------------------------------------------------------- orders (سفارش‌ها) — کاردکسِ کاملِ هر سفارش */
 const oCode=document.getElementById('oCode'), oTier=document.getElementById('oTier');
 oCode.innerHTML = CAT.map(c=>`<option value="${c.code}">${c.code} — ${c.fa}</option>`).join('');
 function fillTierSelect(){
@@ -653,10 +718,42 @@ function fillTierSelect(){
 }
 oCode.addEventListener('change', fillTierSelect); fillTierSelect();
 
-const ORD_STATUSES = ['ثبت‌شده','در حالِ ساخت','آمادهٔ تحویل','تحویل‌شده'];
+const ORD_STATUSES = ['ثبت‌شده','تأیید و ودیعه','در حالِ ساخت','آمادهٔ تحویل','تحویل‌شده'];
+const LABOR_RATE = 20; // $/ساعت — هم‌تراز با CFG.LABOR_RATE سایتِ زنده
+let OST = LSget('fc_ost', {});
+let ORDOPEN = null, OTAB = 'photo';
 function daysTo(dateStr){ if(!dateStr) return null; const d=new Date(dateStr+'T00:00:00'), now=new Date(); now.setHours(0,0,0,0); return Math.round((d-now)/86400000); }
+function tierOf(c,o){ return c.tiers.find(t=>t.tier_key===o.tierKey) || c.tiers[Math.floor(c.tiers.length/2)]; }
+function fdateEn(dateStr){ return dateStr ? new Date(dateStr+'T12:00:00').toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'}) : '—'; }
+
+function seedSampleOrder(){
+  const raw = localStorage.getItem('fc_orders');
+  if(raw===null){
+    const c = CAT.find(x=>x.code==='A01') || CAT[0];
+    const t = c.tiers[Math.floor(c.tiers.length/2)];
+    const d = new Date(); d.setDate(d.getDate()+13);
+    const sample = [{id:'SAMPLE-0001', sample:true, cust:'مشتریِ نمونه', code:c.code, tierKey:t.tier_key, tierName:t.tier,
+      price:priceFor(t.cost_high), date:d.toISOString().slice(0,10), status:ORD_STATUSES[1], created:new Date().toISOString()}];
+    LSset('fc_orders', sample);
+    return sample;
+  }
+  return LSget('fc_orders', []);
+}
+
 function renderOrders(){
-  const orders = LSget('fc_orders', []);
+  const orders = seedSampleOrder();
+  if(ORDOPEN){
+    const o = orders.find(x=>x.id===ORDOPEN);
+    if(o){
+      document.getElementById('orderList').style.display='none';
+      const det = document.getElementById('orderDetail'); det.style.display='block';
+      det.innerHTML = kardex(o, orders);
+      return;
+    }
+    ORDOPEN = null;
+  }
+  document.getElementById('orderList').style.display='block';
+  document.getElementById('orderDetail').style.display='none';
   const open = orders.filter(o=>o.status!=='تحویل‌شده');
   document.getElementById('orderKPI').innerHTML = `
     <div><b>${orders.length}</b><span>کلِ سفارش‌ها</span></div>
@@ -666,34 +763,185 @@ function renderOrders(){
     const c = CAT.find(x=>x.code===o.code), img = c && PH[c.code+'_A'];
     const d = daysTo(o.date), dtxt = d===null?'—':d<0?'گذشته':d===0?'امروز':d+' روزِ دیگر';
     const si = ORD_STATUSES.indexOf(o.status), prog = Math.round(((si+1)/ORD_STATUSES.length)*100);
-    return `<div class="pcard" style="cursor:default">
+    return `<div class="pcard" data-oopen="${o.id}">
+      ${o.sample?'<span class="bst todo" style="inset-inline-end:auto;inset-inline-start:10px">نمونه</span>':''}
       ${img?`<img src="${img}" style="width:100%;border-radius:10px;margin-bottom:8px;aspect-ratio:4/5;object-fit:cover">`:''}
-      <span class="code">${o.code}</span><h4>${o.cust}</h4>
-      <small>${c?c.fa:''} · ${o.tierName}</small>
+      <span class="code">${o.code}</span><h4>${escH(o.cust)}</h4>
+      <small>${c?escH(c.fa):''} · ${escH(o.tierName)}</small>
       <p style="margin:8px 0 4px"><b>${fmt(o.price)}</b> · <span style="color:var(--mut)">تحویل: ${dtxt}</span></p>
       <div style="background:var(--line);border-radius:99px;height:6px;margin:6px 0 10px;overflow:hidden"><div style="width:${prog}%;background:var(--acc);height:100%"></div></div>
-      <div class="formrow"><select data-os="${o.id}" style="flex:1">
+      <div class="formrow" onclick="event.stopPropagation()"><select data-os="${o.id}" style="flex:1" ${o.sample?'disabled':''}>
         ${ORD_STATUSES.map(s=>`<option value="${s}" ${o.status===s?'selected':''}>${s}</option>`).join('')}
-      </select><button class="danger ghost" data-odel="${o.id}">حذف</button></div></div>`;
+      </select>${o.sample?'':`<button class="danger ghost" data-odel="${o.id}">حذف</button>`}</div></div>`;
   }).join('') || '<p class="note">هنوز سفارشی ثبت نشده.</p>';
 }
 document.getElementById('oAdd').onclick = ()=>{
   const orders = LSget('fc_orders', []);
   const c = CAT.find(x=>x.code===oCode.value);
   const t = c.tiers[parseInt(oTier.value)];
-  orders.push({id:uid(), cust:document.getElementById('oCust').value||'بدون‌نام', code:c.code, tierName:t.tier,
-    price:priceFor(t.cost_high), date:document.getElementById('oDate').value, status:'ثبت‌شده'});
+  orders.push({id:uid(), cust:document.getElementById('oCust').value||'بدون‌نام', code:c.code, tierKey:t.tier_key, tierName:t.tier,
+    price:priceFor(t.cost_high), date:document.getElementById('oDate').value, status:ORD_STATUSES[0], created:new Date().toISOString()});
   LSset('fc_orders', orders); document.getElementById('oCust').value=''; renderOrders(); renderInv();
 };
 document.getElementById('orderBody').addEventListener('change', e=>{
   const s=e.target.closest('select[data-os]'); if(!s) return;
   const orders = LSget('fc_orders', []);
-  const o = orders.find(x=>x.id===s.dataset.os); if(o){ o.status=s.value; LSset('fc_orders', orders); renderOrders(); }
+  const o = orders.find(x=>x.id===s.dataset.os); if(o && !o.sample){ o.status=s.value; LSset('fc_orders', orders); renderOrders(); }
 });
 document.getElementById('orderBody').addEventListener('click', e=>{
-  const b=e.target.closest('button[data-odel]'); if(!b) return;
-  let orders = LSget('fc_orders', []); orders = orders.filter(o=>o.id!==b.dataset.odel);
-  LSset('fc_orders', orders); renderOrders(); renderInv();
+  const b=e.target.closest('button[data-odel]');
+  if(b){ let orders = LSget('fc_orders', []); orders = orders.filter(o=>o.id!==b.dataset.odel); LSset('fc_orders', orders); renderOrders(); renderInv(); return; }
+  const card=e.target.closest('[data-oopen]'); if(!card) return;
+  ORDOPEN = card.dataset.oopen; OTAB='photo'; renderOrders();
+});
+
+/* ------ Kardex — عیناً تب‌بندیِ سفارشِ سایتِ زنده، فقط رنگ‌ها و دادهٔ MODU-SKIN ------ */
+const KTABS = [['photo','مطابق عکس مشتری'],['time','زمان‌بندی'],['buy','خرید و متریال'],['print','شابلون و چاپ'],['tut','آموزش مرحله‌به‌مرحله'],['money','بودجه و سود'],['docs','مدارک و پیوست‌ها']];
+function kardex(o){
+  const c = CAT.find(x=>x.code===o.code);
+  if(!c) return `<div class="acard"><button class="ab" data-oback="1">→ همه سفارش‌ها</button><p class="note">این کانسپت دیگر در کاتالوگ نیست.</p></div>`;
+  const t = tierOf(c,o);
+  const img = PH[c.code+'_A'];
+  const d = daysTo(o.date), dtxt = d===null?'—':d<0?'گذشته':d===0?'امروز':d+' روزِ دیگر';
+  const body = {photo:kPhotoF, time:kTimeF, buy:kBuyF, print:kPrintF, tut:kTutF, money:kMoneyF, docs:kDocsF}[OTAB](o,c,t);
+  return `<div class="khead ${o.sample?'smp':''}">${o.sample?'<span class="wmbig">سفارش نمونه · SAMPLE</span>':''}
+  <button class="ab" data-oback="1">→ همه سفارش‌ها</button>
+  <div class="kgrid2"><div class="kviz">${img?`<img src="${img}">`:escH(c.code)}</div>
+  <div class="kfacts"><small>${escH(o.id)}</small><h3>${escH(o.cust)} <i>${c.code} · ${escH(c.fa)}</i></h3>
+  <div class="kv2">
+    <div><small>تایرِ این سفارش</small><b>${escH(t.tier)}</b><span>${escH(t.dims)}</span></div>
+    <div><small>تاریخِ تحویل</small><b>${fdateEn(o.date)}</b><span>${dtxt}</span></div>
+    <div><small>قیمتِ این سفارش</small><b dir="ltr">${fmt(o.price)}</b><span>ودیعهٔ ۵۰٪ <span dir="ltr">${fmt(Math.round(o.price/2))}</span></span></div>
+    <div><small>فرمِ مادر</small><b>${escH(c.form_fa)}</b><span>${escH(c.form_code)}</span></div>
+    <div><small>ساعتِ دوخت/کارگاه</small><b>${t.sew_hrs}</b><span>برآوردِ این تایر</span></div>
+  </div>
+  <div class="sstep">${ORD_STATUSES.map((s,i)=>`<button data-ost="${escH(s)}" class="${o.status===s?'on':ORD_STATUSES.indexOf(o.status)>i?'done':''}" ${o.sample?'disabled':''}><i>${i+1}</i>${s}</button>`).join('')}</div>
+  </div></div></div>
+  <div class="ktabs">${KTABS.map(([k,n])=>`<button data-ot="${k}" class="${OTAB===k?'on':''}">${n}</button>`).join('')}</div>
+  <div class="kbody">${body}</div>`;
+}
+function bomGroups(t){
+  const catOf = {box:'struct',foam:'struct',plastic:'struct',rig:'rig',seven:'rig',bowen:'skin',arne:'skin'};
+  const g = {struct:[],skin:[],rig:[]};
+  t.bom.forEach(m=>{ (g[catOf[m.sup]||'struct']).push(m); });
+  return g;
+}
+function kPhotoF(o,c,t){
+  const g = bomGroups(t);
+  const rowsOf = arr => arr.map(m=>`<tr><td class="t">${escH(m.fa)}</td><td>${m.qty} ${escH(m.unit)}</td><td dir="ltr">${fmt(m.qty*m.price)}</td></tr>`).join('') || `<tr><td colspan="3" class="t note">—</td></tr>`;
+  return `<div class="ppack"><div class="ppimg">${img_tag(c)}<span>عکسِ مرجعِ این کانسپت · ${escH(t.tier)}</span></div>
+  <div class="ppbody">
+  <div class="acard"><h4>آنچه مشتری در عکس می‌بیند و باید تحویل بدهیم</h4><p>${escH(c.companion)}</p><p class="note">پوسته/تم: ${escH(c.skin_fa)}</p></div>
+  <div class="acard"><h4>اسکلت و سازه <small style="color:var(--mut);font-weight:400">(مکانیزمِ فرمِ مادر: ${escH(c.form_fa)})</small></h4>
+  <p class="note">${escH(c.mech_fa)}</p>
+  <div class="tw"><table class="at"><thead><tr><th class="t">قلم</th><th>مقدار</th><th>هزینه</th></tr></thead><tbody>${rowsOf(g.struct)}</tbody></table></div></div>
+  <div class="acard"><h4>پوسته و پارچه</h4><div class="tw"><table class="at"><thead><tr><th class="t">قلم</th><th>مقدار</th><th>هزینه</th></tr></thead><tbody>${rowsOf(g.skin)}</tbody></table></div>
+  <p class="note">اتصالِ حمل/نصب: ${escH(c.key_fa)}</p></div>
+  ${g.rig.length?`<div class="acard"><h4>ریگینگ / نورِ اضافه</h4><div class="tw"><table class="at"><thead><tr><th class="t">قلم</th><th>مقدار</th><th>هزینه</th></tr></thead><tbody>${rowsOf(g.rig)}</tbody></table></div></div>`:''}
+  </div></div>`;
+}
+function img_tag(c){ const u=PH[c.code+'_A']; return u?`<img src="${u}">`:''; }
+function kTimeF(o,c,t){
+  if(!o.date) return '<div class="acard"><p class="note">تاریخِ تحویل برایِ این سفارش هنوز ثبت نشده.</p></div>';
+  const ev = new Date(o.date+'T12:00:00'), made = o.created?new Date(o.created):new Date();
+  const lead = Math.max(0, Math.round((ev-made)/864e5)), tight = lead<9;
+  const buildDays = Math.max(1, Math.ceil(t.sew_hrs/6));
+  const at = n => { const x=new Date(ev); x.setDate(x.getDate()+n); return x<made?made:x; };
+  const S = [
+    ['تأییدِ سفارش و ودیعهٔ ۵۰٪', at(-lead)],
+    ['خریدِ مصالح (تبِ «خرید و متریال»)', at(-Math.max(2, Math.round(lead*0.7)))],
+    ['ساختِ اسکلت', at(-(buildDays+4))],
+    ['دوخت و پوششِ پوسته', at(-(buildDays+1))],
+    ['اتصالِ حمل و بازرسیِ نهایی', at(-1)],
+    ['تحویل به مشتری', ev],
+  ];
+  const start = S[0][1];
+  const pos = dt => Math.max(0, Math.min(100, (dt-start)/Math.max(1,(ev-start+864e5))*100));
+  return `<div class="acard">${tight?`<div class="warn2">⚠ فقط ${lead} روز تا تحویل مانده؛ برنامه فشرده است — خرید را همین امروز شروع کنید.</div>`:''}
+  <div class="gantt">${S.map(s=>`<div class="grow"><span class="gl">${s[0]}</span><div class="gt"><i class="gm" style="left:${pos(s[1])}%">●</i></div><span class="gd">${s[1].toLocaleDateString('en-US',{month:'short',day:'numeric'})}</span></div>`).join('')}</div></div>
+  <div class="kpi"><div><b>${t.sew_hrs}</b><span>ساعتِ دوختِ برآوردی</span></div><div><b>${buildDays}</b><span>روزِ کارگاهیِ برآوردی</span></div><div><b>${lead}</b><span>روز تا تحویل</span></div></div>`;
+}
+function kBuyF(o,c,t){
+  const bySup = {}; t.bom.forEach(m=>{ (bySup[m.sup]=bySup[m.sup]||[]).push(m); });
+  const supByKey = Object.fromEntries(SUP.map(s=>[s.key,s]));
+  let total=0;
+  const groups = Object.entries(bySup).map(([k,items])=>{
+    const s = supByKey[k]; const subtotal = items.reduce((a,m)=>a+m.qty*m.price,0); total+=subtotal;
+    return `<div class="acard"><div class="ch2"><h4>${s?escH(s.fa):k}</h4><span dir="ltr">${fmt(subtotal)}</span></div>
+    <p class="note">${s?escH(s.what):''}${s&&s.addr?' · '+escH(s.addr):''}</p>
+    <div class="tw"><table class="at"><thead><tr><th class="t">قلم</th><th>مقدار</th><th class="t">واحد</th><th>هزینه</th></tr></thead><tbody>
+    ${items.map(m=>`<tr><td class="t">${escH(m.fa)}</td><td>${m.qty}</td><td class="t">${escH(m.unit)}</td><td dir="ltr">${fmt(m.qty*m.price)}</td></tr>`).join('')}
+    </tbody></table></div></div>`;
+  }).join('');
+  return `<div class="acard"><div class="frow"><button class="ghost" id="buyPrint">چاپِ لیستِ خرید</button><button class="ghost" id="buyCsv">دانلودِ CSV</button>
+  <span class="note" style="margin:0">جمعِ کلِ مصالحِ این سفارش: <b dir="ltr">${fmt(total)}</b></span></div></div>${groups}`;
+}
+function kPrintF(o,c,t){
+  return `<div class="acard"><h4>راهنمایِ ساختِ سازه</h4>
+  <p class="note">این طرح یک مجسمهٔ حجمیِ MODU-SKIN است، نه پنلِ تختِ بادکنکی — شابلونِ برشِ مسطح با مختصاتِ X,Y ندارد؛ ساختِ آن از رویِ مکانیزمِ فرمِ مادر و فهرستِ مصالحِ زیر انجام می‌شود.</p>
+  <p><b>مکانیزم (${escH(c.form_fa)}):</b> ${escH(c.mech_fa)}</p><p><b>اتصالِ حمل/نصب:</b> ${escH(c.key_fa)}</p>
+  <div class="tw"><table class="at"><thead><tr><th class="t">قلم</th><th>مقدار</th><th class="t">واحد</th></tr></thead><tbody>
+  ${t.bom.map(m=>`<tr><td class="t">${escH(m.fa)}</td><td>${m.qty}</td><td class="t">${escH(m.unit)}</td></tr>`).join('')}
+  </tbody></table></div></div>
+  <div class="acard"><h4>پیوست‌هایِ این سفارش</h4><p class="note">عکسِ مرجعِ مشتری، نقشهٔ سالن و…</p>
+  <label class="ghost" style="display:inline-block">+ افزودنِ فایل<input type="file" id="attIn" multiple hidden></label><div id="attL"></div></div>`;
+}
+function kTutF(o,c,t){
+  const fabric = t.bom.find(m=>m.sup==='bowen');
+  const L = [
+    ['تأییدِ سفارش و ودیعه', 'قرارداد و ودیعهٔ ۵۰٪ را نهایی کنید؛ تاریخِ تحویل، آدرس و جزئیاتِ نصب را دوباره تأیید کنید.'],
+    ["خریدِ مصالح", 'فهرستِ تبِ «خرید و متریال» را دنبال کنید؛ اول اسکلت/فوم، بعد پارچه و پوشش.'],
+    ['ساختِ اسکلت', escH(c.mech_fa)],
+    ['پوششِ پوسته', fabric?`با ${escH(fabric.fa)} بپوشانید — حدودِ ${t.sew_hrs} ساعتِ دوخت.`:`حدودِ ${t.sew_hrs} ساعتِ دوخت.`],
+    ['اتصالِ حمل و بازرسی', escH(c.key_fa)],
+    ['تحویل', 'عکسِ نهایی بگیرید و مانده‌حساب را دریافت کنید.'],
+  ];
+  return `<div class="tut">${L.map((s,i)=>`<article class="tstep"><div class="tico"><b>${i+1}</b></div><div class="tbody"><div class="thd"><h4>${s[0]}</h4></div><p>${s[1]}</p></div></article>`).join('')}
+  <details class="steps"><summary>یادداشتِ امضا/هدیهٔ همراهِ طرحِ ${c.code}</summary><p style="font-size:13px">${escH(c.companion)}</p></details></div>`;
+}
+function kMoneyF(o,c,t){
+  const matCost = t.cost_high, lab = Math.round(t.sew_hrs*LABOR_RATE), net = o.price-matCost-lab;
+  const bar=(n,v,col)=>`<div class="mbr"><span>${n}</span><div><i style="width:${Math.min(100,v/Math.max(1,o.price)*100)}%;background:${col}"></i></div><b dir="ltr">${fmt(v)}</b></div>`;
+  return `<div class="kpi"><div><b>${fmt(o.price)}</b><span>قیمتِ این سفارش</span></div><div><b>${fmt(matCost)}</b><span>سقفِ هزینهٔ مواد</span></div><div><b>${fmt(lab)}</b><span>دستمزد (${t.sew_hrs} ساعت)</span></div><div><b>${fmt(Math.max(0,net))}</b><span>سودِ خالص</span></div></div>
+  <div class="acard"><h4>بودجه‌بندی</h4>${bar('هزینهٔ مواد',matCost,'#B5651D')}${bar('دستمزد',lab,'#151109')}${bar('سود',Math.max(0,net),'#1f9d6f')}
+  <p class="note">سقفِ هزینهٔ مواد از BOM همین تایر محاسبه شده؛ دستمزد با نرخِ ${fmt(LABOR_RATE)}/ساعت.</p></div>
+  <div class="acard"><h4>مقایسهٔ همهٔ تایرهایِ این کانسپت (قیمتِ زندهٔ فعلی)</h4><div class="tw"><table class="at"><thead><tr><th class="t">تایر</th><th>هزینهٔ مواد</th><th>قیمتِ فعلی</th><th>حاشیهٔ سود</th><th>ساعتِ دوخت</th></tr></thead><tbody>
+  ${c.tiers.map(x=>{ const price=priceFor(x.cost_high); const margin=Math.round((1-((x.cost_low+x.cost_high)/2)/price)*100);
+    return `<tr ${x.tier_key===t.tier_key?'style="background:var(--panel);font-weight:700"':''}><td class="t">${escH(x.tier)}</td><td>$${x.cost_low}–$${x.cost_high}</td><td dir="ltr">${fmt(price)}</td><td>${margin}٪</td><td>${x.sew_hrs}</td></tr>`; }).join('')}
+  </tbody></table></div><p class="note">ردیفِ هایلایت‌شده = تایرِ همین سفارش. قیمتِ این ستون زنده و بر اساسِ Markup فعلیِ تبِ استراتژی است؛ قیمتِ ثبت‌شدهٔ خودِ سفارش (بالا) در لحظهٔ ثبت قفل شده.</p></div>`;
+}
+function kDocsF(o,c,t){
+  const CHK = [['contract','قرارداد امضاشده'],['dep','ودیعه دریافت شد'],['addr','آدرس و ساعت تأیید شد'],['mat','مصالح خریداری شد'],['built','اسکلت ساخته شد'],['sewn','پوشش دوخته شد'],['delivered','تحویل داده شد']];
+  const ck = (OST[o.id] && OST[o.id].chk) || {};
+  return `<div class="acard"><h4>چک‌لیستِ مدارک و کارها</h4><div class="chkl">${CHK.map(([k,n])=>`<label><input type="checkbox" data-ck="${k}" ${ck[k]?'checked':''} ${o.sample?'disabled':''}><span>${n}</span></label>`).join('')}</div></div>
+  <div class="acard"><h4>اسنادِ قابلِ چاپ</h4><p class="note">کاردکسِ خرید، کاردکسِ فنی و سازه، و کاردکسِ هزینه — هرکدام با دکمهٔ «چاپ»یِ همان تب، یا با دکمهٔ زیر برایِ کلِ کاردکس.</p>
+  <div class="frow"><button class="ghost" id="oPrintAll">چاپِ کاردکسِ کامل</button>${o.sample?'':'<button class="danger ghost" id="oDel">حذفِ این سفارش</button>'}</div></div>`;
+}
+document.getElementById('orderDetail').addEventListener('click', e=>{
+  const back=e.target.closest('[data-oback]'); if(back){ ORDOPEN=null; renderOrders(); return; }
+  const tb=e.target.closest('[data-ot]'); if(tb){ OTAB=tb.dataset.ot; renderOrders(); return; }
+  const st=e.target.closest('[data-ost]'); if(st && !st.disabled){
+    const orders = LSget('fc_orders', []); const o = orders.find(x=>x.id===ORDOPEN);
+    if(o && !o.sample){ o.status=st.dataset.ost; LSset('fc_orders', orders); renderOrders(); } return;
+  }
+  const del=e.target.closest('#oDel'); if(del){
+    if(!confirm('این سفارش حذف شود؟')) return;
+    let orders = LSget('fc_orders', []); orders = orders.filter(o=>o.id!==ORDOPEN);
+    LSset('fc_orders', orders); ORDOPEN=null; renderOrders(); renderInv(); return;
+  }
+  const pa=e.target.closest('#oPrintAll, #buyPrint'); if(pa){ window.print(); return; }
+  const csv=e.target.closest('#buyCsv'); if(csv){
+    const orders = LSget('fc_orders', []); const o = orders.find(x=>x.id===ORDOPEN); const c=CAT.find(x=>x.code===o.code); const t=tierOf(c,o);
+    const rows=[['قلم','مقدار','واحد','قیمتِ واحد','هزینه']].concat(t.bom.map(m=>[m.fa,m.qty,m.unit,m.price,Math.round(m.qty*m.price)]));
+    const csvText = rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(',')).join('\n');
+    const blob = new Blob(['﻿'+csvText],{type:'text/csv'}); const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob); a.download=`khrid-${o.id}.csv`; a.click(); return;
+  }
+});
+document.getElementById('orderDetail').addEventListener('change', e=>{
+  const ck=e.target.closest('input[data-ck]'); if(!ck) return;
+  OST[ORDOPEN] = OST[ORDOPEN] || {chk:{}}; OST[ORDOPEN].chk = OST[ORDOPEN].chk || {};
+  OST[ORDOPEN].chk[ck.dataset.ck] = ck.checked; LSset('fc_ost', OST);
 });
 
 /* ---------------------------------------------------------------- inv (انبار و موجودی) */
@@ -742,19 +990,19 @@ function drawPoster(){
   const tag = TAGLINES[parseInt(pTag.value)][0];
   const cv = document.getElementById('posterC'), ctx = cv.getContext('2d');
   const g = ctx.createLinearGradient(0,0,0,cv.height);
-  g.addColorStop(0,'#123A35'); g.addColorStop(1,'#0A0A0A');
+  g.addColorStop(0,'#2A2112'); g.addColorStop(1,'#0A0A0A');
   ctx.fillStyle=g; ctx.fillRect(0,0,cv.width,cv.height);
-  ctx.strokeStyle='#15C2AE'; ctx.lineWidth=6; ctx.strokeRect(14,14,cv.width-28,cv.height-28);
+  ctx.strokeStyle='#D9B23C'; ctx.lineWidth=6; ctx.strokeRect(14,14,cv.width-28,cv.height-28);
   ctx.textAlign='center'; ctx.direction='rtl';
-  ctx.fillStyle='#15C2AE'; ctx.font='700 20px Vazirmatn, sans-serif'; ctx.fillText('LIVING CANVAS', cv.width/2, 90);
+  ctx.fillStyle='#D9B23C'; ctx.font='700 20px Vazirmatn, sans-serif'; ctx.fillText('LIVING CANVAS', cv.width/2, 90);
   ctx.fillStyle='#F5F1E8'; ctx.font='600 34px Vazirmatn, sans-serif';
   wrapText(ctx, c.fa, cv.width/2, 170, cv.width-120, 42);
-  ctx.fillStyle='#9FE8DA'; ctx.font='400 18px Vazirmatn, sans-serif'; ctx.fillText('('+c.en+')', cv.width/2, 230);
+  ctx.fillStyle='#CBB677'; ctx.font='400 18px Vazirmatn, sans-serif'; ctx.fillText('('+c.en+')', cv.width/2, 230);
   ctx.fillStyle='#fff'; ctx.font='500 24px Vazirmatn, sans-serif';
   wrapText(ctx, tag, cv.width/2, 480, cv.width-140, 34);
   const price = priceFor(c.tiers[1].cost_high);
-  ctx.fillStyle='#15C2AE'; ctx.font='700 30px Vazirmatn, sans-serif'; ctx.fillText('شروعِ قیمت: '+fmt(price), cv.width/2, 780);
-  ctx.fillStyle='#8FB8B0'; ctx.font='400 14px Vazirmatn, sans-serif'; ctx.fillText('mrjnexus.com · LIVING CANVAS', cv.width/2, 850);
+  ctx.fillStyle='#D9B23C'; ctx.font='700 30px Vazirmatn, sans-serif'; ctx.fillText('شروعِ قیمت: '+fmt(price), cv.width/2, 780);
+  ctx.fillStyle='#8A7A4E'; ctx.font='400 14px Vazirmatn, sans-serif'; ctx.fillText('mrjnexus.com · LIVING CANVAS', cv.width/2, 850);
 }
 function wrapText(ctx, text, x, y, maxW, lh){
   const words=text.split(' '); let line=''; let yy=y;
@@ -844,7 +1092,7 @@ document.getElementById('dlBtnGh').onclick=()=>{
 };
 document.getElementById('resetAll').onclick=()=>{
   if(!confirm('کلِ دادهٔ محلیِ این داشبورد (سفارش‌ها، آفرها، چک‌لیست، Markup، عکس‌ها، گالری، موسیقی) پاک شود؟')) return;
-  ['fc_markup','fc_week','fc_orders','fc_build','fc_gen','fc_photos','fc_ev','fc_stock','fc_vwrefs','fc_music'].forEach(k=>localStorage.removeItem(k));
+  ['fc_markup','fc_week','fc_orders','fc_build','fc_gen','fc_photos','fc_ev','fc_stock','fc_vwrefs','fc_music','fc_ost'].forEach(k=>localStorage.removeItem(k));
   location.reload();
 };
 
