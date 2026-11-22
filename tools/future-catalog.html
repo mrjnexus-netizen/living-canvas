@@ -127,6 +127,15 @@ canvas#posterC{border:1px solid var(--line);border-radius:10px;max-width:100%}
       </div>
       <div class="card"><h2>تأمین‌کنندگانِ هوستون</h2><div id="supwrap"></div></div>
     </div>
+    <div class="card"><h2>شبیه‌سازِ ماهانه</h2>
+      <p class="note">چند سفارش در ماه می‌گیری و چند درصدشان تایرِ مینی هستند — تا درآمد و سودِ تقریبیِ ماهانه با همین Markup محاسبه شود.</p>
+      <div class="formrow">
+        <div class="field"><label>تعدادِ رزرو در ماه</label><input type="number" id="simRes" value="8" min="0" max="200" style="width:90px"></div>
+        <div class="field"><label>سهمِ تایرِ مینی (٪)</label><input type="number" id="simMini" value="35" min="0" max="100" style="width:90px"></div>
+        <button class="pbtn2" id="simGo">محاسبه</button>
+      </div>
+      <div class="kpi" id="simKPI"></div>
+    </div>
   </section>
 
   <section class="sec" id="s-week">
@@ -145,7 +154,14 @@ canvas#posterC{border:1px solid var(--line);border-radius:10px;max-width:100%}
 
   <section class="sec" id="s-radar">
     <div class="card"><h2>رادار مناسبت‌ها</h2>
-      <p>شمارش‌معکوسِ مناسبت‌هایِ پیشِ‌رو و کانسپت‌هایِ کاتالوگِ جدید که برایِ هر کدام مناسب‌اند.</p>
+      <div class="formrow">
+        <label class="field" style="display:flex;align-items:center;gap:8px;min-width:auto"><input type="checkbox" id="evOn" style="width:auto"> <span>تبلیغِ خودکارِ مناسبتِ بعدی</span></label>
+        <div class="field"><label>چند روز قبل نمایش داده شود</label><input type="number" id="evLead" value="10" min="1" max="30" style="width:90px"></div>
+        <div class="field"><label>تخفیفِ مناسبت (٪)</label><input type="number" id="evDisc" value="15" min="0" max="40" style="width:90px"></div>
+        <button class="pbtn2" id="evSave">ذخیره</button>
+      </div>
+      <p class="note">وقتی روشن باشد، مناسبتِ بعدی در بازهٔ تعیین‌شده، با تخفیفِ بالا، در بالایِ این تب و در «لیستِ قیمت و سود» (ردیف‌هایِ هایلایت‌شده) نشان داده می‌شود — فقط روی همین داشبورد؛ سایتِ زنده دست‌نخورده می‌ماند.</p>
+      <p>شمارش‌معکوسِ ۱۲ماههٔ مناسبت‌هایِ پیشِ‌رو و کانسپت‌هایِ کاتالوگِ جدید که برایِ هر کدام مناسب‌اند.</p>
       <div id="occList"></div>
     </div>
   </section>
@@ -169,13 +185,14 @@ canvas#posterC{border:1px solid var(--line);border-radius:10px;max-width:100%}
         <div class="field"><label>تاریخِ تحویل</label><input type="date" id="oDate"></div>
         <button class="pbtn2" id="oAdd">افزودنِ سفارش</button>
       </div>
-      <table><thead><tr><th>مشتری</th><th>کانسپت</th><th>تایر</th><th>تحویل</th><th>قیمت</th><th>وضعیت</th><th></th></tr></thead><tbody id="orderBody"></tbody></table>
+      <div class="grid" id="orderBody"></div>
     </div>
   </section>
 
   <section class="sec" id="s-inv">
     <div class="card"><h2>انبار و موجودی</h2>
-      <p>فهرستِ خریدِ تجمیعی، برآمده از BOM تمامِ سفارش‌هایِ بازِ تبِ «سفارش‌ها» — به‌تفکیکِ تأمین‌کننده.</p>
+      <p>فهرستِ خریدِ تجمیعی، برآمده از BOM تمامِ سفارش‌هایِ بازِ تبِ «سفارش‌ها» — به‌تفکیکِ تأمین‌کننده. جلویِ هر قلم، موجودیِ فعلیِ خودت را وارد کن تا درصدِ آمادگی محاسبه شود.</p>
+      <div class="kpi" id="invKPI"></div>
       <div id="invWrap"></div>
       <p class="note">اگر سفارشی باز نباشد، این فهرست خالی است؛ یک سفارشِ آزمایشی در تبِ سفارش‌ها ثبت کن تا فهرستِ خرید زنده شود.</p>
     </div>
@@ -195,20 +212,39 @@ canvas#posterC{border:1px solid var(--line);border-radius:10px;max-width:100%}
   </section>
 
   <section class="sec" id="s-gallery">
+    <div class="card"><h4>ساختِ عکس با API · Krea</h4>
+      <div class="formrow">
+        <div class="field" style="flex:1 1 260px"><label>کلیدِ API · Krea</label><input id="gKey" type="password" dir="ltr" placeholder="از krea.ai › API"></div>
+        <div class="field"><label>مدل</label><select id="gModel"></select></div>
+        <div class="field"><label>وضوح</label><select id="gRes"><option value="1K">1K · ارزان</option><option value="2K">2K · دو برابر</option></select></div>
+        <div class="field"><label>سقفِ بودجه ($)</label><input id="gCap" type="number" min="1" step="1" value="20" style="width:90px"></div>
+      </div>
+      <div class="formrow">
+        <div class="field" style="flex:1 1 100%"><label>آدرسِ واسطِ Google (اختیاری — فقط اگر مرورگر مستقیم به Krea وصل نشد)</label><input id="gRelay" dir="ltr" placeholder="https://script.google.com/macros/s/…/exec — همان اسکریپتِ سایتِ زنده"></div>
+      </div>
+      <div class="kpi" id="gKPI"></div>
+      <div class="formrow"><button class="pbtn2" id="gBatchA">ساختِ همهٔ عکس‌هایِ اصلیِ جامانده</button><button class="ghost" id="gBatchP">ساختِ همهٔ مینی‌هایِ جامانده</button><button class="ghost" id="gStop">توقف</button><button class="ghost" id="gRec">بازیابیِ کارهایِ Krea</button><span class="note" id="gMsg"></span></div>
+    </div>
     <div class="catfilter" id="catfilter"></div>
     <div class="grid" id="grid"></div>
   </section>
 
   <section class="sec" id="s-vw">
-    <div class="card sync"><h3>صحنه‌ها و ویدیو — زیرساختِ مشترک</h3>
-      <p>صحنه‌هایِ نمایشِ محصول (پس‌زمینه، نورپردازی، ترانزیشن‌هایِ ویدیویی) به کاتالوگِ محصول وابسته نیستند — این تنظیمات عیناً از پنلِ زندهٔ فعلی به ارث می‌رسند و نیازی به بازسازیِ جدا ندارند. وقتی مهاجرتِ کاتالوگ فعال شود، همین صحنه‌ها با محصولاتِ جدید هم کار می‌کنند؛ فقط پرامپت‌هایِ عکس/ویدیو (در تبِ «گالری عکس») عوض می‌شوند.</p>
-      <p class="note">اگر لازم شد صحنه‌هایِ اختصاصیِ کاتالوگِ جدید طراحی شود (مثلاً پس‌زمینهٔ مخصوصِ نصب‌هایِ معلق/ابری)، بگو تا این بخش به یک تبِ کاملاً مستقلِ قابلِ‌ویرایش تبدیل شود.</p>
-    </div>
-  </section>
-
-  <section class="sec" id="s-workshop">
-    <div class="card sync"><h3>کارگاه ویدیو — زیرساختِ مشترک</h3>
-      <p>ابزارهایِ برش/مونتاژِ ویدیو (کارگاه ویدیو) به محصولِ موردِ ساخت وابسته نیستند و با هر کاتالوگی یکسان کار می‌کنند. تنظیماتِ فعلیِ سایتِ زنده همین‌جا هم معتبر است.</p>
+    <div class="card"><h2>کارگاه ویدیو</h2>
+      <p class="note">تولیدِ واقعیِ ویدیو از همان کلیدِ API استفاده می‌کند که در «گالری عکس» وارد کردی. این بخش رفرنس‌عکس، تنظیماتِ فرمت و بانکِ سناریو را آماده می‌کند؛ دکمهٔ ساختِ ویدیو در فازِ بعدی به همین فرم وصل می‌شود.</p>
+      <div class="formrow">
+        <div class="field"><label>کانسپتِ مرجع</label><select id="vwCode"></select></div>
+        <div class="field">
+          <label>عکسِ مرجع (اختیاری)</label>
+          <input type="file" id="vwRef" accept="image/*">
+        </div>
+        <div class="field"><label>فرمت</label><select id="vwFmt"><option value="9:16">عمودی ۹:۱۶ (استوری/ریلز)</option><option value="1:1">مربع ۱:۱</option><option value="4:5">عمودیِ محصول ۴:۵</option></select></div>
+        <div class="field"><label>مدل</label><select id="vwModel"><option value="sd25">Seedance 2.5 · جدیدترین</option><option value="sd2mini">Seedance 2.0 Mini · سریع</option><option value="kling25">Kling 2.5 · ۵ ثانیه</option></select></div>
+      </div>
+      <div id="vwRefPrev" class="note"></div>
+      <h3>بانکِ سناریوهایِ ویدیو</h3>
+      <div class="catfilter" id="vwFilt"></div>
+      <div class="grid" id="vwGrid"></div>
     </div>
   </section>
 
@@ -222,8 +258,19 @@ canvas#posterC{border:1px solid var(--line);border-radius:10px;max-width:100%}
   </section>
 
   <section class="sec" id="s-mus">
-    <div class="card sync"><h3>موسیقی — زیرساختِ مشترک</h3>
-      <p>کتابخانهٔ موسیقیِ پس‌زمینهٔ ویدیوها به محصول وابسته نیست؛ همان تنظیماتِ فعلیِ سایتِ زنده اینجا هم استفاده می‌شود.</p>
+    <div class="card"><h2>موسیقی</h2>
+      <p class="note">یک ترکِ MP3 آپلود کن تا به‌جایِ پدِ ساختِ‌پیش‌فرض، همین روی ویدیوهایِ کاتالوگِ جدید استفاده شود. فقط در همین مرورگر ذخیره می‌شود.</p>
+      <div class="formrow">
+        <div class="field"><label>منبع</label><select id="musSrc"><option value="builtin">پدِ پیش‌فرض</option><option value="upload">فایلِ آپلودی</option></select></div>
+        <div class="field"><label>آپلودِ ترک</label><input type="file" id="musFile" accept="audio/*"></div>
+      </div>
+      <audio id="musPlayer" controls style="width:100%;max-width:480px;margin:10px 0"></audio>
+      <div class="formrow">
+        <div class="field"><label>شروعِ برش (ثانیه)</label><input type="number" id="musT0" value="0" min="0" style="width:90px"></div>
+        <div class="field"><label>پایانِ برش (ثانیه، خالی=آخر)</label><input type="number" id="musT1" min="0" style="width:90px"></div>
+        <div class="field" style="flex:1"><label>بلندی صدا</label><input type="range" id="musVol" min="0" max="1" step="0.05" value="0.8"></div>
+      </div>
+      <button class="pbtn2" id="musPlay">پخشِ برش</button>
     </div>
   </section>
 
@@ -271,7 +318,7 @@ const TABS = [
   ['strat','استراتژی قیمت‌گذاری'],['week','آفرهای هفته'],['radar','رادار مناسبت‌ها'],
   ['price','لیست قیمت و سود'],['orders','سفارش‌ها'],['inv','انبار و موجودی'],
   ['content','تولید محتوا'],['gallery','گالری عکس'],
-  ['vw','صحنه‌ها و ویدیو','infra'],['workshop','کارگاه ویدیو','infra'],
+  ['vw','کارگاه ویدیو'],
   ['gh','GitHub و پشتیبان','infra'],['mus','موسیقی','infra'],['set','تنظیمات و انتشار'],
 ];
 let CURTAB='strat', CURCAT='all';
@@ -288,6 +335,8 @@ document.getElementById('tabs').addEventListener('click', e=>{
   if(CURTAB==='price') renderPrice();
   if(CURTAB==='orders') renderOrders();
   if(CURTAB==='inv') renderInv();
+  if(CURTAB==='gallery') drawGal();
+  if(CURTAB==='vw') renderVW();
 });
 
 /* ---------------------------------------------------------------- strat */
@@ -297,9 +346,28 @@ document.getElementById('supwrap').innerHTML = '<table><thead><tr><th>تأمین
   SUP.map(s=>`<tr><td>${s.fa}</td><td>${s.addr||'—'}</td><td>${s.what}</td></tr>`).join('') + '</tbody></table>';
 const markupR=document.getElementById('markupR'), markupV=document.getElementById('markupV');
 markupR.value=MARKUP; markupV.textContent=MARKUP.toFixed(2)+'×';
-markupR.addEventListener('input', ()=>{ MARKUP=parseFloat(markupR.value); markupV.textContent=MARKUP.toFixed(2)+'×'; LSset('fc_markup',MARKUP); renderPrice(); renderOrders(); renderInv(); });
+markupR.addEventListener('input', ()=>{ MARKUP=parseFloat(markupR.value); markupV.textContent=MARKUP.toFixed(2)+'×'; LSset('fc_markup',MARKUP); renderPrice(); renderOrders(); renderInv(); simulate(); });
 
-/* ---------------------------------------------------------------- gallery (catalog grid + modal + build checklist) */
+/* ---------------------------------------------------------------- monthly simulator */
+function simulate(){
+  const res = Math.max(0, +document.getElementById('simRes').value||0);
+  const miniShare = Math.min(100, Math.max(0, +document.getElementById('simMini').value||0))/100;
+  const avgFullCost = CAT.reduce((s,c)=>s+c.tiers[2].cost_high,0)/CAT.length;
+  const avgMiniCost = CAT.reduce((s,c)=>s+c.tiers[0].cost_high,0)/CAT.length;
+  const avgFullPrice = priceFor(avgFullCost), avgMiniPrice = priceFor(avgMiniCost);
+  const fullN = Math.round(res*(1-miniShare)), miniN = res-fullN;
+  const revenue = fullN*avgFullPrice + miniN*avgMiniPrice;
+  const cost = fullN*avgFullCost + miniN*avgMiniCost;
+  const profit = revenue-cost;
+  document.getElementById('simKPI').innerHTML = `
+    <div><b>${fmt(revenue)}</b><span>درآمدِ تقریبیِ ماهانه</span></div>
+    <div><b>${fmt(profit)}</b><span>سودِ ناخالصِ ماهانه (پیشِ از دستمزد)</span></div>
+    <div><b>${fullN}/${miniN}</b><span>تعدادِ کامل / مینی</span></div>
+    <div><b>${fmt(avgFullPrice)}</b><span>میانگینِ قیمتِ تایرِ کامل</span></div>`;
+}
+document.getElementById('simGo').onclick = simulate;
+
+/* ---------------------------------------------------------------- gallery (catalog grid + modal + build checklist + real Krea API) */
 function renderCatFilter(){
   const cats=[['all','همه']].concat(Object.entries(CATS).map(([k,v])=>[k, v.idx+' — '+v.fa]));
   document.getElementById('catfilter').innerHTML = cats.map(([k,n])=>`<button data-cf="${k}" class="${CURCAT===k?'on':''}">${n}</button>`).join('');
@@ -307,17 +375,102 @@ function renderCatFilter(){
 let BUILD = LSget('fc_build', {});
 function bstatus(code){ return (BUILD[code]&&BUILD[code].status) || 'todo'; }
 function bLabel(s){ return s==='done'?'ساخته‌شد':s==='doing'?'در حالِ ساخت':'هنوز نه'; }
+
+/* ---- real Krea API (same endpoint/auth/cost model as the live site's admin panel) ---- */
+const KAPI = 'https://api.krea.ai';
+const GENM = {
+  krea3: {n:'Krea 3 · واقعی‌ترین (پیشنهادی)', path:'/generate/image/krea/krea-3', ref:true, cost:(res,refs)=>(res==='2K'?.06:.03)+refs*(res==='2K'?.07:.02), body:(p,res,refs)=>({prompt:p, thinking_mode:'fast', resolution:res, aspect_ratio:'4:5', ...(refs.length?{image_urls:refs}:{})})},
+  flux: {n:'Flux.1 Dev · پیش‌نویسِ خیلی ارزان', path:'/generate/image/bfl/flux-1-dev', ref:false, cost:()=>.007, body:p=>({prompt:p, width:896, height:1120})},
+  nbp: {n:'Nano Banana Pro · ویرایشِ دقیق، گران', path:'/generate/image/google/nano-banana-pro', ref:true, cost:()=>.15, body:(p,res,refs)=>({prompt:p, ...(refs.length?{image_urls:refs}:{})})},
+};
+let GEN = {key:'', model:'krea3', res:'1K', cap:20, spent:0, n:0, relay:'', ...LSget('fc_gen',{})};
+const saveGen=()=>LSset('fc_gen', GEN);
+let PH = LSget('fc_photos', {}), CAND = {}, GBUSY = {}, GSTOP=false;
+const savePH=()=>LSset('fc_photos', PH);
+const kErr=(st,j)=> st===401?'کلیدِ API معتبر نیست': st===402?'موجودیِ حسابِ API تمام شده': st===429?'تعدادِ کارِ همزمان زیاد است؛ کمی صبر کن': `خطایِ ${st}: ${typeof j.error==='string'?j.error:(j.error&&j.error.message)||''}`;
+async function relayKrea(k){ const r = await fetch(GEN.relay, {method:'POST', headers:{'Content-Type':'text/plain;charset=utf-8'}, body:JSON.stringify({key:'future', krea:{...k, token:GEN.key}})}); return r.json(); }
+async function kcall(path, o={}){
+  if(!GEN.key) throw new Error('اول کلیدِ API را وارد کن');
+  const parse=(st,tx)=>{ let j; try{j=JSON.parse(tx);}catch(e){j={error:String(tx).slice(0,200)};} if(st<200||st>=300) throw new Error(kErr(st,j)); return j; };
+  try{ const r=await fetch(KAPI+path, {method:o.method||'GET', headers:{Authorization:'Bearer '+GEN.key, ...(o.json?{'Content-Type':'application/json'}:{})}, body:o.json?JSON.stringify(o.json):undefined}); return parse(r.status, await r.text()); }
+  catch(e){ if(!(e instanceof TypeError)) throw e; if(!GEN.relay) throw new Error('مرورگر اجازهٔ تماسِ مستقیم با Krea را نداد (CORS). آدرسِ واسطِ Google را در همین تب وارد کن (همان اسکریپتِ سایتِ زنده).'); const j=await relayKrea({path, method:o.method||'GET', json:o.json}); if(j.error) throw new Error(j.error); return parse(j.status, j.body); }
+}
+const blobData=b=>new Promise(r=>{const f=new FileReader(); f.onload=()=>r(f.result); f.readAsDataURL(b);});
+async function fetchImg(url){
+  for(const u of [url, 'https://wsrv.nl/?output=jpg&q=92&w=1600&url='+encodeURIComponent(url)]){ try{ const r=await fetch(u,{mode:'cors',credentials:'omit'}); if(r.ok){ const bl=await r.blob(); if(bl.size>3000) return await blobData(bl); } }catch(e){} }
+  if(GEN.relay){ try{ const j=await relayKrea({img:url}); if(!j.error && j.b64) return `data:${j.type||'image/png'};base64,${j.b64}`; }catch(e){} }
+  const er=new Error('دانلودِ عکس ممکن نشد'); er.url=url; throw er;
+}
+async function fit45(data){ const im=await loadImg(data); const c=document.createElement('canvas'); c.width=800; c.height=1000; const x=c.getContext('2d'); const r=im.width/im.height;
+  if(Math.abs(r-.8)<.03) x.drawImage(im,0,0,800,1000); else { x.fillStyle='#EDE5D6'; x.fillRect(0,0,800,1000); const s=Math.min(800/im.width,1000/im.height), w=im.width*s, h=im.height*s; x.drawImage(im,(800-w)/2,(1000-h)/2,w,h); }
+  return c.toDataURL('image/jpeg',.86); }
+function loadImg(src){ return new Promise((res,rej)=>{ const im=new Image(); im.onload=()=>res(im); im.onerror=rej; im.src=src; }); }
+const PEND = new Set(['backlogged','queued','scheduled','processing','sampling','intermediate-complete']);
+const urlsOf = r => { const u=r&&r.urls; if(!u) return []; if(Array.isArray(u)) return u.map(x=>typeof x==='string'?x:x&&x.url).filter(Boolean); return Object.values(u).filter(x=>typeof x==='string'); };
+function slotCost(slot){ return GENM[GEN.model].cost(GEN.res, slot==='P'&&GENM[GEN.model].ref&&PH[curDesign()+'_A']?1:0); }
+function curDesign(){ return GOPEN; }
+let GOPEN=null;
+/* Uploading the approved master photo as a Krea reference image (/assets, multipart) needs a
+   second upload path this simplified client doesn't carry yet; skip the reference quietly and
+   fall back to the mini prompt's own "generate from scratch" instructions (still correct, just
+   without the extra consistency a reference image would add). */
+async function refFor(code){ if(/^https?:/.test(PH[code+'_A'])) return PH[code+'_A']; throw new Error('آپلودِ عکسِ مرجع هنوز پشتیبانی نمی‌شود؛ نسخهٔ مینی بدونِ مرجع ساخته می‌شود.'); }
+async function genSlot(code, slot){
+  const k=code+'_'+slot, c=CAT.find(x=>x.code===code); if(!c) return; if(GBUSY[k]) return;
+  const useRef = slot==='P' && GENM[GEN.model].ref && !!PH[code+'_A'];
+  const M=GENM[GEN.model], cost=M.cost(GEN.res, useRef?1:0);
+  if(GEN.spent+cost > GEN.cap+1e-9) throw new Error(`سقفِ بودجه (${GEN.cap}$) پر می‌شود؛ سقف را در «گالری عکس» بالا ببر.`);
+  GBUSY[k]={p:0, st:'ارسال…'}; drawGal();
+  try{
+    const prompt = slot==='A' ? c.prompts.master : c.prompts.mini;
+    let refs=[]; if(useRef){ try{ refs=[await refFor(code)]; }catch(e){} }
+    const job = await kcall(M.path, {method:'POST', json:M.body(prompt, GEN.res, refs)});
+    if(!job.job_id) throw new Error('پاسخِ نامعتبر از API');
+    const t0=Date.now(); let url;
+    while(Date.now()-t0<300000){ await new Promise(r=>setTimeout(r,2500)); const j=await kcall('/jobs/'+job.job_id); GBUSY[k]={p:j.progress||0, st:j.status}; drawGal();
+      if(j.status==='completed'){ url=urlsOf(j.result)[0]; break; } if(!PEND.has(j.status)) throw new Error('کارِ ناموفق: '+j.status); }
+    if(!url) throw new Error('زمانِ انتظار تمام شد');
+    GEN.spent+=cost; GEN.n++; saveGen();
+    let img; try{ img=await fit45(await fetchImg(url)); }catch(e){ img=url; }
+    CAND[k]={img, cost};
+  } finally { delete GBUSY[k]; drawGal(); }
+}
+async function approveSlot(code,slot){ const k=code+'_'+slot; const c=CAND[k]; if(!c) return; PH[k]=c.img; delete CAND[k]; savePH(); drawGal(); }
+function rejectSlot(code,slot){ delete CAND[code+'_'+slot]; drawGal(); }
+async function recoverJobs(){ const M=document.getElementById('gMsg'); if(M) M.textContent='در حالِ خواندنِ کارهایِ تمام‌شده از حساب Krea…';
+  try{ const j = await kcall('/jobs?status=completed&limit=200'); const jobs = j.jobs||j.data||[]; let n=0;
+    for(const job of jobs){ const url = urlsOf(job.result||job)[0]; if(!url) continue; const match = CAT.find(c=>(job.input&&job.input.prompt)===c.prompts.master); if(match && !PH[match.code+'_A']){ try{ PH[match.code+'_A']=await fit45(await fetchImg(url)); n++; }catch(e){} } }
+    savePH(); drawGal(); if(M) M.textContent=`${n} عکس بازیابی شد.`; }
+  catch(e){ if(M) M.textContent='خطا: '+e.message; }
+}
+function galStats(){ let a=0,p=0; CAT.forEach(c=>{ if(PH[c.code+'_A']) a++; if(PH[c.code+'_P']) p++; }); return {a,p,total:CAT.length}; }
+function drawGalHead(){
+  const S=galStats();
+  const sel=document.getElementById('gModel'); if(sel && !sel.options.length) sel.innerHTML = Object.entries(GENM).map(([k,m])=>`<option value="${k}">${m.n}</option>`).join('');
+  const gk=document.getElementById('gKey'), gm=document.getElementById('gModel'), gr=document.getElementById('gRes'), gc=document.getElementById('gCap'), gl=document.getElementById('gRelay');
+  if(gk) gk.value=GEN.key; if(gm) gm.value=GEN.model; if(gr) gr.value=GEN.res; if(gc) gc.value=GEN.cap; if(gl) gl.value=GEN.relay;
+  const kpi=document.getElementById('gKPI'); if(kpi) kpi.innerHTML = `<div><b>$${GEN.spent.toFixed(2)}</b><span>خرج‌شده · سقف $${GEN.cap}</span></div><div><b>${S.a}/${S.total}</b><span>عکسِ اصلیِ تأییدشده</span></div><div><b>${S.p}/${S.total}</b><span>عکسِ مینیِ تأییدشده</span></div>`;
+}
 function renderGrid(){
   const items = CAT.filter(c=>CURCAT==='all'||c.coll===CURCAT);
   document.getElementById('grid').innerHTML = items.map(c=>{
-    const st=bstatus(c.code);
+    const st=bstatus(c.code), img=PH[c.code+'_A'];
     return `<div class="pcard" data-code="${c.code}"><span class="bst ${st}">${bLabel(st)}</span>
+    ${img?`<img src="${img}" style="width:100%;border-radius:10px;margin-bottom:8px;aspect-ratio:4/5;object-fit:cover">`:''}
     <span class="code">${c.code}</span><h4>${c.fa} <small>(${c.en})</small></h4>
     <small>${c.form_fa} · ${c.aud}</small></div>`;
   }).join('');
 }
+function drawGal(){ drawGalHead(); renderCatFilter(); renderGrid(); if(GOPEN) openDetail(GOPEN); }
 document.getElementById('catfilter').addEventListener('click', e=>{const b=e.target.closest('button'); if(!b) return; CURCAT=b.dataset.cf; renderCatFilter(); renderGrid();});
 document.getElementById('grid').addEventListener('click', e=>{const p=e.target.closest('.pcard'); if(!p) return; openDetail(p.dataset.code);});
+['gKey','gModel','gRes','gCap','gRelay'].forEach(id=>{ const el=document.getElementById(id); if(!el) return; el.addEventListener('change', ()=>{
+  GEN.key=document.getElementById('gKey').value.trim(); GEN.model=document.getElementById('gModel').value; GEN.res=document.getElementById('gRes').value; GEN.cap=Math.max(1,+document.getElementById('gCap').value||20); GEN.relay=document.getElementById('gRelay').value.trim(); saveGen(); drawGalHead();
+}); });
+document.getElementById('gBatchA').onclick = async ()=>{ GSTOP=false; for(const c of CAT){ if(GSTOP) break; if(PH[c.code+'_A']||CAND[c.code+'_A']) continue; try{ await genSlot(c.code,'A'); }catch(e){ document.getElementById('gMsg').textContent=c.code+': '+e.message; if(/سقف|کلید/.test(e.message)) break; } } };
+document.getElementById('gBatchP').onclick = async ()=>{ GSTOP=false; for(const c of CAT){ if(GSTOP) break; if(!PH[c.code+'_A']||PH[c.code+'_P']||CAND[c.code+'_P']) continue; try{ await genSlot(c.code,'P'); }catch(e){ document.getElementById('gMsg').textContent=c.code+': '+e.message; if(/سقف|کلید/.test(e.message)) break; } } };
+document.getElementById('gStop').onclick = ()=>{ GSTOP=true; };
+document.getElementById('gRec').onclick = recoverJobs;
 
 function tierTable(c){
   let h='<table><thead><tr><th>تایر</th><th>ابعاد</th><th>هزینهٔ مواد</th><th>قیمتِ فروش</th><th>ساعتِ دوخت</th></tr></thead><tbody>';
@@ -333,8 +486,23 @@ function bomTable(c){
 function promptBlock(label,text,id){
   return `<div class="pbtn"><b>${label}</b><button data-cp="${id}">کپی</button></div><pre id="${id}">${text.replace(/</g,'&lt;')}</pre>`;
 }
+function genTile(code, slot, label){
+  const k=code+'_'+slot, img=PH[k], cand=CAND[k], busy=GBUSY[k], disabled = slot==='P' && !PH[code+'_A'];
+  return `<div style="border:1px solid var(--line);border-radius:12px;padding:10px;margin:8px 0">
+    <b>${label}</b> ${disabled?'<small style="color:var(--mut)"> — اول عکسِ اصلی لازم است</small>':''}
+    <div style="display:flex;gap:10px;align-items:flex-start;margin-top:6px;flex-wrap:wrap">
+    ${(cand?cand.img:img)?`<img src="${cand?cand.img:img}" style="width:140px;border-radius:8px;aspect-ratio:4/5;object-fit:cover">`:''}
+    <div style="flex:1;min-width:160px">
+      ${busy?`<div class="note">${busy.st} · ${Math.round((busy.p||0)*100)}٪</div>`:''}
+      <div class="formrow">
+        <button class="ghost" data-gen="${k}" data-slot="${slot}" ${disabled||busy?'disabled':''}>${img||cand?'↻ دوباره بساز':'ساخت'}</button>
+        ${cand?`<button class="pbtn2" data-ok="${k}">تأیید</button><button class="danger ghost" data-no="${k}">رد</button>`:''}
+      </div>
+    </div></div></div>`;
+}
 function openDetail(code){
   const c = CAT.find(x=>x.code===code); if(!c) return;
+  GOPEN = code;
   const st=bstatus(code);
   document.getElementById('mbody').innerHTML = `
     <h2>${c.code} — ${c.fa} <small style="color:#6b6480">(${c.en})</small></h2>
@@ -345,7 +513,10 @@ function openDetail(code){
     <p><b>اتصالِ حمل:</b> ${c.key_fa}</p>
     <h3>ابعاد و قیمت در هر تایر</h3>${tierTable(c)}
     <h3>فهرستِ خریدِ مصالح (نمونهٔ تایرِ استیتمنت)</h3>${bomTable(c)}
-    <h3>پرامپت‌بوکِ Krea</h3>
+    <h3>ساختِ عکسِ واقعی با API</h3>
+    ${genTile(code,'A','عکسِ اصلی (Master)')}
+    ${genTile(code,'P','نسخهٔ مینی (ویرایشِ عکسِ اصلی)')}
+    <h3>پرامپت‌بوکِ Krea (برایِ کپی/ویرایشِ دستی)</h3>
     ${promptBlock('پرامپتِ اصلی (Master)', c.prompts.master, 'pm-'+code)}
     ${promptBlock('نسخهٔ مینی (Edit)', c.prompts.mini, 'pn-'+code)}
     ${promptBlock('دو زاویهٔ اضافه (Angles)', c.prompts.angles, 'pa-'+code)}
@@ -358,15 +529,17 @@ function openDetail(code){
   document.getElementById('modal').classList.add('on');
   document.getElementById('bstSave').onclick = ()=>{
     BUILD[code] = BUILD[code]||{}; BUILD[code].status = document.getElementById('bstSel').value;
-    LSset('fc_build', BUILD); renderGrid(); document.getElementById('modal').classList.remove('on');
+    LSset('fc_build', BUILD); renderGrid(); document.getElementById('modal').classList.remove('on'); GOPEN=null;
   };
 }
-document.getElementById('mx').onclick = ()=>document.getElementById('modal').classList.remove('on');
-document.getElementById('modal').addEventListener('click', e=>{if(e.target.id==='modal') e.target.classList.remove('on');});
+document.getElementById('mx').onclick = ()=>{document.getElementById('modal').classList.remove('on'); GOPEN=null;};
+document.getElementById('modal').addEventListener('click', e=>{if(e.target.id==='modal'){ e.target.classList.remove('on'); GOPEN=null; }});
 document.getElementById('mbody').addEventListener('click', e=>{
-  const b=e.target.closest('button[data-cp]'); if(!b) return;
-  const pre=document.getElementById(b.dataset.cp);
-  navigator.clipboard.writeText(pre.textContent).then(()=>{b.textContent='کپی شد ✓'; b.classList.add('copied'); setTimeout(()=>{b.textContent='کپی'; b.classList.remove('copied');},1500);});
+  const cp=e.target.closest('button[data-cp]');
+  if(cp){ const pre=document.getElementById(cp.dataset.cp); navigator.clipboard.writeText(pre.textContent).then(()=>{cp.textContent='کپی شد ✓'; cp.classList.add('copied'); setTimeout(()=>{cp.textContent='کپی'; cp.classList.remove('copied');},1500);}); return; }
+  const g=e.target.closest('[data-gen]'); if(g){ const code=GOPEN; g.disabled=true; genSlot(code, g.dataset.slot).catch(err=>{ const m=document.getElementById('gMsg'); if(m) m.textContent=err.message; }).then(()=>{ if(GOPEN===code) openDetail(code); }); return; }
+  const ok=e.target.closest('[data-ok]'); if(ok){ const [cd,sl]=ok.dataset.ok.split('_'); approveSlot(cd,sl).then(()=>openDetail(cd)); return; }
+  const no=e.target.closest('[data-no]'); if(no){ const [cd,sl]=no.dataset.no.split('_'); rejectSlot(cd,sl); openDetail(cd); return; }
 });
 
 /* ---------------------------------------------------------------- price */
@@ -440,16 +613,36 @@ function daysUntil(month, day){
   if(target<now) target=new Date(now.getFullYear()+1, month-1, day);
   return Math.ceil((target-now)/86400000);
 }
+let EV = {on:false, lead:10, disc:15, ...LSget('fc_ev',{})};
 function renderRadar(){
+  document.getElementById('evOn').checked = !!EV.on;
+  document.getElementById('evLead').value = EV.lead;
+  document.getElementById('evDisc').value = EV.disc;
   const rows = OCC.map(o=>({...o, d:daysUntil(o.month,o.day)})).sort((a,b)=>(a.d===null?9999:a.d)-(b.d===null?9999:b.d));
-  document.getElementById('occList').innerHTML = rows.map(o=>{
+  const live = EV.on ? rows.find(o=>o.d!==null && o.d<=EV.lead) : null;
+  let banner = '';
+  if(live){
+    const matched = CAT.filter(c=>live.coll.includes(c.coll)).slice(0,6);
+    banner = `<div class="sync" style="margin-bottom:14px"><h3>الان روی این داشبورد فعال: ${live.fa}</h3>
+      <p>${live.d===0?'امروز':live.d+' روزِ دیگر'} · تخفیفِ ${EV.disc}٪ روی: ${matched.map(c=>`${c.code} ${c.fa}`).join('، ')}</p></div>`;
+  } else if(EV.on){
+    const nx = rows.find(o=>o.d!==null);
+    banner = `<p class="note">مناسبتی در بازهٔ ${EV.lead} روزِ آینده نیست.${nx?` بعدی: ${nx.fa} — ${nx.d} روزِ دیگر.`:''}</p>`;
+  }
+  document.getElementById('occList').innerHTML = banner + rows.map(o=>{
     const matched = CAT.filter(c=>o.coll.includes(c.coll)).slice(0,6);
     const dtxt = o.d===null ? 'تمامِ سال' : (o.d+' روز');
-    return `<div class="occ"><div style="flex:1"><b>${o.fa}</b> <small style="color:var(--mut)">(${o.en})</small>
+    return `<div class="occ" style="${live&&live.id===o.id?'background:#EAFBF6':''}"><div style="flex:1"><b>${o.fa}</b> <small style="color:var(--mut)">(${o.en})</small>
       <div style="font-size:12.5px;color:var(--mut);margin-top:3px">${o.note} — کانسپت‌هایِ پیشنهادی: ${matched.map(c=>c.code).join('، ')}</div></div>
       <div class="d">${dtxt}</div></div>`;
   }).join('');
 }
+document.getElementById('evSave').onclick = ()=>{
+  EV.on = document.getElementById('evOn').checked;
+  EV.lead = Math.max(1, +document.getElementById('evLead').value||10);
+  EV.disc = Math.max(0, Math.min(40, +document.getElementById('evDisc').value||15));
+  LSset('fc_ev', EV); renderRadar();
+};
 
 /* ---------------------------------------------------------------- orders (سفارش‌ها) */
 const oCode=document.getElementById('oCode'), oTier=document.getElementById('oTier');
@@ -460,6 +653,8 @@ function fillTierSelect(){
 }
 oCode.addEventListener('change', fillTierSelect); fillTierSelect();
 
+const ORD_STATUSES = ['ثبت‌شده','در حالِ ساخت','آمادهٔ تحویل','تحویل‌شده'];
+function daysTo(dateStr){ if(!dateStr) return null; const d=new Date(dateStr+'T00:00:00'), now=new Date(); now.setHours(0,0,0,0); return Math.round((d-now)/86400000); }
 function renderOrders(){
   const orders = LSget('fc_orders', []);
   const open = orders.filter(o=>o.status!=='تحویل‌شده');
@@ -468,13 +663,19 @@ function renderOrders(){
     <div><b>${open.length}</b><span>سفارشِ باز</span></div>
     <div><b>${fmt(orders.reduce((s,o)=>s+o.price,0))}</b><span>مجموعِ ارزشِ فروش</span></div>`;
   document.getElementById('orderBody').innerHTML = orders.map(o=>{
-    const c = CAT.find(x=>x.code===o.code);
-    return `<tr><td>${o.cust}</td><td>${o.code} — ${c?c.fa:''}</td><td>${o.tierName}</td><td>${o.date||'—'}</td><td>${fmt(o.price)}</td>
-      <td><select data-os="${o.id}">
-        ${['ثبت‌شده','در حالِ ساخت','آمادهٔ تحویل','تحویل‌شده'].map(s=>`<option value="${s}" ${o.status===s?'selected':''}>${s}</option>`).join('')}
-      </select></td>
-      <td><button class="danger ghost" data-odel="${o.id}">حذف</button></td></tr>`;
-  }).join('');
+    const c = CAT.find(x=>x.code===o.code), img = c && PH[c.code+'_A'];
+    const d = daysTo(o.date), dtxt = d===null?'—':d<0?'گذشته':d===0?'امروز':d+' روزِ دیگر';
+    const si = ORD_STATUSES.indexOf(o.status), prog = Math.round(((si+1)/ORD_STATUSES.length)*100);
+    return `<div class="pcard" style="cursor:default">
+      ${img?`<img src="${img}" style="width:100%;border-radius:10px;margin-bottom:8px;aspect-ratio:4/5;object-fit:cover">`:''}
+      <span class="code">${o.code}</span><h4>${o.cust}</h4>
+      <small>${c?c.fa:''} · ${o.tierName}</small>
+      <p style="margin:8px 0 4px"><b>${fmt(o.price)}</b> · <span style="color:var(--mut)">تحویل: ${dtxt}</span></p>
+      <div style="background:var(--line);border-radius:99px;height:6px;margin:6px 0 10px;overflow:hidden"><div style="width:${prog}%;background:var(--acc);height:100%"></div></div>
+      <div class="formrow"><select data-os="${o.id}" style="flex:1">
+        ${ORD_STATUSES.map(s=>`<option value="${s}" ${o.status===s?'selected':''}>${s}</option>`).join('')}
+      </select><button class="danger ghost" data-odel="${o.id}">حذف</button></div></div>`;
+  }).join('') || '<p class="note">هنوز سفارشی ثبت نشده.</p>';
 }
 document.getElementById('oAdd').onclick = ()=>{
   const orders = LSget('fc_orders', []);
@@ -496,6 +697,7 @@ document.getElementById('orderBody').addEventListener('click', e=>{
 });
 
 /* ---------------------------------------------------------------- inv (انبار و موجودی) */
+let STOCK = LSget('fc_stock', {});
 function renderInv(){
   const orders = LSget('fc_orders', []).filter(o=>o.status!=='تحویل‌شده');
   const agg = {}; // supplier -> {item -> {qty,unit,price,fa}}
@@ -510,14 +712,26 @@ function renderInv(){
     });
   });
   const supNames = Object.fromEntries(SUP.map(s=>[s.key, s.fa]));
-  let h='';
+  let h='', value=0, readyN=0, totalN=0;
   Object.entries(agg).forEach(([sup, items])=>{
-    h += `<h3>${supNames[sup]||sup}</h3><table><thead><tr><th>قلم</th><th>مقدارِ موردنیاز</th><th>واحد</th><th>هزینهٔ تقریبی</th></tr></thead><tbody>`;
-    Object.values(items).forEach(it=>{ h+=`<tr><td>${it.fa}</td><td>${Math.ceil(it.qty)}</td><td>${it.unit}</td><td>$${Math.round(it.qty*it.price)}</td></tr>`; });
+    h += `<h3>${supNames[sup]||sup}</h3><table><thead><tr><th>قلم</th><th>مقدارِ موردنیاز</th><th>موجودیِ فعلی</th><th>واحد</th><th>هزینهٔ تقریبی</th></tr></thead><tbody>`;
+    Object.values(items).forEach(it=>{
+      totalN++; const need=Math.ceil(it.qty), have=STOCK[it.fa]||0; if(have>=need) readyN++; value += it.qty*it.price;
+      h+=`<tr><td>${it.fa}</td><td>${need}</td><td><input type="number" min="0" data-stk="${it.fa}" value="${have}" style="width:70px"></td><td>${it.unit}</td><td>$${Math.round(it.qty*it.price)}</td></tr>`;
+    });
     h += '</tbody></table>';
   });
+  const pct = totalN ? Math.round(readyN/totalN*100) : 0;
+  document.getElementById('invKPI').innerHTML = totalN ? `
+    <div><b>${pct}٪</b><span>آمادگیِ موجودی</span></div>
+    <div><b>${readyN}/${totalN}</b><span>قلمِ کافی‌موجود</span></div>
+    <div><b>$${Math.round(value)}</b><span>ارزشِ کلِ موردنیاز</span></div>` : '';
   document.getElementById('invWrap').innerHTML = h || '<p class="note">هیچ سفارشِ بازی وجود ندارد.</p>';
 }
+document.getElementById('invWrap').addEventListener('change', e=>{
+  const i=e.target.closest('input[data-stk]'); if(!i) return;
+  STOCK[i.dataset.stk]=Math.max(0,+i.value||0); LSset('fc_stock', STOCK); renderInv();
+});
 
 /* ---------------------------------------------------------------- content (پوسترساز) */
 const pCode=document.getElementById('pCode'), pTag=document.getElementById('pTag');
@@ -556,6 +770,72 @@ document.getElementById('pDl').onclick = ()=>{
   const a=document.createElement('a'); a.href=document.getElementById('posterC').toDataURL('image/png'); a.download='living-canvas-poster.png'; a.click();
 };
 
+/* ---------------------------------------------------------------- video workshop (کارگاه ویدیو) */
+const VWS = [
+  ['دفترچهٔ باز','باز شدن یک دفترچهٔ سفارش نشان می‌دهد اسم مشتری دست‌نویس می‌شود کنار اسکیسِ طرح.','هوک'],
+  ['قبل/بعد','نصفِ کادر پنلِ خالیِ کارگاه، نصفِ دیگر عکسِ نهاییِ نصب‌شده با گارلند.','قبل/بعد'],
+  ['دستِ در حالِ دوخت','نمایِ نزدیک از دستی که لبهٔ پارچهٔ Magic Skin را می‌دوزد.','پشتِ‌صحنه'],
+  ['باز شدنِ جعبه','جعبهٔ حملِ تاشو باز می‌شود و مجسمه مثل اوریگامی باز می‌شود.','هوک'],
+  ['سایزِ واقعی کنارِ آدم','مجسمه کنارِ یک قدِ بالغ ایستاده تا مقیاسِ واقعی دیده شود.','اعتمادسازی'],
+  ['چرخشِ ۳۶۰','یک چرخشِ آرامِ دوربین دورِ مجسمهٔ کامل، همراه با گارلند.','محصول'],
+  ['نورِ روشن/خاموش','نورِ آپ‌لایتِ پشتِ طاق روشن و خاموش می‌شود تا کنتراست دیده شود.','جوّ'],
+  ['مینی کنارِ استیتمنت','دو نسخهٔ مینی و استیتمنتِ یک طرح کنارِ هم برایِ مقایسهٔ سایز.','مقایسه'],
+  ['باز شدنِ گل‌ها','دستی گل‌هایِ ابریشمی را لایِ گارلند جا می‌دهد.','پشتِ‌صحنه'],
+  ['پرسپکتیوِ پایین‌به‌بالا','دوربین از پایینِ مجسمه رو به بالا، حسِ عظمت.','دراماتیک'],
+  ['رنگ‌بندیِ جایگزین','همان طرح با پالتِ رنگیِ دیگر، دیزالوِ نرم بینِ دو نسخه.','سفارشی‌سازی'],
+  ['جعبهٔ بسته‌بندیِ هدیه','گارلندِ بادکنکی مثلِ روبانِ هدیه دورِ جعبه پیچیده می‌شود.','مفهومی'],
+  ['رگبارِ کانفتی','لحظهٔ رونماییِ طرح با ریزشِ کانفتیِ طلایی در پس‌زمینه.','جشن'],
+  ['روزِ نصب، تایم‌لپس','تایم‌لپسِ نصبِ کاملِ یک طرح از صفر تا تکمیل.','پشتِ‌صحنه'],
+  ['دستِ مشتری لمس می‌کند','دستِ مشتری بافتِ پارچهٔ مجسمه را لمس می‌کند، نریشنِ کیفیت.','اعتمادسازی'],
+  ['مقایسهٔ رقیب','کنارِ یک طاقِ بادکنکیِ معمولی، تضادِ ساختاریافته‌بودن.','رقابتی'],
+  ['حملِ تاشو در ماشین','جعبهٔ تاشو داخلِ صندوقِ ماشین جا می‌شود؛ پیامِ قابلِ‌حمل‌بودن.','پشتِ‌صحنه'],
+  ['شبِ رویداد','همان مجسمه، همین‌بار در نورِ گرمِ یک سالنِ واقعی.','سبکِ‌زندگی'],
+  ['دوخت‌هایِ نزدیک','ماکروی درزهایِ دوخته‌شده، کیفیتِ دست‌ساز.','پشتِ‌صحنه'],
+  ['پرسشِ رایج','متنِ رویِ صفحه: «این بادکنکه یا مجسمه؟» و بعد جوابِ تصویری.','آموزشی'],
+  ['کلکسیونِ یک مناسبت','چند طرحِ هماهنگ با یک مناسبت (مثلاً هالووین) کنارِ هم.','مناسبتی'],
+  ['تایم‌لپسِ رنگ‌آمیزی','نقاشیِ دستیِ جزئیاتِ روی پارچه با سرعتِ بالا.','پشتِ‌صحنه'],
+  ['واکنشِ لحظهٔ رونمایی','واکنشِ طبیعیِ صاحبِ جشن در لحظهٔ دیدنِ طرح.','احساسی'],
+  ['بستهٔ کاملِ یک سفارش','از عکسِ مرجع تا طرحِ نهایی، یک مسیرِ کاملِ سفارش.','روایت'],
+];
+let VW_FILT='all';
+function renderVW(){
+  const vc=document.getElementById('vwCode'); if(vc && !vc.options.length) vc.innerHTML = CAT.map(c=>`<option value="${c.code}">${c.code} — ${c.fa}</option>`).join('');
+  const cats=[['all','همه']].concat([...new Set(VWS.map(s=>s[2]))].map(c=>[c,c]));
+  document.getElementById('vwFilt').innerHTML = cats.map(([k,n])=>`<button data-vf="${k}" class="${VW_FILT===k?'on':''}">${n}</button>`).join('');
+  const items = VWS.filter(s=>VW_FILT==='all'||s[2]===VW_FILT);
+  document.getElementById('vwGrid').innerHTML = items.map(s=>`<div class="pcard" style="cursor:default"><span class="bst todo" style="position:static;display:inline-block;margin-bottom:6px">${s[2]}</span><h4>${s[0]}</h4><small>${s[1]}</small></div>`).join('');
+  const ref = LSget('fc_vwrefs',{})[document.getElementById('vwCode').value];
+  document.getElementById('vwRefPrev').innerHTML = ref ? `<img src="${ref}" style="max-width:160px;border-radius:8px;margin-top:6px">` : '';
+}
+document.getElementById('vwFilt').addEventListener('click', e=>{ const b=e.target.closest('button'); if(!b) return; VW_FILT=b.dataset.vf; renderVW(); });
+document.getElementById('vwCode').addEventListener('change', renderVW);
+document.getElementById('vwRef').addEventListener('change', async e=>{
+  const f=e.target.files[0]; if(!f) return; const data=await blobData(f);
+  const refs=LSget('fc_vwrefs',{}); refs[document.getElementById('vwCode').value]=data; LSset('fc_vwrefs', refs); renderVW();
+});
+
+/* ---------------------------------------------------------------- music (موسیقی) */
+let MUS = LSget('fc_music', {src:'builtin', track:null});
+function musApply(){
+  const p=document.getElementById('musPlayer');
+  document.getElementById('musSrc').value = MUS.src;
+  if(MUS.src==='upload' && MUS.track) p.src = MUS.track; else p.removeAttribute('src');
+  p.volume = +document.getElementById('musVol').value||0.8;
+}
+document.getElementById('musSrc').addEventListener('change', e=>{ MUS.src=e.target.value; LSset('fc_music',MUS); musApply(); });
+document.getElementById('musFile').addEventListener('change', async e=>{
+  const f=e.target.files[0]; if(!f) return; MUS.track=await blobData(f); MUS.src='upload'; LSset('fc_music',MUS); musApply();
+});
+document.getElementById('musVol').addEventListener('input', ()=>{ document.getElementById('musPlayer').volume=+document.getElementById('musVol').value; });
+document.getElementById('musPlay').onclick = ()=>{
+  const p=document.getElementById('musPlayer'); if(!p.src){ alert('اول یک ترک آپلود کن یا منبع را عوض کن.'); return; }
+  const t0=Math.max(0,+document.getElementById('musT0').value||0);
+  p.currentTime=t0; p.play();
+  const t1=+document.getElementById('musT1').value;
+  if(t1>t0){ const stop=()=>{ if(p.currentTime>=t1){ p.pause(); p.removeEventListener('timeupdate',stop); } }; p.addEventListener('timeupdate',stop); }
+};
+musApply();
+
 /* ---------------------------------------------------------------- GitHub/export & reset */
 document.getElementById('dlBtnGh').onclick=()=>{
   const blob=new Blob([JSON.stringify({catalog:CAT, categories:CATS, suppliers:SUP, markup:MARKUP,
@@ -563,12 +843,12 @@ document.getElementById('dlBtnGh').onclick=()=>{
   const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='living-canvas-future-bundle.json'; a.click();
 };
 document.getElementById('resetAll').onclick=()=>{
-  if(!confirm('کلِ دادهٔ محلیِ این داشبورد (سفارش‌ها، آفرها، چک‌لیست، Markup) پاک شود؟')) return;
-  ['fc_markup','fc_week','fc_orders','fc_build'].forEach(k=>localStorage.removeItem(k));
+  if(!confirm('کلِ دادهٔ محلیِ این داشبورد (سفارش‌ها، آفرها، چک‌لیست، Markup، عکس‌ها، گالری، موسیقی) پاک شود؟')) return;
+  ['fc_markup','fc_week','fc_orders','fc_build','fc_gen','fc_photos','fc_ev','fc_stock','fc_vwrefs','fc_music'].forEach(k=>localStorage.removeItem(k));
   location.reload();
 };
 
 /* ---------------------------------------------------------------- init */
-renderTabs(); showSec(); renderCatFilter(); renderGrid(); renderPrice(); renderWeek(); renderRadar(); renderOrders(); renderInv();
+renderTabs(); showSec(); renderCatFilter(); renderGrid(); renderPrice(); renderWeek(); renderRadar(); renderOrders(); renderInv(); simulate(); drawGalHead();
 </script>
 </body></html>
