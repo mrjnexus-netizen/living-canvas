@@ -3171,7 +3171,7 @@ function snap() { const L = DATA.designs, F = L.map(d => econOf(d, 'full')), P =
   const W = CFG.WEEKLY.map(w => D[w.code]), hd = hookDesign();
   return {hook: priceOf(hd, 'petite'), hookH: pack(hd, 'petite').hrs, avgF: avg(F.map(x => x.p)), avgP: avg(P.map(x => x.p)), mF: avg(F.map(x => x.m)), mP: avg(P.map(x => x.m)),
     own: avg([...F, ...P].map(x => x.own)), wMin: W.length ? Math.min(...W.flatMap(d => [econOf(d, 'full').m, econOf(d, 'petite').m])) : 0}; }
-const ANAV = [['dash', 'داشبورد'], ['strat', 'استراتژی قیمت‌گذاری'], ['week', 'آفرهای هفته'], ['radar', 'رادار مناسبت‌ها'], ['price', 'لیست قیمت و سود'], ['orders', 'سفارش‌ها'], ['inv', 'انبار و موجودی'], ['content', 'تولید محتوا'], ['photos', 'گالری عکس'], ['media', 'صحنه‌ها و ویدیو'], ['vw', 'کارگاه ویدیو'], ['gh', 'GitHub و پشتیبان'], ['mus', 'موسیقی'], ['set', 'تنظیمات و انتشار']];
+const ANAV = [['dash', 'داشبورد'], ['strat', 'استراتژی قیمت‌گذاری'], ['week', 'آفرهای هفته'], ['radar', 'رادار مناسبت‌ها'], ['price', 'لیست قیمت و سود'], ['orders', 'سفارش‌ها'], ['inv', 'انبار و موجودی'], ['content', 'تولید محتوا'], ['photos', 'گالری عکس'], ['media', 'صحنه‌ها و ویدیو'], ['vw', 'کارگاه ویدیو'], ['gh', 'GitHub و پشتیبان'], ['mus', 'موسیقی'], ['set', 'تنظیمات و انتشار'], ['future', '✦ آینده']];
 function drawAdm() { const A = document.getElementById('admMain'), SB = document.getElementById('sBody');
   const nNew = allOrders().filter(o => !o.sample && stOf(o) === 'new').length;
   document.getElementById('aNav').innerHTML = ANAV.map(([k, n]) => `<button data-at="${k}" class="${ATAB === k ? 'on' : ''}">${n}${k === 'orders' && nNew ? `<em class="nb">${fan(nNew)}</em>` : ''}</button>`).join('');
@@ -3333,6 +3333,7 @@ async function ghPublish() { const M = document.getElementById('ghMsg'), say = x
 const admRoot = document.getElementById('adm');
 const rerun = () => { saveAdmin(); applyConfig(); };
 admRoot.addEventListener('click', e => { const b = e.target.closest('button,[data-oo]'); if (!b) return; if (prodClick(b) || contentClick(b) || galClick(b) || mediaClick(b)) return;
+  if (b.dataset.at === 'future') { window.open('tools/future-catalog.html', '_blank'); return; }
   if (b.dataset.at) { ATAB = b.dataset.at; drawAdm(); admRoot.querySelector('.amain').scrollTop = 0; return; }
   if (b.dataset.sid) { ADMIN.sid = b.dataset.sid; ADMIN.auto = false; ADMIN.ov = {}; rerun(); return; }
   if (b.dataset.sg) { SGF = b.dataset.sg; drawAdm(); return; }
